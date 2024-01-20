@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --bg-color: white;
+    --lightgray-color: #EBEBEB;
+    --text-color: #4A5568;
+    --red-color: #FE0002;
+    --black-color: #231F1C;
+    --dark-red-1: #B71E23;
+    --dark-red-2: #CB1C31;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 10px 50px;
+    transition: all .50s ease;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+.nav_bar{
+    display: flex;
+}
+
+.nav_bar a{
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 5px 30px;
+    margin: 0 px 30px;
+    transition: all .50s ease;
+}
+
+.nav_bar a:hover{
+    color: var(--red-color);
+}
+
+.nav_bar a.active{
+    color: var(--red-color);
+}
+
+.main{
+    display: flex;
+    align-items: center;
+}
+
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+    color: white;
+}
+
+button:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
+}
+
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+@media(max-width: 120px){
+    header{
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .nav_bar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+
+@media(max-width: 1090px){
+    #menu-icon{
+        display: block;
+    }
+    .nav_bar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 29vh;
+        background-color: var(--dark-red-2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+    }
+    .nav_bar a{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+        color: #EBEBEB;
+    }
+    .nav_bar a:hover{
+        color: var(--black-color);
+        transform: translateY(5px);
+    }
+    .nav_bar a.active{
+        color: var(--black-color);
+    }
+    .nav_bar.open{
+        right: 2%;
+    }
+}
