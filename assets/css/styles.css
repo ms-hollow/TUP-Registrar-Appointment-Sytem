@@ -20,6 +20,7 @@
     --black-color: #231F1C;
     --dark-red-1: #B71E23;
     --dark-red-2: #CB1C31;
+    --sidebar: #7b0000;
 }
 
 body.index{
@@ -237,7 +238,164 @@ button:hover {
 /* -------------------------------------------- End of Home User Page -------------------------------------------- */
 
 /* ------------------------------------ View Appointments Page ------------------------------------ */
+.header-viewAppointments {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 100px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    transition: all 0.50s ease;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10);
+}
 
+.sidebar-menu-btn {
+    display: flex;
+    right: 10px;
+    padding: 5px 5px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1100;
+    transition: margin-left 0.50s ease; 
+}
+
+.sidebar-menu-btn img:hover{
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
+    filter: brightness(80%); 
+}
+
+.selection {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: flex-end;
+}
+
+.search, .notif, .user {
+    display: flex;
+    padding: 5px 10px;
+    height: 55px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1100;
+    transition: margin-right 0.5s ease; 
+}
+
+.search {
+    top: 5px;
+    height: 70px;
+}
+
+.notif{
+    height: 50px;
+}
+
+body.sidebar-active .header-viewAppointments {
+    margin-left: 250px;
+}
+
+body.sidebar-active .sidebar-menu-btn {
+    margin-left: 250px;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    overflow-y: auto;
+    background-color: var(--sidebar);
+    transition: all 0.50s ease;
+    transform: translateX(0);
+    z-index: 1100;
+}
+
+.sidebar .top {
+    display: flex;
+    position: relative; 
+    transition: all 0.50s ease;
+    padding: 25px;
+    background: var(--bg-color);
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10);
+}
+
+.top .user-info {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 15px 30px;
+}
+
+.top .sidebar-logo {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar.active .header-viewAppointments {
+    margin-left: 250px;
+}
+
+.sidebar .menu-items {
+    position: relative;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.sidebar .menu-items a {
+    color: var(--bg-color);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 5px 30px;
+    line-height: 50px;
+}
+
+.menu-items a:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.menu-items a.active {
+    color: var(--black-color);
+}
+
+.selection {
+    display: flex;
+    top: 40px;
+    height: 50px;
+    padding: 10px;
+    justify-content: flex-end;
+}
+
+
+body.sidebar-active .main-view {
+    margin-left: 250px;
+}
+
+.main-view {
+    padding: 30px 100px;
+    position: relative;
+    transition: all 0.50s ease;
+}
 
 /* ------------------------------------ End of View Appointments Page ------------------------------------ */
 
