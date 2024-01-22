@@ -36,6 +36,7 @@ body{
     background-image: url('../images/websiteBG.png');
     background-attachment: fixed;
     background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 
 
@@ -51,7 +52,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
+    background: var(--bg-color);
     padding: 10px 50px;
     transition: all .50s ease;
     box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10);
@@ -220,6 +221,57 @@ button:hover {
     margin: 50px; 
     position: relative;
 }
+
+/* Announcement Page */
+.announcement-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 50px;
+    height: 100vh;
+    background-image: url('../images/announcement bg.jpg');
+    background-attachment: scroll;
+    background-size: cover; 
+    background-position: center; 
+    z-index: 1000;
+}
+
+.announcement-page .announcement-text {
+    font-size: 35px;
+    line-height: 50px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 30px; 
+}
+
+.announcement-page .announcement-text p {
+    background: linear-gradient(180deg, #7B0000 0%, rgba(145, 60, 60, 0.91) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.announcement-page .divider {
+    background-color: var(--sidebar); 
+    margin-top: 20px;
+    width: 90%; /* Adjust the width as needed */
+    height: 5px;
+}
+
+.announcement-page .rectangle {
+    background: var(--bg-color); /* Add a background color for visibility check */
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 1226.86px;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+    top: 120%; /* Adjust the top value to move it down */
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
 /* ------------------------------------ End of Landing Page ------------------------------------ */
 
 /* -------------------------------------------- LogIn Page -------------------------------------------- */
@@ -386,7 +438,6 @@ body.sidebar-active .sidebar-menu-btn {
     justify-content: flex-end;
 }
 
-
 body.sidebar-active .main-view {
     margin-left: 250px;
 }
@@ -395,6 +446,10 @@ body.sidebar-active .main-view {
     padding: 30px 100px;
     position: relative;
     transition: all 0.50s ease;
+}
+
+.main-view .container h1{
+     z-index: 1001;
 }
 
 /* ------------------------------------ End of View Appointments Page ------------------------------------ */
