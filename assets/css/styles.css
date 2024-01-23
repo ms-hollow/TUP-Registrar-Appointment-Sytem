@@ -1002,7 +1002,114 @@ body.sidebar-active .main-view {
     display: none;
 }
 
+/* Home */
 
+.cont{
+    text-align: left;
+    margin-top: 10%;
+}
+
+/* Welcome Back Section */
+.welcome-back-abbegail-miles {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    color: var(--text-color);
+  }
+  
+  /* Upcoming Appointments Section */
+  .upcoming {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Divider Line */
+  .divider-view {
+    background-color: var(--sidebar);
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Appointment List */
+  .appointment-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Registrar Information */
+  .registrar-information {
+    flex: 2;
+  }
+  
+  .laica-ygot {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .registrar {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .san-marcelino-st-ayala-blvd-ermita-manila-1000 {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Status */
+  .status {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .approved {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+  }
+  
+  /* Time and Date */
+  .time-and-date {
+    flex: 2;
+    text-align: right;
+  }
+  
+  ._9-00-10-00-am {
+    color: var(--text-color);
+  }
+  
+  /* Button Section */
+  .button {
+    flex: 1;
+    text-align: right;
+  }
+  
+.cancel-appointment,
+.reschedule {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: var(--Radius-rounded-lg, 8px);
+  border: 1px solid #7B0000;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.reschedule {
+  background-color: var(--sidebar);
+  color: var(--bg-color);
+}
+  
 
 /* ------------------------------------ End of View Appointments Page ------------------------------------ */
 
@@ -1022,7 +1129,7 @@ body.sidebar-active .main-view {
     line-height: 28px;
     font-weight: 500;
     position: relative;
-    margin-top: 80px;
+    margin-top: 90px;
     padding-left: 10px;
 }
 
@@ -1096,6 +1203,13 @@ body.sidebar-active .main-view {
 
 /* BOOK APPOINTMENT INFO */
 
+.container-book{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    justify-content: space-between;
+}
 
 .book-appointment-title {
     color: #4A5568;
