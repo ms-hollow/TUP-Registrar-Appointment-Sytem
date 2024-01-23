@@ -670,9 +670,16 @@ body.sidebar-active .main-view {
     transition: all 0.50s ease;
 }
 
-.main-view .container h1{
-     z-index: 1001;
+.main-view .container h1 { 
+    z-index: 1001;
+    transition: font-size 0.3s ease; 
 }
+
+.hide-h1 {
+    display: none;
+}
+
+
 
 /* ------------------------------------ End of View Appointments Page ------------------------------------ */
 

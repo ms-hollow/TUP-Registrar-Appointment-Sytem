@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebarMenuBtn.addEventListener('click', function () {
             sideBar.classList.toggle('active');
             document.body.classList.toggle('sidebar-active');
+
+            let h1 = document.querySelector('.main-view .container h1');
+            if (h1) {
+                h1.classList.toggle('hide-h1', sideBar.classList.contains('active'));
+            }
         });
     } else {
         console.error("Element with ID 'menu-btn' not found.");
