@@ -227,6 +227,79 @@ button:hover {
     position: relative;
 }
 
+/* Media query for screens with a maximum width of 1600 pixels */
+@media only screen and (max-width: 1600px) {
+    .container {
+        justify-content: space-between;
+    }
+
+    .right_image {
+        margin: 50px 0 0 0;
+        text-align: right;
+    }
+
+    .intro {
+        margin: 50px 0 0 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .intro p {
+        font-size: 25px;
+        line-height: 30px;
+    }
+}
+
+/* Media query for screens with a maximum width of 1200 pixels */
+@media only screen and (max-width: 1200px) {
+    .container {
+        justify-content: space-between;
+    }
+
+    .right_image {
+        margin: 50px 0 0 0;
+        text-align: right;
+    }
+
+    .intro {
+        margin: 50px 0 0 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .intro p {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+}
+
+/* Media query for screens with a maximum width of 600 pixels */
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .right_image {
+        margin: 50px 0 0 0;
+        text-align: center;
+    }
+
+    .intro {
+        margin: 50px 0 0 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .intro p {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+/* ----------------------------------End of Home--------------------------------------------- */
+
+
 /* Announcement Page */
 .announcement-page {
     display: flex;
@@ -234,7 +307,6 @@ button:hover {
     align-items: center;
     justify-content: flex-start;
     margin-top: 50px;
-    height: 100vh;
     background-image: url('../images/websiteBG.png');
     background-attachment: scroll;
     background-size: cover; 
@@ -265,7 +337,6 @@ button:hover {
     display: flex;
     position: relative;
     background-color: var(--sidebar); 
-    top: 10%;
     width: 90%; 
     height: 5px;
 }
@@ -275,12 +346,9 @@ button:hover {
     background: var(--bg-color); 
     border-radius: 15px;
     border: 1px solid #e0e0e0;
-    width: 1000px;
-    height: auto;
-    position: absolute;
-    left: 50%;
-    top: 130%;
-    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px; 
+    margin: 20px; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -293,6 +361,19 @@ button:hover {
     font-size: 17px;
     line-height: 30px;
     font-weight: 700;
+}
+
+
+@media (max-width: 768px) {
+    .announcement-page .announcement-text {
+        font-size: 24px; 
+        line-height: 36px; 
+    }
+
+    .announcement-page .message p {
+        font-size: 14px; 
+        line-height: 24px;
+    }
 }
 
 /* About */
@@ -332,7 +413,6 @@ button:hover {
 }
 
 /* MISSION */
-
 .aboutUs-page .mission {
     display: flex;
     flex-direction: column;
@@ -342,7 +422,7 @@ button:hover {
     background: linear-gradient(135deg, #7B0000 0%, #CB1C31 100%);
     position: relative;
     z-index: 1002;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .aboutUs-page .mission img {
@@ -355,40 +435,66 @@ button:hover {
     overflow: hidden;
 }
 
-.aboutUs-page .mission{
+.aboutUs-page .mission {
     justify-content: center;
     position: relative;
     overflow: visible;
 }
 
 .aboutUs-page .our-mission {
-    font-size: 35px;
-    line-height: 50px;
+    font-size: 2.5vw; 
+    line-height: 4vw; 
     font-weight: 800;
     text-align: center;
-    margin-top: 50px;
+    transform: translate(-50%, -50%);
+    margin-top: 5vw;
     position: absolute;
-    top: 10%; 
+    top: 10%;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 1003; 
+    z-index: 1003;
     color: var(--bg-color);
-    text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 1vw 0.4vw rgba(0, 0, 0, 0.25); 
 }
 
-.aboutUs-page .mission-description{
+.aboutUs-page .mission-description {
     text-align: center;
     position: absolute;
-    top: 45%;
-    left: 58%;
-    transform: translateX(-50%);
-    margin: 0 -10%; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #FFF;
-    font-size: 16px;
+    font-size: 1.2vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px; 
+    line-height: 2vw; 
     z-index: 1003;
+}
+
+@media (max-width: 576px) {
+    .aboutUs-page .our-mission,
+    .aboutUs-page .mission-description {
+        font-size: 10px; 
+        line-height: 15px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutUs-page .our-mission,
+    .aboutUs-page .mission-description {
+        font-size: 10px; 
+        line-height: 15px; 
+    }
+}
+
+
+/* Why Appointmate */
+.aboutUs-page .why-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .aboutUs-page .whyTUP {
@@ -397,8 +503,7 @@ button:hover {
     text-align: center;
     position: relative;
     top: 100px;
-    left: 55%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-3%);
     background: linear-gradient(180deg, #7B0000 0%, #CB1C31 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -413,7 +518,6 @@ button:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-left: 150px; 
     overflow: hidden;
 }
 
@@ -423,18 +527,20 @@ button:hover {
     border-style: solid;
     border-color: #ffffff;
     border-width: 1px;
-    width: 300px; 
-    height: 220px; 
-    margin: 0 20px; 
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
     margin-top: -100px;
+
+    width: 300px;
+    height: 220px;
+    margin: 0 20px;
+
 }
 
-.firstTitle, .secondTitle, .thirdTitle{
+.firstTitle, .secondTitle, .thirdTitle {
     margin-top: 30px;
 }
 
-.first, .second, .third{
+.first, .second, .third {
     padding: 10px;
     color: #7B0000;
     text-align: justify;
@@ -445,19 +551,37 @@ button:hover {
 }
 
 
+@media (max-width: 576px) {
+    .rectangle-1, .rectangle-2, .rectangle-3 {
+        width: 90%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .rectangle-1, .rectangle-2, .rectangle-3 {
+        width: 90%; 
+        height: auto; 
+        margin: 0 10px; 
+    }
+}
+
+
 /* Join Us */
 .joinUs-page {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start; /* Align items at the top */
-    justify-content: center;
+    align-items: flex-start; 
     background-color: var(--bg-color);
+    padding: 20px; /* Adjust padding as needed */
 }
 
 .joinUs-image {
     flex: 1;
-    text-align: right;
-    margin-left: 15px;
+    text-align: right; 
+    margin-right: 15px; 
+    margin-bottom: 20px;
 }
 
 .joinUs-image img {
@@ -484,15 +608,100 @@ button:hover {
     margin-top: 10px; 
 }
 
-.footer {
-    background: #1a202c;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+.email-form-container {
+    position: relative; /* Make the container a positioning context */
+    padding-left: 20px; /* Add left padding to the container */
+    height: calc(50vh - 150px); /* Adjust the height based on your footer height */
+    align-content: flex-start;
+}
+
+.email-form {
+    background: var(--color-white, #ffffff);
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #d2d6da;
+    border-width: 1px;
+    width: 500px;
+    max-width: 100%; 
+    margin: 5px auto; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.text {
+    color: var(--text-color);
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.subscribeBtn {
+    margin-left: -75%;
+    margin-top: 10px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .email-form-container {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .email-form {
+        width: 80%;
+        max-width: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .subscribeBtn {
+        margin-left: 5px;
+    }
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .email-form-container {
+        width: 100%;
+        margin-top: 0; 
+    }
+
+    .email-form {
+        width: 70%;
+        max-width: none;
+        margin-top: 3px;
+        margin-bottom: 150px;
+    }
+
+    .subscribeBtn {
+        margin-left: 5px;
+    }
 }
 
 /* Contact Us */
 
+/* Footer */
+.footer {
+    background: #1a202c;
+    color: #fff;
+    padding: 20px;
+    height: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1003;
+    margin-top: 10px;
+}
+
+.footer p{
+    font-size: 10px; 
+    font-weight: 300;
+}
 
 /* ------------------------------------ End of Landing Page ------------------------------------ */
 
@@ -685,5 +894,90 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Book Appointment Page ------------------------------------ */
 
+.date-time-page {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.date-and-time {
+    text-align: left;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 80px;
+    padding-left: 10px;
+}
+
+.divider-2 {
+    background-color: var(--sidebar);
+    width: 40%;
+    height: 5px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.date-time-container{
+    display: flex;
+    gap: 100px; 
+    padding: 10px;
+}
+
+.schedules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: left;
+    position: absolutes;
+}
+
+.schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
+    background: linear-gradient(to left, #7b0000, #7b0000), linear-gradient(to left, #0284c7, #0284c7);
+    border-radius: var(--radius-rounded-lg, 8px);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
+._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
+    color: #ffffff;
+    text-align: left;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    position: relative;
+}
+
+.calendar {
+    background: var(--bg-color);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 500px; 
+    height: 350px; 
+    margin: -10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+                -10px -10px -10px rgba(225, 225, 225, 1),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+                inset: -10px -10px -10px rgba(225, 225, 225, 1);
+    justify-content: right;
+}
+
+.calendar #dycalendar{
+    width: 100%;
+    padding: 20px;
+}
+
+#dycalendar table{
+    width: 100%;
+    margin-top: 40px;
+}
 
 /* ------------------------------------ End of Book Appointment Page ------------------------------------ */

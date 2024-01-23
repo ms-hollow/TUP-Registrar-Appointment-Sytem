@@ -27,6 +27,22 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("Element with ID 'menu-btn' not found.");
     }
 
+    let footer = document.querySelector('.footer');
+    
+        function toggleFooterVisibility() {
+          // Check if the user has scrolled to the bottom
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            footer.style.visibility = 'visible';
+          } else {
+            footer.style.visibility = 'hidden';
+          }
+        }
+    
+        // Initial check
+        toggleFooterVisibility();
+    
+        // Listen for scroll events
+        window.addEventListener('scroll', toggleFooterVisibility);
 
 
 });
