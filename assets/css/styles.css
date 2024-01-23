@@ -177,6 +177,7 @@ button:hover {
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
+    margin-top: 80px;
 }
 
 .right_image {
@@ -609,10 +610,11 @@ button:hover {
 }
 
 .email-form-container {
-    position: relative; /* Make the container a positioning context */
-    padding-left: 20px; /* Add left padding to the container */
-    height: calc(50vh - 150px); /* Adjust the height based on your footer height */
+    position: relative; 
+    padding-left: 20px; 
+    height: calc(50vh - 150px); 
     align-content: flex-start;
+    margin-top: -60px;
 }
 
 .email-form {
@@ -626,6 +628,7 @@ button:hover {
     margin: 5px auto; 
     padding: 10px;
     box-sizing: border-box;
+    margin-left: 50px;
 }
 
 .text {
@@ -640,7 +643,7 @@ button:hover {
 }
 
 .subscribeBtn {
-    margin-left: -75%;
+    margin-left: -59%;
     margin-top: 10px;
 }
 
@@ -689,7 +692,7 @@ button:hover {
     background: #1a202c;
     color: #fff;
     padding: 20px;
-    height: 10px;
+    height: 12px;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -699,7 +702,7 @@ button:hover {
 }
 
 .footer p{
-    font-size: 10px; 
+    font-size: 12px; 
     font-weight: 300;
 }
 
@@ -707,6 +710,110 @@ button:hover {
 
 /* -------------------------------------------- LogIn Page -------------------------------------------- */
 
+.login-container{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logInFormBox {
+    width: 380px;
+    height: 350px;
+    margin: auto; 
+}
+
+.fieldLabel {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #D9D9D9;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+.field {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 85%; /* Adjust the width as needed */
+    max-width: 300px; /* Set a maximum width if needed */
+    height: auto; /* Maintain aspect ratio */
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    outline: none;
+}
+
+.logInButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.logInButton:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
+}
+
+.logInButtonText a{
+    color: #FAFAFA;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 14px;
+    word-wrap: break-word;
+    text-decoration: none;
+}
+
+.signup-text {
+    position: absolute;
+    top: 88%; /* Adjusted top value to move it below the login form */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #7B0000;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.signup-link {
+    position: absolute;
+    top: 92%; /* Adjusted top value to move it below the login form */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FF0000;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    word-wrap: break-word;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #FF0000;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-link:hover {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
 
 /* -------------------------------------------- End of LogIn Page -------------------------------------------- */
 
@@ -873,6 +980,13 @@ body.sidebar-active .main-view {
     margin-left: 250px;
 }
 
+.category-name h1{
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+    transition: font-size 0.3s ease; 
+}
+
 .main-view {
     padding: 30px 100px;
     position: relative;
@@ -978,6 +1092,70 @@ body.sidebar-active .main-view {
 #dycalendar table{
     width: 100%;
     margin-top: 40px;
+}
+
+/* BOOK APPOINTMENT INFO */
+
+
+.book-appointment-title {
+    color: #4A5568;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    line-height: 25px;
+    word-wrap: break-word;
+    margin: 20px; /* Optional: Adjust margin as needed */
+    position: absolute; 
+    top:30px; 
+    left:160px; 
+    transform: translate(-50%, -50%);
+}
+
+.information-title {
+    color: #4A5568;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    line-height: 25px;
+    word-wrap: break-word;
+    margin: 20px; /* Optional: Adjust margin as needed */
+    position: absolute; 
+    transform: translate(-50%, -50%);
+}
+
+.document-list-container {
+    position: absolute;
+    top: 500px;
+    left: 1067px;
+    transform: translate(-50%, -50%);
+    width: 592px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+.document-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.document-list-item {
+    margin-bottom: 5px;
+}
+
+.file-preview-container {
+    display: flex;
+    align-items: center;
+}
+
+.delete-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 /* ------------------------------------ End of Book Appointment Page ------------------------------------ */

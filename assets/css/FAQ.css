@@ -1,0 +1,690 @@
+
+/* FAQS */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css');
+@import url('https://unpkg.com/boxicons@latest/css/boxicons.min.css');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --bg-color: white;
+    --lightgray-color: #EBEBEB;
+    --text-color: #4A5568;
+    --red-color: #FE0002;
+    --black-color: #231F1C;
+    --dark-red-1: #B71E23;
+    --dark-red-2: #CB1C31;
+    --sidebar: #7b0000;
+}
+
+body.index{
+    background-image: none;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin-bottom: 220px;
+}
+
+body{
+    min-height: 100vh;
+    color: var(--text-color);
+    background-image: url('../images/websiteBG.png');
+    background-attachment: fixed;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+
+/* -------------------------------------------- Landing Page -------------------------------------------- */
+
+/* -------------- HEADER SECTION -------------- */
+html.index {
+    scroll-behavior: smooth; /* Enable smooth scrolling for the entire page */
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1004;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    padding: 10px 50px;
+    transition: all .50s ease;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+}
+
+.nav_bar{
+    display: flex;
+}
+
+.nav_bar a{
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 5px 30px;
+    margin: 0 px 30px;
+    transition: all .50s ease;
+}
+
+.nav_bar a:hover{
+    color: var(--red-color);
+}
+
+.nav_bar a.active{
+    color: var(--red-color);
+}
+
+.main{
+    display: flex;
+    align-items: center;
+}
+
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+    color: white;
+}
+
+button:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
+}
+
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+@media(max-width: 120px){
+    header{
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .nav_bar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+
+@media(max-width: 1090px){
+    #menu-icon{
+        display: block;
+    }
+    .nav_bar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 40vh;
+        background-color: var(--dark-red-2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+    }
+    .nav_bar a{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+        color: #EBEBEB;
+    }
+    .nav_bar a:hover{
+        color: var(--black-color);
+        transform: translateY(5px);
+    }
+    .nav_bar a.active{
+        color: var(--black-color);
+    }
+    .nav_bar.open{
+        right: 2%;
+    }
+}
+
+body.FAQ{
+    background-image: none;
+}
+
+.FAQS {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    width: auto;
+    position: relative;
+    margin-left: 20px;
+  }
+  
+.FAQS .div{
+    background-color: #ffffff;
+    overflow: hidden;
+    width: auto;
+    height: 100vh;
+    position: relative;
+}
+
+.FAQS .FAQ-text {
+    width: 884px;
+    top: 18%;
+    left: 50px;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    line-height: 50px;
+    font-weight: 800;
+    text-align: center;
+    position: absolute;
+}
+
+.FAQ-text p {
+        background: linear-gradient(180deg, #7B0000 0%, rgba(145, 60, 60, 0.91) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: justify;
+        text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shape {
+    width: 1336x;
+    height: 84px;
+}
+
+.shape.shape {
+    position: relative;
+    width: auto;
+    height: 84px;
+    margin-left: 100px;
+    margin-top: 4%;
+}
+
+.FAQS .right_image {
+    flex: 1;
+    position: absolute;
+    left: 725px;
+    margin-top: 195px;
+    height: 500;
+    width: 500;
+}
+
+.FAQS .left_image {
+    flex: 1;
+    position: absolute;
+    left: 10px;
+    margin-top: 1190px;
+    height: 400;
+    width: 400;
+}
+
+
+.FAQS .FAQrectangle-shape-1{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 150px; 
+    overflow: hidden;
+}
+
+.FAQS .one{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 195px;
+}
+
+.FAQS .two{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 260px;
+    top: 360px;
+}
+
+.FAQS .three{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 540px;
+}
+
+.FAQS .four{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 490px;
+    top: 1225px;
+}
+
+.FAQS .five{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 840px;
+    top: 1390px;
+}
+
+.FAQS .six{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 490px;
+    top: 1555px;
+}
+
+.FAQS .seven{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 10px;
+    top: 1745px;
+}
+
+.FAQS .eight{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 840px;
+    top: 1745px;
+}
+
+.FAQS .nine{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 185px;
+    top: 1915px;
+}
+
+.FAQS .ten{
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 725px;
+    top: 1915px;
+}
+
+.FAQS .arrow{
+    position: absolute;
+    width: 100px;
+    height: 170px;
+    left: 260px;
+    top: 915px;
+}
+
+.FAQS .arrow1{
+    position: absolute;
+    width: 100px;
+    height: 170px;
+    left: 864px;
+    top: 915px;
+}
+
+.FAQS .rectangle{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 150px; 
+    overflow: hidden;
+}
+
+.FAQS .processrectangle{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 150px; 
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:50px;
+    top: 180px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_1 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:300px;
+    top: 350px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_2 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:50px;
+    top: 525px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_3 {
+    position: absolute;
+    height: 122px;
+    width: 500px;
+    left:30px;
+    top: 790px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(123,0,0);
+    overflow: hidden;
+}
+
+
+.FAQS .rectangle_shape_4 {
+    position: absolute;
+    height: 122px;
+    width: 500px;
+    left:362px;
+    top: 1020px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(123,0,0);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_5 {
+    position: absolute;
+    height: 122px;
+    width: 500px;
+    left:750px;
+    top: 790px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(123,0,0);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_6 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:530px;
+    top: 1210px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_7 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:880px;
+    top: 1375px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_8 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:530px;
+    top: 1545px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_9 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:50px;
+    top: 1730px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_10 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:880px;
+    top: 1730px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_11 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:225px;
+    top: 1900px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .rectangle_shape_12 {
+    position: absolute;
+    height: 140px;
+    width: 379px;
+    left:765px;
+    top: 1900px; 
+    background: #ffffff;
+    border-radius: 31px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.FAQS .firstTitle{
+    margin-top: 20px;
+    margin-left: 10PX;
+    font-size: 12px;
+    color: #7B0000;
+
+}
+
+.FAQS .first{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #7B0000;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.FAQS .firstprocess {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+
+.FAQS .FAQ-process {
+    width: 100px;
+    top: 710px;
+    left: 20px;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+.FAQS .FAQ-process-1{
+    width: 200px;
+    top: 740px;
+    left: 20px;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+.FAQS .FAQ-process-2{
+    width: 100px;
+    top: 940px;
+    left: 362PX;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+.FAQS .FAQ-process-3{
+    width: 200px;
+    top: 970px;
+    left: 362px;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+
+.FAQS .FAQ-process-4 {
+    width: 100px;
+    top: 710px;
+    left: 740px;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+.FAQS .FAQ-process-5{
+    width: 200px;
+    top: 740px;
+    left: 740px;
+    height: 50px;
+    padding: 10px;
+    color: #67748E;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    position: absolute;
+}
+
+.FAQS .textprocess{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #67748E;
+    text-align: justify;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 26px;
+}
+
+  
+
