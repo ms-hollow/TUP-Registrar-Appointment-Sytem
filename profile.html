@@ -1,0 +1,100 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Profile</title>
+</head>
+
+<body>
+    <header class="header-viewAppointments">
+        <div class="sidebar-menu-btn" id="menu-btn">
+            <img src="assets/images/menu-logo.png" alt="">
+        </div>
+        <div class="book-appointment-title">PROFILE</div>
+        <div class="selection">
+            <a href="#"><img src="assets/images/search-icon.png" class="search"></a>
+            <a href="#"><img src="assets/images/notif-icon.png" class="notif"></a>
+            <a href="#"><img src="assets/images/user-icon.png" class="user"></a>
+        </div>
+    </header>
+    <div class="sidebar">
+        <div class="top">
+            <div class="sidebar-logo">
+                <img src="assets/images/TUP AS LOGO.png" alt="logo">
+            </div>
+            <div class="user-info">Name Here</div>
+        </div>
+        <div class="menu-items">
+            <ul>
+                <li><a href="view-appointments.html">Home</a></li>
+                <li><a href="./book-appointment/book-appointment.html">Book Appointment</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="change-password.html">Setting</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="Information-title" style="position: absolute; top:150px; left:138px;">Profile Information</div>
+
+        <div class="red-border" style="position: absolute; top: 200px; left: 50%; transform: translate(-50%, -50%);"></div>
+        
+        <a href="#">
+            <img src="assets/images/abby pic.png" alt="Abby's Picture"  width="130" height="130" style="position: absolute; top: 120px; left: 1153px;">
+        </a>
+
+        <div class="register-label" style="position: absolute; top: 240px; left:128px; transform: translate(-50%, -50%);">First Name</div>
+        <input type="text" class="register-field" placeholder="Abby" id="firstName" name="firstName" required style="position: absolute; width:400px; top: 275px; left:282px;" readonly>
+        <div class="register-label" style="position: absolute; top: 240px; left:554px; transform: translate(-50%, -50%);">Middle Name</div>
+        <input type="text" class="register-field" placeholder="" id="middleName" name="middleName" required style="position: absolute; width:355px; top: 275px; left:677px;"  readonly>
+        <div class="register-label" style="position: absolute; top: 240px; left:914px; transform: translate(-50%, -50%);">Last Name</div>
+        <input type="text" class="register-field" placeholder="Leonen" id="lastName" name="lastName" required style="position: absolute; width:410px; top: 275px; left: 1077px;" readonly>
+
+        <div class="register-label" style="position: absolute; top: 315px; left:100px; transform: translate(-50%, -50%);">Sex</div>
+        <select class="register-field" id="sex" name="sex" style="position: absolute; width:400px; top: 350px; left:282px;" required disabled>
+            <option value="" disabled selected>Select Sex</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <div class="register-label" style="position: absolute; top: 315px; left:550px; transform: translate(-50%, -50%);">Date of Birth</div>
+        <input type="text" class="register-field" placeholder="" id="birthDate" name="birthDate" required style="position: absolute; width:355px; top: 350px; left:677px;"  readonly>
+        <div class="register-label" style="position: absolute; top: 315px; left:877px; transform: translate(-50%, -50%);">Age</div>
+        <input type="text" class="register-field" placeholder="" id="age" name="age" required style="position: absolute; width:410px; top: 350px; left: 1075px;"  readonly>
+
+        <div class="register-label" style="position: absolute; top: 390px; left:146px; transform: translate(-50%, -50%);">Contact Number</div>
+        <input type="text" class="register-field" placeholder="" id="contactNumber" name="contactNumber" required style="position: absolute; width:400px; top: 425px; left:282px;"  readonly>
+        <div class="register-label" style="position: absolute; top: 390px; left:567px; transform: translate(-50%, -50%);">Present Address</div>
+        <input type="text" class="register-field" placeholder="" id="middleName" name="middleName" required style="position: absolute; width:785px; top: 425px; left:892px;"  readonly>
+
+        <div class="register-label" style="position: absolute; top: 465px; left:137px; transform: translate(-50%, -50%);">Student Type</div>
+        <select class="register-field" id="studentType" name="studentType" style="position: absolute; width:288px; top: 500px; left:227px;" required disabled>
+            <option value="" disabled selected>Select Student Type</option>
+            <option value="undergraduate">Undergraduate</option>
+            <option value="graduate">Graduate</option>
+            <option value="doctorate">Doctorate</option>
+            <option value="alumni">Alumni</option>
+        </select>
+
+        <div class="register-label" style="position: absolute; top: 465px; left:416px; transform: translate(-50%, -50%);">TUP ID</div>
+        <input type="text" class="register-field" placeholder="" id="tupID" name="tupID" required style="position: absolute; width:288px; top: 500px; left:532px;"  readonly>
+        <div class="register-label" style="position: absolute; top: 465px; left:752px; transform: translate(-50%, -50%);">Course</div>
+        <input type="text" class="register-field" placeholder="" id="course" name="course" required style="position: absolute; width:288px; top: 500px; left:837px;"  readonly>
+        <div class="register-label" style="position: absolute; top: 465px; left:1027px; transform: translate(-50%, -50%);">Year & Section</div>
+        <input type="text" class="register-field" placeholder="" id="yearSection" name="yearSection" required style="position: absolute; width:288px; top: 500px; left:1142px;" readonly>
+    
+        <div class="logInButton" style="top: 90%; left: 1200px">
+            <div class="logInButtonText" style="width: 100%;"><a href="profile.html">Update Information</a></div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="assets/js/script.js"></script>
+
+    </script>
+
+</body>
+</html>

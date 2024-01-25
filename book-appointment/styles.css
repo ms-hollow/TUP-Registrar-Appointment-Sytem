@@ -23,18 +23,10 @@
     --sidebar: #7b0000;
 }
 
-body.index{
-    background-image: none;
-    min-height: 100vh;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin-bottom: 220px;
-}
-
 body{
     min-height: 100vh;
     color: var(--text-color);
-    background-image: url('../images/websiteBG.png');
+    background-image: url('images/websiteBG.png');
     background-attachment: fixed;
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -893,6 +885,88 @@ body.sidebar-active .main-view {
 }
 
 
+/* ------------------------------------ Booking Confirmation Page ------------------------------------ */
 
+.booking-confirmation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: center;
+    justify-content: space-between;
+}
 
+.booking-confirmation {
+    text-align: left;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 500;
+    position: relative;
+    margin-top: 80px;
+    padding-left: 10px;
+}
+
+.divider-3 {
+    background-color: var(--sidebar);
+    width: 100%;
+    height: 5px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.booking-confirmation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+    padding: 10px;
+}
+
+.information {
+    display: grid;
+    grid-template-columns: norepeat;
+    gap: 10px;
+    justify-content: left;
+    position: absolute;
+}
+
+.input{
+    height: 28px;
+    width: 500px;
+    flex: 1; /* Allow the input to take up the remaining space */
+    margin-left: 10px;
+}
+
+.label{
+    display: inline-block;
+    width:37px;
+    height: 28px;
+    border: none;
+    background: none;
+    position: relative;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 28px;
+    white-space: nowrap;
+}
+
+.label1{
+    display: inline-block;
+    width:37px;
+    height: 28px;
+    color: #7B0000;
+    left: 110px;
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2px;
+    white-space: nowrap;
+}
+
+.QR-image{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 1050px;
+    top: 180px;
+
+}
 /* ------------------------------------ End of Book Appointment Page ------------------------------------ */
