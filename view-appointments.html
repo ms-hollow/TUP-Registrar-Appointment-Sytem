@@ -15,8 +15,14 @@
         </div>
         <div class="selection">
             <a href="#"><img src="assets/images/search-icon.png" class="search"></a>
-            <a href="#"><img src="assets/images/notif-icon.png" class="notif"></a>
-            <a href="index.html"><img src="assets/images/user-icon.png" class="user"></a>
+            <a href="notification.html"><img src="assets/images/notif-icon.png" class="notif"></a>
+            <div class="dropdown">
+                <a class="user-dropdown-btn"><img src="assets/images/user-icon.png" class="user"></a>
+                <div class="dropdown-content">
+                    <a href="index.html">Log Out</a>
+                    <a href="change-password.html">Change Password</a>
+                </div>
+            </div> 
         </div>
     </header>
     <div class="sidebar">
@@ -24,49 +30,52 @@
             <div class="sidebar-logo">
                 <img src="assets/images/TUP AS LOGO.png" alt="logo">
             </div>
-            <div class="user-info">Name Here</div>
+            <p class="user-info">Name Here</p>
         </div>
         <div class="menu-items">
             <ul>
                 <li><a href="view-appointments.html">Home</a></li>
-                <li><a href="./book-appointment/book-appointment.html">Book Appointment</a></li>
+                <li><a href="book-appointment.html">Book Appointment</a></li>
                 <li><a href="profile.html">Profile</a></li>
-                <li><a href="change-password.html">Setting</a></li>
+                <li><a href="#">Setting</a></li>
             </ul>
         </div>
     </div>
 
     <div class="main-view">
         <div class="cont">
-            <div class="welcome-back">Welcome back, <span class="red-text">Abbegail Miles</span></div>
-            <div class="upcoming">Appointments</div>
+            <p class="welcome-back">Welcome back, <span class="red-text">Abbegail Miles</span></p>
+            <p class="upcoming">Appointments</p>
             <hr class="divider-view">
-        </div>
-
-        <div class="appointment-list">
+    <div class="appointment-list">
             <div class="information">
-                  <div class="laica-ygot">Laica Ygot</div>
-                  <div class="registrar">Registrar</div>
+                  <p class="name">Laica Ygot</p>
+                  <p class="registrar">Registrar</p>
+                  <p class="address">San Marcelino St, Ayala Blvd, Ermita, Manila, 1000</p>
             </div>
-            <div class="status">
-                <div class="approved">Approved</div>
+        <div class="status">
+                <p class="approved">Approved</p>
             </div>
-            <div class="time-and-date">
-              <div class="bx bx-time">
-                <div class="friday">Friday</div>
-                <div class="_9-00-10-00-am" style="color: gray;">9:00- 10:00 am</div>
-              </div>
-              <div class="january-26-2024">January 26, 2024</div>
+            
+        <div class="time-and-date">
+            <div class="bx bx-time">
+                <p class="Day">Friday</p>
+                <p class="time">9:00- 10:00 am</p>
+                <p class="date">January 26, 2024</p>            
             </div>
-            <div class="button">
-              <div class="cancel-appointment">
-                <div class="cancel-appointment2">Cancel Appointment</div>
-              </div>
-              <div class="reschedule">
-                <div class="reschedule2">Reschedule</div>
-              </div>
+        </div>
+        <div class="button">
+            <div class="cancel-appointment">
+                <p class="cancel-appointment2">Cancel Appointment</p>
             </div>
-          </div>
+            <div class="reschedule">
+                <p class="reschedule2">Reschedule</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      
     </div>
     
     <script type="text/javascript" src="assets/js/script.js"></script>
