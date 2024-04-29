@@ -4034,6 +4034,10 @@ body.sidebar-active .main-view {
     justify-content: space-between;
    }
 
+   .BookBtn1{
+    margin-top: 1%;
+}
+
    .sidebar-active .main-view{
         .date-time-page{
             justify-content: space-between;
