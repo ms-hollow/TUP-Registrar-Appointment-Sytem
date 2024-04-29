@@ -2230,8 +2230,7 @@ button:hover {
 
  @media only screen and (max-width: 1600px){
     .cont{
-       justify-content: space-between;
-       
+       justify-content: space-between;  
     }
 }
 
@@ -3430,6 +3429,7 @@ body.sidebar-active .main-view {
     margin-top: -50px;
 }
 
+
 @media only screen and (max-width: 1400px){
     .cont{
         top: 5%;
@@ -4004,9 +4004,30 @@ body.sidebar-active .main-view {
 }
 
 .BookBtn1{
-    margin-top: 10px;
+    margin-top: 2.5%;
     margin-bottom: 10px;
+    margin-left: 45%;
 }
+
+@media only screen and (max-width: 1600px){  
+    .date-time-page{
+     justify-content: space-between;
+    }
+ 
+    .sidebar-active .main-view{
+         .date-time-page{
+             justify-content: space-between;
+             margin-left: -60px;
+         }
+         .date-and-time{
+             font-size: 16px;
+         }
+         .divider-view{
+             margin-left: 10px;
+         }
+ 
+    }
+ }
 
 @media only screen and (max-width: 1400px){  
    .date-time-page{
@@ -4415,6 +4436,16 @@ body.sidebar-active .main-view {
     .cont{
         margin-top: 8%;
     }
+
+    .QR-image{
+        margin-left: 2%;
+        margin-top: 50px;
+    }
+
+    .BookBtn2{
+        margin-top: 3%;
+    }
+
 
 }
 
