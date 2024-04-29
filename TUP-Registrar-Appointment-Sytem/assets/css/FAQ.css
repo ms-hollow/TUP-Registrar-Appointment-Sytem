@@ -624,6 +624,24 @@ body.FAQ{
     line-height: 18px;
 }
 
+.footer {
+    background: #1a202c;
+    color: #fff;
+    padding: 20px;
+    height: 12px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1003;
+    margin-top: 10px;
+}
+
+.footer p{
+    font-size: 12px; 
+    font-weight: 300;
+}
+
 
 
 @media only screen and (max-width: 1600px) {

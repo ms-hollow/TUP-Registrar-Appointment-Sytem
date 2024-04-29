@@ -267,7 +267,7 @@ button:hover {
 @media only screen and (max-width: 1400px) {
     .container {
         justify-content: space-between;
-        margin-top: 12%;
+        margin-top: 8%;
     }
 
     .right_image {
@@ -283,9 +283,9 @@ button:hover {
 
     .intro p {
         font-size: 28px;
-        line-height: 10px;
+        line-height: 40px;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .decorative-text{
@@ -663,7 +663,7 @@ button:hover {
 
     .welcome-text p{
         font-size: 28px;
-        line-height:  30px;
+        line-height:  40px;
         margin-top: -15%;
         
     }
@@ -1013,51 +1013,35 @@ button:hover {
 }
 
 .email-form-container {
-    position: relative; 
-    padding-left: 20px; 
-    height: calc(50vh - 150px); 
-    align-content: flex-start;
-    margin-top: -240px;
-    width: 90%;
+    display: flexbox;
+    flex: 2; /* Use flexbox *//* Center the content horizontally */
+    height: calc(50vh - 150px);
+    margin-top: -12%;
+    margin-left: -49%;
+    width: 100%;
 }
 
-.email-form {
+.email-form input {
     background: var(--color-white, #ffffff);
-    border-radius: 8px;
     border-style: solid;
     border-color: #d2d6da;
     border-width: 1px;
-    width: 40%; 
-    margin: 5px auto; 
+    width: 25%;
+    height: 44px;
+    margin: 5px auto;
     padding: 10px;
     box-sizing: border-box;
     margin-left: 30px;
 }
 
-.text {
-    color: var(--text-color);
-    font-size: 14px;
-    line-height: 0.5px;
-    font-weight: 400;
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
 .subscribeBtn {
-
     display: inline;
-    margin-left: 81%;
+    margin-left: 10px; /* Adjust the margin as needed */
 }
+
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1600px) {
-    .email-form-container {
-        width: 60%;
-        margin-top: 7%;
-    }
-
     .joinUs-page .joinUs-description{
         font-size: 20px;
         line-height: 30px;
@@ -1065,23 +1049,14 @@ button:hover {
         margin-top: 5%;
     }
 
-    .email-form {
-        width: 80%;
-        max-width: none;
-        margin-top: -34%;
-        margin-bottom: 20px;
-    }
-
-    .subscribeBtn {
-        margin-right: -4.5%;
-    }
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1400px) {
     .email-form-container {
         width: 60%;
-        margin-top: 10%;
+        margin-top: -10%;
+        margin-left: -47.2%;
     }
 
     .joinUs-page .joinUs-description{
@@ -1091,16 +1066,6 @@ button:hover {
         margin-top: 5%;
     }
 
-    .email-form {
-        width: 80%;
-        max-width: none;
-        margin-top: -34%;
-        margin-bottom: 20px;
-    }
-
-    .subscribeBtn {
-        margin-right: -4.5%;
-    }
 }
 
 /* Media query for smaller screens */
@@ -1129,10 +1094,11 @@ button:hover {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .email-form-container {
         width: 60%;
-        margin-top: 10%;
+        margin-top: 30%;
+        margin-left: -22%;
     }
 
     .joinUs-page .Join{
@@ -1145,23 +1111,13 @@ button:hover {
         margin-bottom: 10px;
     }
 
-    .email-form {
-        width: 73%;
-        max-width: none;
-        margin-top: -34%;
-        margin-bottom: 20px;
-    }
-
-
-    .subscribeBtn {
-        margin-left: 71%;
-    }
 }
 
 @media screen and (max-width: 900px) {
     .email-form-container {
         width: 60%;
-        margin-top: 10%;
+        margin-top: 32%;
+        margin-left: -20%;
     }
 
     .joinUs-page .Join{
@@ -1174,17 +1130,6 @@ button:hover {
         margin-bottom: 10px;
     }
 
-    .email-form {
-        width: 73%;
-        max-width: none;
-        margin-top: -34%;
-        margin-bottom: 20px;
-    }
-
-
-    .subscribeBtn {
-        margin-left: 71%;
-    }
 }
 
 @media screen and (max-width: 600px) {
@@ -1199,9 +1144,13 @@ button:hover {
         height: auto;
     }
     .email-form-container {
-        width: 80%;
+        width: 100%;
         margin-top: 20%;
-        margin-left: 5%;
+        margin-left: 20%;
+    }
+
+    .email-form input{
+        width:40%;
     }
 
     .joinUs-page .Join{
@@ -1217,31 +1166,37 @@ button:hover {
         margin-bottom: 5px;
         margin-top: 10%;
     }
-
-    .email-form {
-        font-size: 5px;
-        width: 100%;
-        max-width: none;
-        margin-top: -34%;
-        margin-bottom: 20px;
-        font-size: 10px;
-    }
-
-    .subscribeBtn {
-        margin-left: 73%;
-    }
 }
 
-@media screen and (max-width: 600px){
-    .subscribeBtn {
-        margin-left: 61%;
+@media screen and (max-width: 425px) {
+    .joinUs-page{
+        flex-direction: column-reverse;
     }
+
+    .joinUs-image{
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 80%;
+        height: auto;
+    }
+    .email-form-container {
+        width: 160%;
+        margin-top: 20%;
+        margin-left: 8%;
+    }
+
+    .email-form input{
+        width:30%;
+    }
+
+
 }
 
 
 
 
-/* Contact Us */
+
+/*------------------------- Contact Us----------------------------- */
 .ContactUs {
     background-image: none;
     position: relative;
@@ -1348,7 +1303,7 @@ button:hover {
 .contactrectangle2 {
     flex:1;  
     margin-top: 4%;
-    width:90%;
+    width:80%;
     height: 410px;
     background: linear-gradient(135deg, #7B0000 0%, #CB1C31 100%);
     border-radius: 31px;
@@ -1375,7 +1330,7 @@ button:hover {
 }
 
 .submitBtn {
-    margin-right: 40%;
+    margin-left: 40%;
 
 }
 
@@ -1404,7 +1359,7 @@ button:hover {
 @media only screen and (max-width: 1400px) {
     .container1 {
         justify-content: space-between;
-        margin-top: 5%;
+        margin-top: 11%;
     }
 
     .contactrectangle{
@@ -1416,9 +1371,9 @@ button:hover {
     }
 
     .contactrectangle2{
-        margin-top: 10%;
+        margin-top: 3%;
         width: 80%;
-        height: 330px;
+        height: 380px;
     }
 
     .EntryMessage{
@@ -1427,11 +1382,11 @@ button:hover {
     }
 
     .EntryMessage1{
-        height: 60px;
+        height: 80px;
     }
 
     .contactus-description h2{
-        margin-top: -30%;
+        margin-top: -25%;
     }
 
     .contactus-description h3{
@@ -1447,10 +1402,10 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1024px) {
     .container1 {
         justify-content: space-between;
-        margin-top: 20%;
+        margin-top: 15%;
     }
 
     .contactrectangle1{
@@ -1460,7 +1415,7 @@ button:hover {
 
     .contactrectangle2{
         width: 80%;
-        height: 380px;
+        height: 320px;
     }
 
     .contactus-description h2{
@@ -1477,15 +1432,15 @@ button:hover {
     }
 
     .EntryMessage1{
-        height: 80px;
+        height: 60px;
     }
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
     .container1 {
         justify-content: space-between;
-        margin-top: 30%;
+        margin-top: 20%;
     }
 
     .contactrectangle1{
@@ -1496,7 +1451,7 @@ button:hover {
 
     .contactrectangle2{
         width: 80%;
-        height:350px;
+        height:270px;
     }
 
     .contactus-description h2{
@@ -1513,14 +1468,15 @@ button:hover {
     }
 
     .EntryMessage1{
-        height: 80px;
+        height: 60px;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .container1 {
         justify-content: space-between;
-        margin-top: 50%;
+        margin-top: 25%;
+        margin-left: 20px;
     }
 
     .contactrectangle{
@@ -1532,23 +1488,24 @@ button:hover {
     }
 
     .contactrectangle2{
-        width: 110%;
-        height:350px;
+        width: 100%;
+        height:auto;
     }
 
     .contactus-description h2{
-        margin-top: -50%;
-        margin-bottom: 80px;
-        margin-left: 20%;
-        font-size: 18px;
+        margin-top: -30%;
+        margin-left: 30%;
+        font-size: 20px;
     }
 
     .contactus-description h3{
        font-size: 10px;
+
     }
 
     .EntryMessage{
         height: 20px;
+        margin-bottom: 20px;
     }
 
     .EntryMessage1{
@@ -1560,7 +1517,7 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 425px) {
     .container1 {
         justify-content: space-between;
         margin-top: 50%;
@@ -1575,12 +1532,12 @@ button:hover {
     }
 
     .contactrectangle2{
+        margin-top: -30%;
         width: 110%;
-        height:550px;
     }
 
     .contactus-description h2{
-        margin-top: -30%;
+        margin-top: 20%;
         margin-bottom: 80px;
         margin-left: 35%;
         font-size: 18px;
@@ -1595,7 +1552,7 @@ button:hover {
     }
 
     .EntryMessage1{
-        height: 80px;
+        height: 60px;
     }
 
     .shape1 {
@@ -1692,10 +1649,10 @@ button:hover {
   
 
 
-/* --------end of Contact Us--------------------------------------- */
+/*---------------------------------End of Contact Us--------------------------------------- */
 
 
-/* Footer */
+/*------------------------- Footer-------------------------- */
 .footer {
     background: #1a202c;
     color: #fff;
@@ -1763,7 +1720,7 @@ button:hover {
     height: auto;
     background: none;
     padding: 40px;
-    margin-bottom: 50px;   
+    margin-bottom: 20px;   
 }
 
 .fieldLabel {
@@ -1784,7 +1741,7 @@ button:hover {
     color: white;
     font-size: .8vw; /* Use vw for font size for responsiveness */
     font-weight: 600;
-    margin-left: 59%;
+    margin-left: 49%;
 }
 
 .field2 {
@@ -1792,11 +1749,11 @@ button:hover {
     font-size: 1vw; 
     color: #7B0000;
     font-weight: 300;
-    margin-left: 10%;
+    margin-left: -6%;
 }
 
 .Loginrectangle2 a{
-    font-size: 12px;
+    font-size: 1vw;
 }
 
 .password-container {
@@ -1820,18 +1777,6 @@ button:hover {
 @media only screen and (max-width: 1600px){
         .login-container{
             flex-direction: column;
-        }
-    
-        .field1{
-            margin-left: 52%;
-        }
-
-        .loginrectangle2{
-            margin-top: -20px;
-        }
-
-        .field2{
-            margin-left: -6%;
         }
 }
 
@@ -2015,7 +1960,8 @@ button:hover {
 
 .create-your-account {
     color: #7B0000;
-    font-size: 18px;
+    font-size: 25px;
+    margin-bottom: 10px;
     font-weight: 800;
     line-height: 50px;
     margin-left: 42%;
@@ -2516,7 +2462,52 @@ button:hover {
     transition: margin-right 0.5s ease; 
 }
 
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style the user icon button */
+  .user-dropdown-btn {
+    background-color: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown content */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #7B0000;
+    width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Show the dropdown content when the user clicks on the button */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Style the dropdown button on hover */
+  .dropdown:hover .user-dropdown-btn a {
+    background-color: none;
+  }
 
+  .dropdown-content a:hover {
+    background-color: #ddd; /* Change the background color on hover */
+    color: #333333; /* Change the text color on hover */
+  }
 
 body.sidebar-active .header-viewAppointments {
     margin-left: 250px;  
@@ -2678,6 +2669,7 @@ body.sidebar-active .main-view {
     border-radius: 5px;
     margin-bottom: 10px;
     height: 100px;
+    width: 96%;
   }
   
   /* Registrar Information */
@@ -2767,7 +2759,7 @@ body.sidebar-active .main-view {
 
 @media only screen and (max-width: 1600px){
     .cont{
-        margin-top: 10%;
+        margin-top: 8%;
     }
     .appointment-list{
         justify-content: space-between;
@@ -3330,6 +3322,7 @@ body.sidebar-active .main-view {
     flex-direction: column;
     margin: 0 auto;
     margin-right: 50px;
+    margin-bottom: -5px;
     width: 100%;
     height: auto;
 }
@@ -3366,7 +3359,7 @@ body.sidebar-active .main-view {
     margin-left: 10px;
     margin-right: 50px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .personal-field { 
@@ -3398,7 +3391,7 @@ body.sidebar-active .main-view {
     margin-right: 50px;
     margin-left: 10px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .textbooking{
@@ -3439,7 +3432,7 @@ body.sidebar-active .main-view {
 
 @media only screen and (max-width: 1400px){
     .cont{
-        margin-top: 8%;
+        top: 5%;
     }
 
     .sidebar .top .sidebar-logo{
@@ -3851,37 +3844,6 @@ body.sidebar-active .main-view {
 /* ------------------------------------End Personal Book Appointment Page ------------------------------------ */
 
 
-/* ------------------------------------ Booking Confirmation Page ------------------------------------ */
-
-
-
-.QR-image{
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    left: 1050px;
-    top: 180px;
-
-}
-
-@media only screen and (max-width: 1600px){
-    .cont{
-        margin-top: 8%;
-    }
-}
-
-@media only screen and (max-width: 1600px){
-    .cont{
-        margin-top: 8%;
-    }
-}
-
-
-
-/* ------------------------------------ End of Book Appointment Page ------------------------------------ */
-
-
-
 /* ------------------------------------ Book Appointment-Date Page ------------------------------------ */
 
 .date-time-page {
@@ -4042,7 +4004,6 @@ body.sidebar-active .main-view {
 }
 
 .BookBtn1{
-    margin-inline: 45%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -4052,7 +4013,6 @@ body.sidebar-active .main-view {
     justify-content: space-between;
    }
 
-   
    .sidebar-active .main-view{
         .date-time-page{
             justify-content: space-between;
@@ -4425,7 +4385,6 @@ body.sidebar-active .main-view {
     font-weight: 500;
     font-size: 16px;
     line-height: 28px;
-    margin-bottom: 5px;
     white-space: nowrap;
 }
 
@@ -4435,22 +4394,21 @@ body.sidebar-active .main-view {
     color: #7B0000;
     font-weight: 500;
     font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 20px;
-   
+    line-height: 20px;   
 }
 
 .QR-image{
+    position: absolute;
     width: 150px;
-    height: auto;
-    margin-left: -200px;
-    top: 200px;
+    height: 150px;
+    left: 1050px;
+    top: 180px;
+
 }
 
 .BookBtn2{
     margin-inline: 45%;
     margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 1600px){
@@ -4466,8 +4424,8 @@ body.sidebar-active .main-view {
     }
 
     .QR-image{
-        margin-left: -10%;
-        margin-top: 15px;
+        margin-left: -15%;
+        margin-top: 50px;
     }
 
     .BookBtn2{
@@ -4900,7 +4858,9 @@ body.sidebar-active .main-view {
     height: auto;
     background: linear-gradient(135deg, #7B0000 0%, #CB1C31 100%);
     border-radius: 31px;
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
     box-shadow: 0px 10px 10px rgba(123,0,0);
     margin-bottom: 20px;   
 }
