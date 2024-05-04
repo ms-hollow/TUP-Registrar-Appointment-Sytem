@@ -23,22 +23,43 @@
     --sidebar: #7b0000;
 }
 
-body.index{
+body.index {
     background-image: none;
+    width: 100%;
     min-height: 100vh;
+    height: auto;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin-bottom: 220px;
 }
 
-body{
+body {
+    width: 100%;
     min-height: 100vh;
+    height: auto;
     color: var(--text-color);
     background-image: url('/assets/images/websiteBG.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media only screen and (min-width: 2000px) {
+    body.index {
+        width: 2000px;
+        padding: auto;
+    }
+
+    body {
+        width: 2000px;
+        margin: auto;
+    }
+}
+
+
+
+
+
 
 
 /* -------------------------------------------- Landing Page -------------------------------------------- */
@@ -183,6 +204,10 @@ button:hover {
     margin-right: 10px;
 }
 
+.title{
+    font-size: 50px;
+}
+
 .right_image {
     flex: 1;
     text-align: right;
@@ -229,7 +254,6 @@ button:hover {
     text-align: justify;
     text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
 
-
 }
 
 .ScheduleAppointment {
@@ -239,7 +263,8 @@ button:hover {
     
 }
 
-/* Media query for screens with a maximum width of 1600 pixels */
+/* Media query for screens with a maximum width of 2300 pixels */
+
 @media only screen and (max-width: 1600px) {
     .container {
         justify-content: space-between;
@@ -1334,8 +1359,46 @@ button:hover {
 
 }
 
+@media only screen and (max-width: 2150px) {
+    .container1 {
+        justify-content: space-between;
+        margin-top: 6%;
+    }
 
-@media only screen and (max-width: 1600px) {
+    .contactrectangle{
+        margin-left: -1%;
+    }
+
+    .contactus-description h2{
+        margin-top: -20%;
+    }
+
+    .contactus-description{
+        font-size: 1.5vw;
+        margin-bottom: -10px;
+        margin-top: 3%;
+    }
+
+    .contactrectangle2{
+        margin-top: 5%;
+        width: 80%;
+        height: 550px;
+    }
+
+    .EntryMessage{
+        height: 50px;
+        margin-bottom: 5px;
+    }
+
+    .EntryMessage1{
+        height: 150px;
+        margin-bottom: 25px;
+    }
+
+}
+
+
+@media only screen and (max-width: 1920px) {
     .container1 {
         justify-content: space-between;
         margin-top: 10%;
@@ -1345,13 +1408,29 @@ button:hover {
         margin-left: -2.5%;
     }
 
+    .contactrectangle2{
+        margin-top: 3%;
+        width: 80%;
+        height: 400px;
+    }
+
     .contactus-description h2{
-        margin-top: -25%;
+        margin-top: -24%;
     }
 
     .contactus-description{
         font-size: 1.5vw;
         margin-top: 3%;
+    }
+
+    .EntryMessage{
+        height: 40px;
+        margin-bottom: 5px;
+    }
+
+    .EntryMessage1{
+        height: 90px;
+        margin-bottom: 20px;
     }
 
 }
@@ -1729,6 +1808,7 @@ button:hover {
     margin-top: 10px;
     margin-bottom: 30px;
     width:100%;
+    height: 30px;
 }
 
 .field {
@@ -1773,6 +1853,8 @@ button:hover {
     margin-left: 35%;
     margin-bottom: 20px;
  }
+
+
 
 @media only screen and (max-width: 1600px){
         .login-container{
@@ -2016,10 +2098,77 @@ button:hover {
     margin-top: 2%;
 }
 
-@media only screen and (max-width: 1600px){
+@media only screen and (max-width: 2150px){
     .reg-container{
         flex-direction: column;
         margin-top: 5%;
+    }
+
+    .reg-labelcontainer{
+        margin-left: 30px;
+    }
+
+    .reg-labelcontainer1{
+        margin-bottom: 10px;
+        height: 90px;
+
+    }
+
+    .register-label, .register-field{
+        margin-bottom: 10px;
+    }
+
+    .password-container{
+        height: 90px;
+    }
+}
+
+@media only screen and (max-width: 1920px){
+    .reg-container{
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .reg-labelcontainer{
+        margin-left: 20px;
+    }
+
+    .reg-labelcontainer1{
+        margin-bottom: 10px;
+        height: 60px;
+
+    }
+
+    .register-label, .register-field{
+        margin-bottom: 5px;
+    }
+
+    .password-container{
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 1400px){
+    .reg-container{
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .reg-labelcontainer{
+        margin-left: 15px;
+    }
+
+    .reg-labelcontainer1{
+        margin-bottom: 5px;
+        height: 50px;
+    }
+
+    .register-label, .register-field{
+        margin-bottom: 5px;
+    }
+
+    .password-container{
+        height: 50px;
     }
 }
 
@@ -2250,6 +2399,11 @@ button:hover {
     .personal-bookinglist{
         margin-bottom: 3px;
     }
+
+    .UpdateBtn { 
+        margin-top: 11px;
+     }
+    
 
     .sidebar-active .main-view{
         
@@ -3348,8 +3502,6 @@ body.sidebar-active .main-view {
     height: auto;
 }
 
-
-
 .personal-label {
     color: #7B0000;
     font-size: 16px;
@@ -3426,9 +3578,56 @@ body.sidebar-active .main-view {
 
 .BookBtn{
     margin-inline: 45%;
-    margin-top: -50px;
+    margin-top: 20px;
 }
 
+@media only screen and (max-width: 1600px){
+    .cont{
+        top: 5%;
+    }
+
+    .sidebar .top .sidebar-logo{
+        margin-top: -2px;
+    }
+
+    .requiredocu-field{
+        width: 88%;
+    }
+
+    .sidebar-active .main-view{
+     
+        .cont{
+            margin-top: 12%;
+            width: 110%;
+        } 
+            
+        .personal-bookingcontainer1{
+            display: inline-flex;
+            margin-bottom: -5px;
+        }
+
+        .personal-bookingcontainer{
+            display: inline-flex;
+        }
+
+        .personal-label{
+            font-size: 14px;
+        }
+
+        .upcoming{
+            font-size: 16px;
+        }
+
+        .requiredocu-label{
+            font-size: 14px;
+        }
+
+        .file-bookingcontainer1 input[type="checkbox"]{
+            height: 12px;
+        }
+
+    }
+}
 
 @media only screen and (max-width: 1400px){
     .cont{
@@ -3441,6 +3640,10 @@ body.sidebar-active .main-view {
 
     .requiredocu-field{
         width: 88%;
+    }
+
+    .BookBtn{
+        margin-top: -46px;
     }
 
     .sidebar-active .main-view{
@@ -3912,8 +4115,8 @@ body.sidebar-active .main-view {
     background: var(--bg-color);
     border-radius: 15px;
     border: 1px solid #e0e0e0;
-    width: 500px; 
-    height: 350px; 
+    width: 700px; 
+    height: 400px; 
     margin: -10px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
                 -10px -10px -10px rgba(225, 225, 225, 1),
@@ -3929,6 +4132,7 @@ body.sidebar-active .main-view {
 
 #dycalendar table{
     width: 100%;
+    height: 70%; 
     margin-top: 40px;
 }
 
@@ -4031,12 +4235,18 @@ body.sidebar-active .main-view {
 
 @media only screen and (max-width: 1400px){  
    .date-time-page{
-    justify-content: space-between;
+        justify-content: space-between;
    }
 
    .BookBtn1{
-    margin-top: 1%;
-}
+        margin-top: 1%;
+    }
+
+    .calendar{
+        height: 350px;
+        width: 500px;
+    }
+
 
    .sidebar-active .main-view{
         .date-time-page{
@@ -4351,14 +4561,6 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Booking Confirmation Page ------------------------------------ */
 
-.booking-confirmation-page {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    text-align: center;
-    justify-content: space-between;
-}
-
 .booking-confirmation {
     text-align: left;
     font-size: 16px;
@@ -4391,12 +4593,12 @@ body.sidebar-active .main-view {
     width: 96%;
     height: 5px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 .booking-confirmation-container input{
-    height: 28px;
+    height: 35px;
     width: 500px;
+    margin-bottom: 20px;
     flex: 1; /* Allow the input to take up the remaining space */
     margin-left: 10px;
 }
@@ -4411,6 +4613,7 @@ body.sidebar-active .main-view {
     font-size: 16px;
     line-height: 28px;
     white-space: nowrap;
+    margin-bottom: 10px;
 }
 
 .label1{
@@ -4422,13 +4625,16 @@ body.sidebar-active .main-view {
     line-height: 20px;   
 }
 
-.QR-image{
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    left: 1050px;
-    top: 180px;
+.QR-image {
+    position: relative;
+}
 
+.QR-image  img {
+    position: absolute;
+    left:65%;
+    width: 160px;
+    height: 160px;
+    margin-top: 30px;
 }
 
 .BookBtn2{
@@ -4441,16 +4647,9 @@ body.sidebar-active .main-view {
         margin-top: 8%;
     }
 
-    .QR-image{
-        margin-left: 2%;
-        margin-top: 50px;
-    }
-
     .BookBtn2{
         margin-top: 3%;
     }
-
-
 }
 
 @media only screen and (max-width: 1400px){
@@ -4458,9 +4657,21 @@ body.sidebar-active .main-view {
         margin-top: 6%;
     }
 
+    .booking-confirmation-container input{
+        height: 28px;
+    }
+
+    .booking-confirmation-container {
+        margin-top: 12px;
+    }
+
+    .label{
+        margin-bottom: 3px;
+    }
+    
     .QR-image{
-        margin-left: -15%;
-        margin-top: 30px;
+        margin-left: 15%;
+        margin-top: -5px;
     }
 
     .BookBtn2{
@@ -4489,12 +4700,13 @@ body.sidebar-active .main-view {
         width:400px;
     }
 
-    .QR-image{
-        margin-left: -35%;
+    .QR-image img{
+        margin-left: 10%;
         margin-top: 10px;
     }
     .BookBtn2{
         margin-left: 50%;
+        margin-top: 50px;
     }
 
     .sidebar-active .main-view{
@@ -4503,9 +4715,9 @@ body.sidebar-active .main-view {
             width:280px;
         }
 
-        .QR-image{
-            margin-left: -70%;
-            margin-top: 40px;
+        .QR-image img{
+            margin-left: 10%;
+            margin-top: 10px;
         }
     }
 }
@@ -4524,13 +4736,13 @@ body.sidebar-active .main-view {
         width:105%;
     }
 
-
-    .QR-image{
-        margin-left: -40%;
+    .QR-image img{
+        margin-left: 8%;
         margin-top: 7px;
     }
     .BookBtn2{
         margin-left: 50%;
+        margin-top: 50px;
     }
 
     .sidebar-active .main-view{
@@ -4539,9 +4751,9 @@ body.sidebar-active .main-view {
             width:230px;
         }
 
-        .QR-image{
-            margin-left: -90%;
-            margin-top: 30px;
+        .QR-image img {
+            margin-left: 15%;
+            margin-top: 10px;
         }
     }
 }
@@ -4555,12 +4767,13 @@ body.sidebar-active .main-view {
         width:200px;
     }
 
-    .QR-image{
-        margin-left: -73%;
+    .QR-image img{
+        margin-left: 10%;
         margin-top: 10px;
     }
     .BookBtn2{
-        margin-left: 45%;
+        margin-left: 40%;
+        margin-top: 50px;
     }
 
     .sidebar-active .main-view{
@@ -4572,20 +4785,21 @@ body.sidebar-active .main-view {
             width:130px;
         }
 
-        .QR-image{
-            margin-left: -148%;
-            margin-top: 20px;
+        .QR-image img{
+            margin-left: 10%;
+            margin-top: 10px;
+            
         }
     }
 }
 
-@media only screen and (max-width: 430px){
+@media only screen and (max-width: 425px){
     .cont{
         margin-top: 25%;
     }
 
     .booking-confirmation-container input{
-        width:140px;
+        width:100px;
         height: 20px;
     }
 
@@ -4595,23 +4809,22 @@ body.sidebar-active .main-view {
 
     .label, .label1{
         font-size: 11px;
-        width: 360px;
+        width: 250px;
     }
 
-    .QR-image{
-        margin-left: -180%;
-        margin-top: -40px;
-        height: 100px;
-        width: 100px;
-       
+    .QR-image img{
+        margin-left: 30%;
+        margin-top: 20px;
+        height: 80px;
+        width: 80px; 
     }
 
     .BookBtn2{
-        margin-left: 45%;
+        margin-top: 60px;
+        margin-left: 50%;
     }
 
     .sidebar-active .main-view{
-     
         .cont{
             margin-top: 60px;
         }
@@ -4621,6 +4834,7 @@ body.sidebar-active .main-view {
         }
         .booking-confirmation-container input{
             width:60px;
+            margin-top: -10px;
         }
 
         .label{
@@ -4634,17 +4848,19 @@ body.sidebar-active .main-view {
         }
 
         .QR-image{
-            margin-left: -1000px;
-            margin-top: -10px;
+            margin-left: 10px;
+            margin-top: 20px;
             height: 80px;
             width: 80px;
         }
 
         .BookBtn2{
-            margin-left: 45%;
+            margin-left: -100px;
+            margin-top: 100px;
 
         }
     }
+
 }
 
 @media only screen and (max-width: 375px){
@@ -4657,32 +4873,23 @@ body.sidebar-active .main-view {
         height: 20px;
     }
 
-    .divider-3{
-        width:170%;
-    }
-
-    .label, .label1{
-        font-size: 11px;
-        width: 290px;
-    }
-
     .QR-image{
-        margin-left: -210%;
-        margin-top: -40px;
+        margin-left: 20%;
+        margin-top: 20px;
         height: 100px;
         width: 100px;
        
     }
 
     .BookBtn2{
-        margin-left: 45%;
+        margin-left: 35%;
         margin-top: 50px;
     }
 
     .sidebar-active .main-view{
-     
         .cont{
-            margin-top: 60px;    
+            margin-top: 60px;  
+            margin-left: -150px;  
         }
 
         .divider-3{
@@ -4868,6 +5075,7 @@ body.sidebar-active .main-view {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
+    padding-bottom: 30px;
     box-shadow: 0px 10px 10px rgba(123,0,0);
     margin-bottom: 20px;   
 }
@@ -4922,6 +5130,8 @@ body.sidebar-active .main-view {
     .login-container{
         flex-direction: column;
     }
+
+  
 
     .sidebar-active .main-view{
         .changepass-container{
