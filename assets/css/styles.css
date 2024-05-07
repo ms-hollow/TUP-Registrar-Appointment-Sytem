@@ -2401,7 +2401,7 @@ button:hover {
     }
 
     .UpdateBtn { 
-        margin-top: 11px;
+        margin-top: 20px;
      }
     
 
@@ -2826,26 +2826,16 @@ body.sidebar-active .main-view {
   }
   
   /* Registrar Information */
-  .registrar-information {
+  .information {
     flex: 2;
   }
   
-  .name {
+  .requests {
     font-size: 15px;
     font-weight: bold;
     margin-bottom: -2px;
   }
-  
-  .registrar {
-    font-size: 15px;
-    margin-bottom: -2px;
-  }
-
-  .address {
-    font-size: 14px;
-    color: #555;
-  }
-  
+   
   /* Status */
   .status {
     flex: 1;
@@ -2909,6 +2899,24 @@ body.sidebar-active .main-view {
   color: var(--bg-color);
 }
 
+.reschedule p{
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+
+.AddBtn{
+    margin-left: 91.5%;
+}
+
+.AddBtn button{
+    border-radius: 50px;
+    padding: 15px;
+    width: 50%;
+}
+
+
 
 @media only screen and (max-width: 1600px){
     .cont{
@@ -2916,6 +2924,10 @@ body.sidebar-active .main-view {
     }
     .appointment-list{
         justify-content: space-between;
+    }
+
+    .information{
+        width: 19%;
     }
 
     .time-and-date{
@@ -2988,6 +3000,15 @@ body.sidebar-active .main-view {
             .appointment-list{
                 width: 100%;
             }
+
+            .AddBtn{
+                margin-left: 95%;
+                
+            }
+
+            .AddBtn button{
+                width: 100%;
+            }
     }
 
     
@@ -3014,7 +3035,7 @@ body.sidebar-active .main-view {
     .status{
         margin-left: 10%;
     }
-    .name, .registrar, .address, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
+    .requests, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
         font-size: 12px;
     }
 
@@ -3060,6 +3081,10 @@ body.sidebar-active .main-view {
         left: 0;
     }
 
+    .AddBtn{
+        margin-left: 88.5%;
+    }
+
     .sidebar-active .main-view{
         margin-top: -4%;
 
@@ -3075,21 +3100,31 @@ body.sidebar-active .main-view {
                 width: 105%;
             }
 
+            .AddBtn{
+                margin-left: 97%;
+                
+            }
+
+            .AddBtn button{
+                width: 220%;
+            }
+
     }
 }
 
 
 
-@media only screen and (max-width: 860px){
+@media only screen and (max-width: 768px){
     .cont{
         margin-top: 20%;
     }
     .appointment-list{
         justify-content: space-between;
+        width: 107%;
     }
 
     .information{
-        width:20%;
+        width:19%;
     }
 
     .welcome-back, .upcoming{
@@ -3099,7 +3134,7 @@ body.sidebar-active .main-view {
     .status{
         margin-left: 10%;
     }
-    .name, .registrar, .address, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
+    .requests, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
         font-size: 12px;
     }
 
@@ -3150,6 +3185,15 @@ body.sidebar-active .main-view {
         left: 0;
     }
 
+    .AddBtn{
+        margin-left: 98%;
+        
+    }
+
+    .AddBtn button{
+        width: 400%;
+    }
+
     .sidebar-active .header-viewAppointments {
 
         .sidebar-menu-btn img{
@@ -3169,25 +3213,35 @@ body.sidebar-active .main-view {
             }
 
             .appointment-list{
-                width: 105%;
+                width: 107%;
             }
+
+            .information{
+                width:15%;
+            }
+        
+            .requests, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
+                font-size: 10px;
+            }
+
+            .AddBtn button{
+                width: 350%;
+            }
+        
+            
     }
 }
 
 
-
-
-
 @media only screen and (max-width: 425px){
-
     /*sidebar inactive*/
    .cont{
        margin-top: 30%;
        margin-left: -50px;
    }
    .appointment-list{
-       flex-direction: row;
-       width: 140%;
+       justify-content: space-between;
+       width: 170%;
    }
 
    .divider-view{
@@ -3195,7 +3249,7 @@ body.sidebar-active .main-view {
    }
 
    .information{
-       width:20%;
+       width:5%;
    }
 
    .welcome-back, .upcoming{
@@ -3205,7 +3259,7 @@ body.sidebar-active .main-view {
    .status{
        margin-left: 10%;
    }
-   .name, .registrar, .address, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
+   .requests, .approved, .time, .date, .day, .cancel-appointment, .reschedule{
        font-size: 8px;
    }
 
@@ -3483,23 +3537,48 @@ body.sidebar-active .main-view {
 .file-bookingcontainer{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    margin: 0 auto;
+    width: 97%;
     margin-bottom: 30px;
-    margin-left: -0.7%;
-    max-width: 100%;
+    margin-left: -1%;
     height: auto;
 }
 
 .file-bookingcontainer1{
-    flex: 1;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-left: 10px;
-    margin-right: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin-bottom: 5px;
     width: 100%;
     height: auto;
+}
+
+.file-bookingcontainer2{
+    display: inline-flex;
+    margin-bottom: 10px;
+    margin-left: 1%;
+    width: 100%;
+    height: auto;
+}
+
+.file-bookingcontainer3{
+    flex: 1;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #7B0000;
+}
+
+.file-bookingcontainer4{
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: auto;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2.5px solid #7B0000;
 }
 
 .personal-label {
@@ -3510,7 +3589,7 @@ body.sidebar-active .main-view {
     margin-left: 10px;
     margin-right: 50px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .personal-field { 
@@ -3522,17 +3601,7 @@ body.sidebar-active .main-view {
     padding: 5px;
     background:none;
     border: 2.5px solid #7B0000;
-}
-
-.requiredocu-field { 
-    flex: 1;
-    font-size: 16px;
-    width: 350px;
-    height: auto;
-    padding: 5px;
-    margin-left: 10px;
-    background:none;
-    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
 }
 
 .requiredocu-label {
@@ -3545,40 +3614,51 @@ body.sidebar-active .main-view {
     margin-bottom: 5px;
 }
 
+.requiredocu-label1 {
+    color: #7B0000;
+    font-size: 16px;
+    font-weight: 800;
+    width: 100%;
+    margin-top: 5px;
+}
+
 .textbooking{
-    margin-right: 10px;
-    font-size: 11px;
+    padding: 5px;
+    font-size: 14px;
     font-style: normal; 
 }
 
-.file-bookingcontainer1 input[type="checkbox"] {
-    height: 15px;
-    width: 15px; /* Optional: To make the checkbox square */
-    margin-top: 5px;
-   
-}
-
-.file-bookingcontainer1 input[type="text"]::placeholder {
-    font-size: 12px;
-    padding-left: 5px;
+.file-bookingcontainer3 input[type="text"]::placeholder {
+    font-size: 16px;
     margin-bottom: 5px;
 
 }
 
-.file-bookingcontainer1 input[type="text"] {
+.file-bookingcontainer3 input {
     padding: 1px;
-    font-size: 12px;
+    font-size: 16px;
     padding-left: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
 }
 
-.file-bookingcontainer1 label {
-    height: 5px; 
-    padding-left: 10px; 
+
+.file-bookingcontainer3 select {
+    height: auto; 
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    padding-left: 5px; 
+    background-color: transparent;
+    outline: none;
+    border: none;
+
 }
 
 .BookBtn{
     margin-inline: 45%;
-    margin-top: 20px;
+    margin-top: 5%;
 }
 
 @media only screen and (max-width: 1600px){
@@ -3590,9 +3670,9 @@ body.sidebar-active .main-view {
         margin-top: -2px;
     }
 
-    .requiredocu-field{
-        width: 88%;
-    }
+    .date-time-page{
+        justify-content: space-between;
+       }
 
     .sidebar-active .main-view{
      
@@ -3618,13 +3698,18 @@ body.sidebar-active .main-view {
             font-size: 16px;
         }
 
-        .requiredocu-label{
-            font-size: 14px;
+        .date-time-page{
+            justify-content: space-between;
+            margin-left: -60px;
+        }
+        .date-and-time{
+            font-size: 16px;
+        }
+        .divider-view{
+            margin-left: 10px;
         }
 
-        .file-bookingcontainer1 input[type="checkbox"]{
-            height: 12px;
-        }
+       
 
     }
 }
@@ -3638,9 +3723,6 @@ body.sidebar-active .main-view {
         margin-top: -2px;
     }
 
-    .requiredocu-field{
-        width: 88%;
-    }
 
     .BookBtn{
         margin-top: -46px;
@@ -3652,15 +3734,7 @@ body.sidebar-active .main-view {
             margin-top: 12%;
             width: 110%;
         } 
-            
-        .personal-bookingcontainer1{
-            display: inline-flex;
-            margin-bottom: -5px;
-        }
-
-        .personal-bookingcontainer{
-            display: inline-flex;
-        }
+     
 
         .personal-label{
             font-size: 14px;
@@ -3677,6 +3751,8 @@ body.sidebar-active .main-view {
         .file-bookingcontainer1 input[type="checkbox"]{
             height: 12px;
         }
+
+        
 
     }
 }
@@ -4079,6 +4155,7 @@ body.sidebar-active .main-view {
     display: flex;
     gap: 100px; 
     padding: 10px;
+    margin-bottom: 8%;
 }
 
 .schedules {
@@ -4577,7 +4654,7 @@ body.sidebar-active .main-view {
     flex-direction: column;
     gap: 5px; 
     padding: 10px;
-    margin-left: -10px;
+    margin-left: -20px;
 }
 
 .information {
@@ -4593,10 +4670,11 @@ body.sidebar-active .main-view {
     width: 96%;
     height: 5px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .booking-confirmation-container input{
-    height: 35px;
+    height: 50px;
     width: 500px;
     margin-bottom: 20px;
     flex: 1; /* Allow the input to take up the remaining space */
@@ -4612,6 +4690,7 @@ body.sidebar-active .main-view {
     font-weight: 500;
     font-size: 16px;
     line-height: 28px;
+    margin-left: 10px;
     white-space: nowrap;
     margin-bottom: 10px;
 }
@@ -4622,19 +4701,59 @@ body.sidebar-active .main-view {
     color: #7B0000;
     font-weight: 500;
     font-size: 16px;
-    line-height: 20px;   
+    line-height: 20px; 
+    margin-bottom: 20px;  
+}
+
+.label2{
+    display: inline-block;
+    width:37px;
+    height: 28px;
+    background: none;
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    margin-left: 1px;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+
+.remarks{ 
+    flex: 1;
+    font-size: 16px;
+    width: 97%;
+    height: 20%;
+    margin-left: 1px;
+    padding: 5px;
+    background:none;
+    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
 }
 
 .QR-image {
-    position: relative;
+   position: absolute;
+    justify-content: center; /* Center the QR image horizontally within the QR box */
+    align-items: center; /* Center the QR image vertically within the QR box */
 }
 
 .QR-image  img {
-    position: absolute;
-    left:65%;
-    width: 160px;
-    height: 160px;
-    margin-top: 30px;
+    left:0;
+    width: 110px;
+    margin-top:-6px; 
+    margin-left:-3px;/* Set width for the QR image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.QR-box{
+    left:0;
+    margin-top: -25px;
+    margin-right: 10px;
+    width: 120px;
+    height: 100px;
+    background:none;
+    border: 2.5px solid #7B0000;
 }
 
 .BookBtn2{
@@ -4649,6 +4768,10 @@ body.sidebar-active .main-view {
 
     .BookBtn2{
         margin-top: 3%;
+    }
+
+    .booking-confirmation-container input{
+        height: 33px;
     }
 }
 
@@ -4669,10 +4792,7 @@ body.sidebar-active .main-view {
         margin-bottom: 3px;
     }
     
-    .QR-image{
-        margin-left: 15%;
-        margin-top: -5px;
-    }
+  
 
     .BookBtn2{
         margin-top: 3%;
@@ -4680,10 +4800,7 @@ body.sidebar-active .main-view {
 
     .sidebar-active .main-view{
      
-        .QR-image{
-            margin-left: -28%;
-            margin-top: 25px;
-        }
+       
     }
         .BookBtn1{
             margin-left: 50%;

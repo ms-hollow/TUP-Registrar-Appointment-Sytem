@@ -1,0 +1,209 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/dycalendar.css">
+    <title>Book Appointments</title>
+</head>
+
+<body>
+    <header class="header-viewAppointments">
+        <div class="sidebar-menu-btn" id="menu-btn">
+            <img src="../assets/images/menu-logo.png" alt="">
+            <div class="category-name"><h1 >Book Appointment</h1></div>
+        </div>
+        <div class="selection">
+            <a href="#"><img src="../assets/images/search-icon.png" class="search"></a>
+            <a href="../Student Side/notification.html"><img src="../assets/images/notif-icon.png" class="notif"></a>
+            <div class="dropdown">
+                <a class="user-dropdown-btn"><img src="../assets/images/user-icon.png" class="user"></a>
+                <div class="dropdown-content">
+                    <a href="../General/index.html">Log Out</a>
+                    <a href="../Student Side/change-password.html">Change Password</a>
+                </div>
+            </div> 
+        </div>
+    </header>
+    <div class="sidebar">
+        <div class="top">
+            <div class="sidebar-logo">
+                <img src="../assets/images/TUP AS LOGO.png" alt="logo">
+            </div>
+            <p class="user-info">Name Here</p>
+        </div>
+        <div class="menu-items">
+            <ul>
+                <li><a href="../Student Side/view-appointments.html">Home</a></li>
+                <li><a href="../Student Side/book-appointment.html">Book Appointment</a></li>
+                <li><a href="../Student Side/profile.html">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-view">
+        <div class="cont">
+            <p class="upcoming">Appointments</p>
+            <hr class="divider-view">
+            <div class="personal-bookinglist">
+                <div class="personal-bookingcontainer"> 
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >First Name</div>
+                        <input type="text" class="personal-field" placeholder="" id="firstName" name="firstName">
+                    </div>
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >Middle Name</div>
+                        <input type="text" class="personal-field" placeholder="" id="middleName" name="middleName">
+                    </div>
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >Last Name</div>
+                        <input type="text" class="personal-field" placeholder="" id="lastName" name="lastName">
+                    </div>
+                </div>       
+           </div> 
+           <div class="personal-bookinglist">
+            <div class="personal-bookingcontainer"> 
+                <div class="personal-bookingcontainer1">
+                    <div class="personal-label">Student Type</div>
+                    <select class="personal-field" id="studentType" name="studentType" required>
+                        <option value="" disabled selected>Select Student Type</option>
+                        <option value="undergraduate">Undergraduate</option>
+                        <option value="graduate">Graduate</option>
+                        <option value="doctorate">Doctorate</option>
+                        <option value="alumni">Alumni</option>
+                    </select>
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="personal-label" >TUP ID</div>
+                    <input type="text" class="personal-field" placeholder="" id="tupID" name="tupID">
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="personal-label" >Course</div>
+                    <input type="text" class="personal-field" placeholder="" id="course" name="course">
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="personal-label" >Year and Section</div>
+                    <input type="text" class="personal-field" placeholder="" id="yearSection" name="yearSection">
+                </div>
+                </div>       
+        </div> 
+            <p class="upcoming">Request/Applying For</p>
+            <hr class="divider-view">
+            <div class="file-bookingcontainer">
+                <div class="file-bookingcontainer1">
+                    <p class="requiredocu-label">No.</p>
+                    <p class="requiredocu-label" >Type of Documents</p>
+                    <p class="requiredocu-label" >No. of Documents</p>
+                    <p class="requiredocu-label" >Purpose</p>
+                </div>
+                
+                 <!-- For Adding New Request -->
+                <div  id=newRequest class="file-bookingcontainer2">
+                    <div class="file-bookingcontainer3">
+                        <input type="text" name="no" placeholder="No.">
+                    </div>
+                    <div class="file-bookingcontainer3">
+                        <select id="request[]" name="request[]" required>
+                            <option value="" disabled selected>Type of Document</option>
+                            <option value="TOR">Transcript of Records (TOR)</option>
+                            <option value="HD">Honorable Dismissal (HD)</option>
+                            <option value="Evaluation">Evaluation/Checklist</option>
+                            <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
+                            <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
+                            <option value="Others">Others</option>    
+                        </select>
+                    </div>
+                    <div class="file-bookingcontainer3">
+                        <input type="text" name="noOfDocu" placeholder="No. of Documents">
+                    </div>
+                    <div class="file-bookingcontainer3">
+                        <input type="text" name="purpose" placeholder="Purpose">
+                    </div>
+                </div>
+                    <div class="file-bookingcontainer2">
+                        <div class="file-bookingcontainer4">
+                        <a id="newRequest"> <p class="requiredocu-label1"> ADD MORE REQUESTS</p> </a>
+                        </div>     
+                    </div>
+
+                <!-- For Adding New Files -->
+                    <div class="file-bookingcontainer1">
+                        <div class="requiredocu-label">Required Documents</div>
+                    </div>
+                    <div id="newFile" class="file-bookingcontainer2">
+                        <div class="file-bookingcontainer3">
+                            <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required>
+                            <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
+                        </div>
+                    </div> 
+                    <div class="file-bookingcontainer2">
+                        <div class="file-bookingcontainer4">
+                           <a id="newFile"> <p class="requiredocu-label1"> ADD MORE FILES</p> </a>
+                        </div>     
+                    </div>
+                            
+                </div>  
+                
+               
+                    <div class="date-and-time">Date and Time</div>
+                    <hr class="divider-view">
+                    <div class="date-time-container">
+                        <div class="schedules">
+                            <div class="schedule-1">
+                                <div class="_8-00-9-00-am">8:00-9:00 am</div>
+                            </div>
+                            <div class="schedule-2">
+                                <div class="_9-00-10-00-am">9:00-10:00 am</div>
+                            </div>
+                            <div class="schedule-3">
+                                <div class="_10-00-11-00-am">10:00-11:00 am</div>
+                            </div>
+                            <div class="schedule-4">
+                                <div class="_11-00-12-00-noon">11:00-12:00 noon</div>
+                            </div>
+                            <div class="schedule-5">
+                                <div class="_12-00-1-00-pm">12:00-1:00 pm</div>
+                            </div>
+                            <div class="schedule-6">
+                                <div class="_1-00-2-00-pm">1:00-2:00 pm</div>
+                            </div>
+                            <div class="schedule-7">
+                                <div class="_2-00-3-00-pm">2:00-3:00 pm</div>
+                            </div>
+                            <div class="schedule-8">
+                                <div class="_3-00-4-00-pm">3:00-4:00 pm</div>
+                            </div>
+                            <div class="schedule-9">
+                                <div class="_4-00-5-00-pm">4:00-5:00 pm</div>
+                            </div>
+                        </div>
+                        <div class="calendar">
+                            <div id="dycalendar"></div>
+                        </div>
+                    </div>
+              <div class="BookBtn">
+                <div class="logInButtonText"><a href="../Student Side/booking-confirmation.html"> <button>PROCEED</button></a></div>
+          </div>
+        </div>            
+    </div>
+        
+    <script src="../assets/js/dycalendar.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month', 
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
+    <script type="text/javascript" src="../assets/js/script.js"></script>
+</body>
+</html>
