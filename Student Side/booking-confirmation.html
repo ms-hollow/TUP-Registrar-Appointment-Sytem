@@ -11,7 +11,7 @@
     <header class="header-viewAppointments">
         <div class="sidebar-menu-btn" id="menu-btn">
             <img src="../assets/images/menu-logo.png" alt="">
-            <div class="category-name"><h1 >Book Appointment</h1></div>
+            <div class="category-name"><h1 >BOOK APPOINTMENT</h1></div>
         </div>
         <div class="selection">
             <a href="#"><img src="../assets/images/search-icon.png" class="search"></a>
@@ -48,11 +48,7 @@
             <hr class="divider-3">
            
             <div class="personal-bookinglist">
-                <div class="QR-box">
-                    <div class="QR-image">
-                        <img src="../assets/images/QR code.png">
-                     </div>
-                </div> 
+                
                 <div class="personal-bookingcontainer"> 
                     <div class="personal-bookingcontainer1">
                      
@@ -100,7 +96,7 @@
             <div class="file-bookingcontainer1">
                 <p class="label">No.</p>
                 <p class="label" >Type of Documents</p>
-                <p class="label" >No. of Documents</p>
+                <p class="label" >No. of Copies</p>
                 <p class="label" >Purpose</p>
             </div>
             
@@ -121,7 +117,7 @@
                     </select>
                 </div>
                 <div class="file-bookingcontainer3">
-                    <input  name="noOfDocu" placeholder="No. of Documents" readonly>
+                    <input  name="noOfCopies" placeholder="No. of Copies" readonly>
                 </div>
                 <div class="file-bookingcontainer3">
                     <input  name="purpose" placeholder="Purpose" readonly>
@@ -142,6 +138,11 @@
             </div>  
             
             <hr class="divider-3">
+            <div class="QR-box">
+                    <div class="QR-image">
+                        <img src="../assets/images/QR code.png">
+                     </div>
+                </div> 
             <div class="booking-confirmation-container">
                 <div class="label">
                     Time and Date:<input class="DateTime"  readonly>
@@ -156,7 +157,7 @@
             <br>
             <div class="label1">The Registrar will verify your appointment information. We will notify you about the status of your appointment. Thank you!</div>    
             <div class="label2">Remarks:</div>
-            <input class="remarks" id="remarks" name="remarks" >
+            <input class="remarks" id="remarks" name="remarks" readonly >
            
            
         </div> 

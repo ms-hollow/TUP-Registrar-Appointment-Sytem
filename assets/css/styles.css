@@ -3563,7 +3563,7 @@ body.sidebar-active .main-view {
     flex: 1;
     display: inline-flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     height: 40px;
     margin-bottom: 5px;
     padding: 5px;
@@ -3606,6 +3606,7 @@ body.sidebar-active .main-view {
 
 .requiredocu-label {
     color: #7B0000;
+    width: 100%;
     font-size: 16px;
     font-weight: 800;
     margin-right: 50px;
@@ -3675,7 +3676,6 @@ body.sidebar-active .main-view {
        }
 
     .sidebar-active .main-view{
-     
         .cont{
             margin-top: 12%;
             width: 110%;
@@ -3726,6 +3726,10 @@ body.sidebar-active .main-view {
 
     .BookBtn{
         margin-top: -46px;
+    }
+
+    .file-bookingcontainer2{
+        justify-content: space-evenly;
     }
 
     .sidebar-active .main-view{
@@ -3796,6 +3800,11 @@ body.sidebar-active .main-view {
             margin-top: 20%;
             width: 110%;
         }      
+
+        .file-bookingcontainer2{
+            justify-content: space-evenly;
+        }
+
     }
   
 }
@@ -4733,9 +4742,9 @@ body.sidebar-active .main-view {
 }
 
 .QR-image {
-   position: absolute;
-    justify-content: center; /* Center the QR image horizontally within the QR box */
-    align-items: center; /* Center the QR image vertically within the QR box */
+    position: absolute;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .QR-image  img {
@@ -4743,17 +4752,19 @@ body.sidebar-active .main-view {
     width: 110px;
     margin-top:-6px; 
     margin-left:-3px;/* Set width for the QR image */
-    height: auto; /* Maintain aspect ratio */
+    width: 140px;
+    height: 140px;
 }
 
 .QR-box{
-    left:0;
-    margin-top: -25px;
+    left:78.2%;
+    position: absolute;
+    margin-top: -24px;
     margin-right: 10px;
-    width: 120px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background:none;
-    border: 2.5px solid #7B0000;
+    border: 3px solid #7B0000;
 }
 
 .BookBtn2{
@@ -4773,6 +4784,7 @@ body.sidebar-active .main-view {
     .booking-confirmation-container input{
         height: 33px;
     }
+
 }
 
 @media only screen and (max-width: 1400px){
@@ -4791,20 +4803,17 @@ body.sidebar-active .main-view {
     .label{
         margin-bottom: 3px;
     }
-    
-  
 
     .BookBtn2{
         margin-top: 3%;
     }
 
-    .sidebar-active .main-view{
-     
-       
+    .sidebar-active .main-view{      
     }
         .BookBtn1{
             margin-left: 50%;
     }
+    
 }
 
 
@@ -4817,10 +4826,10 @@ body.sidebar-active .main-view {
         width:400px;
     }
 
-    .QR-image img{
-        margin-left: 10%;
-        margin-top: 10px;
+    .QR-box{
+        left: 75%;
     }
+
     .BookBtn2{
         margin-left: 50%;
         margin-top: 50px;
@@ -4832,10 +4841,11 @@ body.sidebar-active .main-view {
             width:280px;
         }
 
-        .QR-image img{
-            margin-left: 10%;
-            margin-top: 10px;
+        .QR-box{
+            left: 68%;
         }
+
+       
     }
 }
 
@@ -5355,4 +5365,45 @@ body.sidebar-active .main-view {
 
 
 
+/* ------------------------------------ End of ChangePassword Page ------------------------------------ */
 
+
+
+/* ------------------------------------ Admin Pages ------------------------------------------------ */
+
+
+/* ------------------------------------ Appointment Page ------------------------------------------------ */
+
+
+
+
+
+/* ------------------------------------ EndAppointment Page ----------------------------------------------- */
+
+
+
+/* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
+
+
+
+
+
+/* ------------------------------------ End of Slot Schedule Page ------------------------------------------ */
+
+
+
+/* ------------------------------------ Notification Page ------------------------------------------------ */
+
+
+
+
+
+/* ------------------------------------ End of Notification Page ------------------------------------------ */
+
+
+
+/* ------------------------------------ Profile Page ------------------------------------------------ */
+
+
+
+/* ------------------------------------ End of Profile Page ------------------------------------------ */
