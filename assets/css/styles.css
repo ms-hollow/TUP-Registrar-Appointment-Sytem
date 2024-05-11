@@ -37,7 +37,6 @@ body {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    color: var(--text-color);
     background-image: url('/assets/images/websiteBG.png');
     background-attachment: fixed;
     background-size: cover;
@@ -2555,6 +2554,7 @@ button:hover {
 
 
 /* ------------------------------------ View Appointments Page ------------------------------------ */
+
 .header-viewAppointments {
     position: fixed;
     width: 100%;
@@ -5374,9 +5374,103 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Appointment Page ------------------------------------------------ */
 
+.title-appointment {
+	
+	position: absolute;
+	transform: translateX(-50%);
+	top: -40px;
+	left: 70px;
+	font-size: 30px;
+	color: var(--text-color);
+	
+}
 
+.line {
+	position: absolute;
+    border: 1px solid var(--sidebar);
+    border-width: 5px 0 0; 
+    margin: 50px 0;
+    margin-top: 180px; 
+    margin-left: 100px;
+    width: 90%;
+    
+}
 
+.search-container {
+	
+	transform: translateX(-50%);
+	top: -55px;
+	left: 1580px;
+	position: relative;
+    display: flex;
+    align-items: center;
+    width: 300px; 
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    overflow: hidden; 
 
+}
+
+.search-bar {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px; 
+    margin-left: 40px;
+    font-size: 16px; 
+}
+
+.search-icon-app {
+	
+	width: 25px;
+	height: auto;
+	margin-right: 250px;
+	position: absolute; 
+    right: 10px;
+    cursor: pointer;
+}
+
+.column-name {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--sidebar);
+  margin-bottom: 120px;
+}
+
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+td {
+  border: 2px solid #ddd;
+  border-radius: 10px; 
+  padding: 5px;
+  text-align: left;
+  height: 50px;
+  
+}
+thead {
+  margin-bottom: 20px; /* Add margin between thead and tbody */
+}
+
+tbody {
+  margin-top: 20px; /* Add margin between thead and tbody */
+}
+
+input {
+  border: none;
+  width: 100%;
+  padding: 5px;
+  outline: none;
+}
+.centered-blue {
+    text-align: center;
+    color: blue; 
+    margin-top: 20px; 
+}
 
 /* ------------------------------------ EndAppointment Page ----------------------------------------------- */
 
