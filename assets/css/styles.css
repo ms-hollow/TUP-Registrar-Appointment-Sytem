@@ -37,7 +37,8 @@ body {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-image: url('/assets/images/websiteBG.png');
+    background-color: black;
+   /* background-image: url('/assets/images/websiteBG.png');*/
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -5374,12 +5375,33 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Appointment Page ------------------------------------------------ */
 
+
+.main-view-app {
+    margin-left: 0;
+    transition: all 0.90s ease;
+    width: 80%;
+   
+}
+
+.sidebar-active .main-view-app {
+	
+	    margin-left: 200px; 
+	    width: 70%;
+	    transition: all 0.90s ease;
+
+}   
+
+.sidebar-active .line{
+	
+	width: 75%;
+}
+
 .title-appointment {
 	
 	position: absolute;
 	transform: translateX(-50%);
 	top: -40px;
-	left: 70px;
+	margin-left: 70px;
 	font-size: 30px;
 	color: var(--text-color);
 	
@@ -5391,16 +5413,20 @@ body.sidebar-active .main-view {
     border-width: 5px 0 0; 
     margin: 50px 0;
     margin-top: 180px; 
-    margin-left: 100px;
+    margin-left: 80px;
     width: 90%;
     
+}
+
+.sidebar-active .search-container{
+	margin-left: -20%;
 }
 
 .search-container {
 	
 	transform: translateX(-50%);
 	top: -55px;
-	left: 1580px;
+	left: 1080px;
 	position: relative;
     display: flex;
     align-items: center;
@@ -5408,6 +5434,10 @@ body.sidebar-active .main-view {
     border: 1px solid #ccc;
     border-radius: 10px; 
     overflow: hidden; 
+    background-color: white;
+    margin-left: 0;
+    transition: all 0.90s ease;
+    
 
 }
 
@@ -5428,6 +5458,7 @@ body.sidebar-active .main-view {
 	position: absolute; 
     right: 10px;
     cursor: pointer;
+    background-color: white;
 }
 
 .column-name {
@@ -5446,31 +5477,26 @@ table {
 
 td {
   border: 2px solid #ddd;
-  border-radius: 10px; 
-  padding: 5px;
   text-align: left;
   height: 50px;
+  background-color: white;
   
-}
-thead {
-  margin-bottom: 20px; /* Add margin between thead and tbody */
-}
-
-tbody {
-  margin-top: 20px; /* Add margin between thead and tbody */
 }
 
 input {
   border: none;
   width: 100%;
-  padding: 5px;
+  padding: 8px;
   outline: none;
+ 
 }
 .centered-blue {
     text-align: center;
     color: blue; 
     margin-top: 20px; 
 }
+
+
 
 /* ------------------------------------ EndAppointment Page ----------------------------------------------- */
 
