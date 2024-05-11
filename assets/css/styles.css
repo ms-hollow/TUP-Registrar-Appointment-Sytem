@@ -37,8 +37,7 @@ body {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: black;
-   /* background-image: url('/assets/images/websiteBG.png');*/
+    background-image: url('/assets/images/websiteBG.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
