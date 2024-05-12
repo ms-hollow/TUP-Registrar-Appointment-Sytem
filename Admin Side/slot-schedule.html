@@ -4,6 +4,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/dycalendar.css">
+
+
     <title>Slots Schedule</title>
 </head>
 
@@ -42,9 +45,47 @@
         </div>
     </div>
 
-    
-        
-  
+    <div class="main-view">
+        <div class="cont">
+            <p class="upcoming">Slot Schedule</p>
+            <hr class="divider-3">
+                <div class="slot-container">
+                    <div class= "slot-container1">
+                        <div class="information">
+                            <p class="tor1" id = "requests"> Transcripts of Records </p>
+                        </div>
+                      
+                        <div class= "slot-clock1">
+                            <div class="bx bx-time">
+                                <h6 class= "slot-sched1">Friday 9:00 - 10:00 am</h6>
+                            </div>
+                        </div>
+                       
+                        <div class="button">
+                            <div class="slot-view-details">
+                                <a href="../Admin Side/appointment-details.html"> <p> View Full Details</p></a>
+                            </div>
+                        </div>
+                </div>
+					<div class="calendar-slot">
+                       <div id="dycalendar"></div>       
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/dycalendar.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month', 
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
+
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>

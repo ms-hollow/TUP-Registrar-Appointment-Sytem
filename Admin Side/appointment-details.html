@@ -42,9 +42,123 @@
         </div>
     </div>
 
-    
-        
-  
+    <div class="main-view">
+        <div class="cont">
+           
+            <p class="upcoming">Appointment Confirmation</p>
+            <hr class="divider-3">
+           
+            <div class="personal-bookinglist">
+                
+                <div class="personal-bookingcontainer"> 
+                    <div class="personal-bookingcontainer1">
+                     
+                        
+                        <div class="label" >First Name</div>
+                        <input class="personal-field" id="firstName" name="firstName" readonly>
+                    </div>
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="label" >Middle Name</div>
+                        <input  class="personal-field" id="middleName" name="middleName" readonly>
+                    </div>
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="label" >Last Name</div>
+                        <input  class="personal-field" id="lastName" name="lastName" readonly>
+                    </div>
+                </div>         
+           </div> 
+           <div class="personal-bookinglist">
+            <div class="personal-bookingcontainer"> 
+                <div class="personal-bookingcontainer1">
+                    <div class="label">Student Type</div>
+                    <input  class="personal-field" id="studentType" name="studentType" readonly>
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="label" >TUP ID</div>
+                    <input class="personal-field" id="tupID" name="tupID" readonly>
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="label" >Course</div>
+                    <input  class="personal-field" id="course" name="course" readonly>
+                </div>
+
+                <div class="personal-bookingcontainer1">
+                    <div class="label" >Year and Section</div>
+                    <input class="personal-field" id="yearSection" name="yearSection" readonly>
+                </div>
+                </div>       
+        </div> 
+
+        <table class="file-bookingcontainer">
+            <tr>
+                <th class="requiredocu-label">No.</th>
+                <th class="requiredocu-label" >Type of Documents</th>
+                <th class="requiredocu-label" >No. of Copies</th>
+                <th class="requiredocu-label" >Purpose</th>
+            </tr>
+        </table>
+            
+             <!-- For Adding New Request -->
+        <table id="newRequest" class="file-bookingcontainer2">
+            <tr>
+                <td><input type="text" name="no" placeholder="No." disabled></td>
+                <td>
+                    <select id="request[]" name="request[]" required disabled>
+                        <option value="" disabled selected>Type of Document</option>
+                        <option value="TOR">Transcript of Records (TOR)</option>
+                        <option value="HD">Honorable Dismissal (HD)</option>
+                        <option value="Evaluation">Evaluation/Checklist</option>
+                        <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
+                        <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
+                        <option value="Others">Others</option>    
+                    </select>
+                </td>
+                <td ><input type="text" name="noOfCopies" placeholder="No. of Copies" disabled></td>
+                <td><input type="text" name="purpose" placeholder="Purpose" disabled></td>
+            </tr>
+        </table>
+            
+
+         <!-- For Adding New Files -->
+        <div class="file-bookingcontainer1">
+            <div class="requiredocu-label1">Required Documents</div>
+        </div>
+            <div id="newFile" class="file-bookingcontainer2">
+                <div class="file-bookingcontainer3">
+                    <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required disabled>
+                    <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
+                </div>
+            </div> 
+                       
+            <hr class="divider-3">
+            <div class="QR-box">
+                    <div class="QR-image">
+                        <img src="../assets/images/QR code.png">
+                     </div>
+                </div> 
+            <div class="booking-confirmation-container">
+                <div class="label">
+                    Time and Date:<input class="DateTime"  readonly>
+                </div>
+                <div class="label">
+                    Status: <input class="status"  readonly>
+                </div>
+                <div class="label">
+                    Transaction Number:<input class="transNum"  readonly> 
+                </div>
+            </div>
+            <br>
+            <div class="label1">The Registrar will verify your appointment information. We will notify you about the status of your appointment. Thank you!</div>    
+            <div class="label2">Remarks:</div>
+            <input class="remarks" id="remarks" name="remarks" readonly >
+           
+           </div> 
+        </div>       
+    </div> 
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>
