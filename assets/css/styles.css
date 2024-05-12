@@ -2800,6 +2800,7 @@ body.sidebar-active .main-view {
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
+    color: #7B0000;
   }
   
   /* Divider Line */
@@ -5419,6 +5420,8 @@ body.sidebar-active .main-view {
 
 .sidebar-active .search-container{
 	margin-left: -20%;
+	transition: all 0.70s ease;
+    
 }
 
 .search-container {
@@ -5435,7 +5438,7 @@ body.sidebar-active .main-view {
     overflow: hidden; 
     background-color: white;
     margin-left: 0;
-    transition: all 0.90s ease;
+    transition: all 0.70s ease;
     
 
 }
@@ -5503,9 +5506,102 @@ input {
 
 /* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
 
+.slot-container1 {
+	margin-top: 20px; margin-left: 5px;
+	background-color: white;
+	border: none; border-radius: 8px;
+	width: 520px; height: 73px;
+	display: flex;
+    justify-content: center; align-items: center;
+    
+}
 
 
+.slot-container2 {
+	margin-top: 10px; margin-left: 5px;
+	background-color: white;
+	border: none; border-radius: 8px;
+	width: 520px; height: 73px;
+	display: flex;
+    justify-content: center; align-items: center;
+}
 
+.calendar-container {
+	
+	margin-top: -156px; margin-left: 530px;
+	background-color: white;
+	border: none; border-radius: 8px;
+	width: 720px; height: 365px;
+	
+}
+.calendar-slot {
+    background: var(--bg-color);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    width: 720px;
+    height: 350px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+                -10px -10px -10px rgba(225, 225, 225, 1),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+    inset: -10px -10px -10px rgba(225, 225, 225, 1);
+    justify-content: right;
+}
+
+.dycalendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px; 
+    margin-bottom: -29px;
+}
+
+
+.tor1{
+	position: absolute;
+	margin-left: -330px;
+	font-size: 14px;
+	
+}
+
+.tor2{
+	position: absolute;
+	margin-left: -330px;
+	font-size: 14px;
+	
+}
+
+.slot-clock1{
+	margin-right: 80px;
+	position: absolute;
+}
+
+.slot-clock2{
+	margin-right: 80px;
+	position: absolute;
+
+}
+
+.slot-sched1{
+	position:absolute;
+	margin-left: 60px;
+	font-size: 12px;
+}
+
+.slot-sched2{
+	position:absolute;
+	margin-left: 60px;
+	font-size: 12px;
+}
+
+.slot-view-details{ 
+    margin-left: 360px;
+}
+
+.slot-view-details2{
+	margin-top: 5px;
+    margin-left: 360px;
+    
+}
 
 /* ------------------------------------ End of Slot Schedule Page ------------------------------------------ */
 

@@ -42,9 +42,52 @@
         </div>
     </div>
 
+	<div class="main-view-app">
+			<div class= "line">
+				<div class= "title-appointment"><h6>Slot Schedule</h6></div>
+				<div class= "slot-container1">
+					<b class="tor1">Transcripts of Records</b>
+					<div class= "slot-clock1">
+						<img src="../assets/images/clock.png" alt="clock">
+						</div>
+					<h6 class= "slot-sched1">Fri 9:00 - 10:00 am</h6>
+					<div class="slot-view-details">
+                		<div class="logInButtonText"><a href="../Admin Side/appointment-details.html"> <button>View Full Details</button></a></div>
+          			</div>
+				</div>
+				<div class= "slot-container2">
+					<b class="tor2">Transcripts of Records</b>
+					<div class= "slot-clock2">
+						<img src="../assets/images/clock.png" alt="clock">
+						</div>
+					<h6 class= "slot-sched2">Fri 9:00 - 10:00 am</h6>
+					<div class="slot-view-details2">
+                		<div class="logInButtonText"><a href="../Admin Side/appointment-details.html"> <button>View Full Details</button></a></div>
+          			</div>
+				</div>
+				<div class= "calendar-container">
+					<div class="calendar-slot">
+                            <div id="dycalendar"></div>
+                           
+                    </div>
+				</div>
+				
+				
+			 </div>
+	</div>
     
         
-  
+  	<script src="../assets/js/dycalendar.js"></script>
+    <script>
+        dycalendar.draw({
+            target: '#dycalendar',
+            type: 'month', 
+            dayformat: 'full',
+            monthformat: 'full',
+            highlighttargetdate: true,
+            prevnextbutton: 'show'
+        })
+    </script>
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>
