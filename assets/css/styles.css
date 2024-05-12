@@ -5392,7 +5392,7 @@ body.sidebar-active .main-view {
 }   
 
 .sidebar-active .line{
-	
+    transition: all 0.70s ease;
 	width: 75%;
 }
 
