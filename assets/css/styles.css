@@ -5506,6 +5506,22 @@ input {
 
 /* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
 
+.main-view-view {
+    margin-left: 0;
+    transition: all 0.90s ease;
+    width: 80%;
+   
+}
+
+.sidebar-active .main-view-view {
+	
+	    margin-left: 200px; 
+	    width: 70%;
+	    transition: all 0.90s ease;
+
+} 
+
+
 .slot-container1 {
 	margin-top: 20px; margin-left: 5px;
 	background-color: white;
@@ -5526,14 +5542,29 @@ input {
     justify-content: center; align-items: center;
 }
 
+.sidebar-active .calendar-container {
+	
+	    margin-right: 70%;
+	    width: 500px; height: 365px;
+	    transition: all 0.90s ease;
+
+} 
 .calendar-container {
 	
-	margin-top: -156px; margin-left: 530px;
+	margin-top: -156px; margin-left: 530px; 
 	background-color: white;
 	border: none; border-radius: 8px;
 	width: 720px; height: 365px;
+    transition: all 0.70s ease;
 	
 }
+.sidebar-active .calendar-slot {
+	
+	    margin-right: 70%;
+	    width: 500px; height: 365px;
+	    transition: all 0.90s ease;
+
+} 
 .calendar-slot {
     background: var(--bg-color);
     border-radius: 8px;
@@ -5545,7 +5576,9 @@ input {
                 inset 10px 10px 10px rgba(0, 0, 0, 0.1);
     inset: -10px -10px -10px rgba(225, 225, 225, 1);
     justify-content: right;
+    transition: all 0.70s ease;
 }
+
 
 .dycalendar-header {
     display: flex;
@@ -5553,6 +5586,7 @@ input {
     align-items: center; 
     height: 50px; 
     margin-bottom: -29px;
+    padding: 20px;
 }
 
 
@@ -5593,14 +5627,27 @@ input {
 	font-size: 12px;
 }
 
-.slot-view-details{ 
+.slot-view-details { 
     margin-left: 360px;
 }
 
 .slot-view-details2{
-	margin-top: 5px;
     margin-left: 360px;
     
+}
+
+.view-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+    color: white;
+}
+
+.view-button:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
 }
 
 /* ------------------------------------ End of Slot Schedule Page ------------------------------------------ */
