@@ -4279,6 +4279,7 @@ table th {
     border: 1px solid #e0e0e0;
     width: 100%; 
     height: auto; 
+    padding: 20px;
     margin: -10px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
                 -10px -10px -10px rgba(225, 225, 225, 1),
@@ -4573,7 +4574,6 @@ table th {
     padding: 5px;
     background:none;
     border: 2.5px solid #7B0000;
-    margin-bottom: 10px;
 }
 
 .QR-image {
@@ -4605,6 +4605,7 @@ table th {
 .BookBtn2{
     margin-inline: 45%;
     margin-bottom: 5%;
+
 }
 
 @media only screen and (max-width: 1600px){
@@ -4647,13 +4648,9 @@ table th {
         margin-bottom: 3px;
     }
 
-    .BookBtn2{
-        margin-top: 3%;
-    }
-
     .sidebar-active .main-view{      
     }
-        .BookBtn1{
+        .BookBtn2{
             margin-left: 50%;
     }
     
@@ -5303,7 +5300,7 @@ table th {
 
  @media only screen and (max-width: 1400px){
     .search-container{
-        margin-left: -26.5%;
+        margin-left: -24.5%;
         width: 26%;
         margin-top: 2%;
     }
@@ -5318,14 +5315,14 @@ table th {
     .sidebar-active .main-view{
         .search-container{
             margin-top: 3%;
-            margin-left: -43%;
+            margin-left: -39%;
             width: 30%;
         }
 
         table tbody input{
             outline: none;
             border: none;
-            width: 135px; 
+            width: 140px; 
             padding-left: 5px;
         }
     }
@@ -5392,17 +5389,231 @@ table th {
     }
  }
 
-
-
 /* ------------------------------------ EndAppointment Page ----------------------------------------------- */
-
-
 
 /* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
 
+.slot-container{
+    display: flex;
+    gap: 100px; 
+    padding: 10px;
+    margin-bottom: 8%;
+    flex-direction: row;
+    margin-left:-15px;
+}
+
+.slot-container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 60px;
+    width: 50%;
+}
 
 
+.sidebar-active .slot-container1 {	
+    width: 50%; height: 60px;
+  
+} 
 
+.sidebar-active .calendar-slot {
+	    width: 500px; height: 365px;
+	   
+} 
+
+.calendar-slot {
+    background: var(--bg-color);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 600px;
+    height: 380px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+                -10px -10px -10px rgba(225, 225, 225, 1),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+    inset: -10px -10px -10px rgba(225, 225, 225, 1);
+    justify-content: right;
+}
+
+.calendar-slot #dycalendar-slot{
+    width: 100%;
+}
+
+
+.dycalendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px; 
+    margin-bottom: -29px;
+    padding: 20px;
+}
+
+.tor1{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: -2px;
+	
+}
+
+.slot-clock1{
+    display: inline;
+    align-items: center;
+    margin-left: 40%;
+    margin-right: 1%;
+    padding: 5px;
+    border-radius: var(--Radius-rounded-lg, 8px);
+    border: 1px solid #7B0000;
+    width: 230px;
+}
+
+.slot-sched1{
+    flex: 1;
+    display: inline;
+    font-size: 12px;
+    margin-right: 5px;
+	color: var(--text-color);
+}
+
+
+.slot-view-details { 
+    flex: 1;
+    width: 160px;
+    padding: 5px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+}
+
+.slot-view-details p {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.slot-view-details:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
+}
+
+
+@media only screen and (max-width: 1600px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+}
+
+@media only screen and (max-width: 1400px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+    .slot-container1{
+        width: 70%;
+    }
+
+    .sidebar-active .main-view{
+        .slot-container1{
+            width: 70%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1024px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+    .slot-container1{
+        width: 50%;
+    }
+
+    .tor1, .slot-sched1, .slot-view-details p{
+        font-size: 10px;
+    }
+
+    .slot-view-details{
+        width: 120px; 
+    }
+
+    .calendar-slot{
+        width: 400px;
+        margin-left: -10%;
+    }
+
+    .sidebar-active .main-view{
+        .slot-container1{
+            width: 70%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .slot-container{
+        flex-direction: column-reverse;
+    }
+
+    .calendar-slot{
+        width: 500px;
+        margin-left: 10%;
+    }
+
+    .slot-container1{
+        width: 105%;
+        margin-left: 1%;
+    }
+
+    .sidebar-active .main-view{
+        .calendar-slot{
+            width: 380px;
+            margin-left: 10%;
+        }
+
+        .slot-container1{
+            width: 105%;
+            margin-left: 3%;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .calendar-slot{
+        width: 280px;
+        margin-left: 5%;
+    }
+
+    .slot-container1{
+        width: 165%;
+        margin-left: 1%;
+    }
+
+    .slot-view-details{
+        width: 70px; 
+    }
+
+    .sidebar-active .main-view{
+        .calendar-slot{
+            width: 230px;
+            margin-left: 5%;
+        }
+
+        .slot-container1{
+            width: 230px;
+            margin-left: 1%;
+        }
+
+        .slot-view-details{
+            width: 50px; 
+        }
+    }
+}
 
 /* ------------------------------------ End of Slot Schedule Page ------------------------------------------ */
 
