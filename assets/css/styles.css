@@ -5105,15 +5105,11 @@ table th {
         flex-direction: column;
     }
 
-  
-
     .sidebar-active .main-view{
         .changepass-container{
             margin-left: 40px;
-    }
-       
-    }
-  
+    	}
+ 	}
  }
 
  @media only screen and (max-width: 1024px){
@@ -5300,7 +5296,7 @@ table th {
 
  @media only screen and (max-width: 1400px){
     .search-container{
-        margin-left: -24.5%;
+        margin-left: -26.5%;
         width: 26%;
         margin-top: 2%;
     }
@@ -5315,14 +5311,14 @@ table th {
     .sidebar-active .main-view{
         .search-container{
             margin-top: 3%;
-            margin-left: -39%;
+            margin-left: -43%;
             width: 30%;
         }
 
         table tbody input{
             outline: none;
             border: none;
-            width: 140px; 
+            width: 134px; 
             padding-left: 5px;
         }
     }
