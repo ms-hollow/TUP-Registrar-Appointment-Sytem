@@ -37,7 +37,7 @@ body {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-image: url('/assets/images/websiteBG.png');
+    background-image: url('../assets/images/websiteBG.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -5605,12 +5605,12 @@ input {
 }
 
 .slot-clock1{
-	margin-right: 80px;
+	margin-right: 85px;
 	position: absolute;
 }
 
 .slot-clock2{
-	margin-right: 80px;
+	margin-right: 85px;
 	position: absolute;
 
 }
@@ -5618,13 +5618,15 @@ input {
 .slot-sched1{
 	position:absolute;
 	margin-left: 60px;
-	font-size: 12px;
+	font-size: 11px;
+	color: var(--text-color);
 }
 
 .slot-sched2{
 	position:absolute;
 	margin-left: 60px;
-	font-size: 12px;
+	font-size: 11px;
+	color: var(--text-color);
 }
 
 .slot-view-details { 
