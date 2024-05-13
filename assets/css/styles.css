@@ -5338,7 +5338,9 @@ table th {
   table{
     flex: 1;
     border-collapse: collapse;
-    width: 96%; 
+    width: 96%;
+    margin-top: -3%; 
+	  
   }
 
   th{
