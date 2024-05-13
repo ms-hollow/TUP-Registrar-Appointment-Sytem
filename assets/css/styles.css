@@ -1765,6 +1765,7 @@ button:hover {
     padding-left: 40%;
     padding-right: 60px;
     margin-top: 12%;
+    margin-left: -2%;
     width: 70%;
     height: auto;
 }
@@ -1800,14 +1801,15 @@ button:hover {
     background-color: white;
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width:100%;
-    height: 30px;
+    height: 38px;
+
 }
 
 .field {
     color: white;
-    font-size: 1vw; /* Use vw for font size for responsiveness */
+    font-size: 1.1vw; /* Use vw for font size for responsiveness */
     font-weight: 800;
 }
 
@@ -1815,7 +1817,9 @@ button:hover {
     color: white;
     font-size: .8vw; /* Use vw for font size for responsiveness */
     font-weight: 600;
-    margin-left: 49%;
+    margin-top: 15px;
+    width: 100%;
+    margin-left: 54%;
 }
 
 .field2 {
@@ -1828,6 +1832,7 @@ button:hover {
 
 .Loginrectangle2 a{
     font-size: 1vw;
+
 }
 
 .password-container {
@@ -2350,12 +2355,59 @@ button:hover {
 
 /* -------------------------------------------- Profile -------------------------------------------- */
 
-.UpdateBtn { 
-    margin-left: 45%;
-    margin-top: 15px;
- }
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
 
- 
+.user-profile-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: -0.7%;
+    max-width: 100%;
+    height: auto;
+}
+
+.user-profile-container1{
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-right: 50px;
+    margin-bottom: -5px;
+    width: 100%;
+    height: auto;
+}
+
+.user-label {
+    color: #7B0000;
+    font-size: 16px;
+    font-weight: 800;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.user-field { 
+    flex: 1;
+    font-size: 16px;
+    width: 100%;
+    height: 50%;
+    margin-left: 10px;
+    padding: 5px;
+    background:none;
+    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
+}
+
  .student {
     position: relative;
     padding-left: 140px;
@@ -2370,28 +2422,44 @@ button:hover {
     height: 100px;
     margin-right: 10px; /* Adjust the margin as needed */
 }
+.UpdateBtn { 
+    margin-left: 45%;
+    margin-top: 15px;
+ }
+
 
  @media only screen and (max-width: 1600px){
     .cont{
        justify-content: space-between;  
     }
+
+    .sidebar-active .main-view{          
+        .user-profile-container1{
+            display: inline-flex;
+            margin-bottom: -5px;
+        }
+
+        .user-profile-container{
+            display: inline-flex;
+        }
+
+        .user-label{
+            font-size: 14px;
+        }
+
+    }
 }
 
+
 @media only screen and (max-width: 1400px){
-    .cont{
-        margin-top: 7%;
-    }
 
     .sidebar .top .sidebar-logo{
         margin-top: -2px;
     }
 
-    .requiredocu-field{
-        width: 88%;
-    }
-
-    .personal-bookinglist{
+    .user-profile{
         margin-bottom: 3px;
+        display: inline-flex;
     }
 
     .UpdateBtn { 
@@ -2399,28 +2467,15 @@ button:hover {
      }
     
 
-    .sidebar-active .main-view{
-        
+    .sidebar-active .main-view{      
         .cont{
             margin-top: 10%;
             width: 110%;  
         } 
-            
-        .personal-bookingcontainer1{
-            display: inline-flex;
-            margin-bottom: -5px;
-        }
-
-        .personal-bookingcontainer{
-            display: inline-flex;
-        }
-
-        .personal-bookinglist{
+              
+        .user-profile{
             margin-bottom: 3px;
-        }
-
-        .personal-label{
-            font-size: 14px;
+            display: inline-flex;
         }
 
         .UpdateBtn{
@@ -2428,6 +2483,42 @@ button:hover {
         }
     }
 }
+
+
+@media only screen and (max-width: 1024px){
+
+    .sidebar .top .sidebar-logo{
+        margin-top: -2px;
+    }
+
+    .user-profile{
+        margin-bottom: 10%;
+        display: inline-flex;
+    }
+
+
+    .UpdateBtn { 
+        margin-top: 20px;
+     }
+    
+
+    .sidebar-active .main-view{      
+        .cont{
+            margin-top: 10%;
+            width: 110%;  
+        } 
+              
+        .user-profile{
+            margin-bottom: 3px;
+            display: inline-flex;
+        }
+
+        .UpdateBtn{
+            margin-top: 10px;
+        }
+    }
+}
+
 
 @media only screen and (max-width: 768px){
     .cont{
@@ -2438,14 +2529,18 @@ button:hover {
         margin-top: -2px;
     }
 
-    .personal-bookinglist{
-        margin-bottom: 3px;
-        width: 115%;
+    .user-profile-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .personal-bookingcontainer1{
-        margin-bottom: -5px;
-       
+    .user-field{
+        margin-bottom: 20px;
+        width: 93%;
+    }
+
+    .user-profile{
+        margin-bottom: 3%;
     }
 
     .student img {
@@ -2458,29 +2553,21 @@ button:hover {
             margin-top: 30%;
             width: 110%;  
         } 
-            
-        .personal-bookingcontainer1{
-            margin-bottom: -5px;
-            width: 160px;
-            margin-right: 5px;
-        }
 
-        .personal-bookingcontainer{
+        .user-profile-container{
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
         }
-
-        .personal-bookinglist{
-            margin-bottom: 3px;
-        }
-
+    
+            
         .student img {
             margin-top: 15px;
             left:10px;
         }
 
-        .personal-label{
-            font-size: 14px;
+
+        .user-field{
+            width: 105%;
         }
 
         .UpdateBtn{
@@ -2499,41 +2586,40 @@ button:hover {
         margin-top: -2px;
     }
 
-    .personal-bookinglist{
-        margin-bottom: 3px;
-        width: 115%;
+    .user-profile-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .personal-bookingcontainer1{
-        margin-bottom: -5px;
-       
+    .user-profile-container1{
+        width: 90%;
+    }
+
+    .user-label{
+        font-size: 10px;
+    }
+
+    .student img {
+        margin-top: 35px;
+        width: 80px;
+        height: 80px;
     }
     
+
     .sidebar-active .main-view{
       
         .cont{
-            margin-top: 60px;
-            width: 110%;  
-        } 
-            
-        .personal-bookingcontainer1{
-            margin-bottom: -5px;
-            margin-right: 5px;
-            width:550%;
+            margin-top: 10px;
+            width: 110%;
         }
 
-        .personal-bookingcontainer{
-            display: inline-flex;
-            width:120px;
+        .user-label{
+                font-size: 10px;
         }
 
-        .personal-bookinglist{
-            margin-bottom: 3px;
-          
-        }
-
-        .personal-label{
-            font-size: 14px;
+        .user-profile-container1{
+            width: 60%;
+            margin-left: -5%;
         }
 
         .UpdateBtn{
@@ -2609,20 +2695,19 @@ button:hover {
     transition: margin-right 0.5s ease; 
 }
 
+
 /* Dropdown container */
 .dropdown {
     position: relative;
     display: inline-block;
   }
   
-  /* Style the user icon button */
   .user-dropdown-btn {
     background-color: none;
     border: none;
     cursor: pointer;
   }
   
-  /* Dropdown content */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -2632,7 +2717,7 @@ button:hover {
     z-index: 1;
   }
   
-  /* Style the links inside the dropdown */
+
   .dropdown-content a {
     color: #ffffff;
     font-size: 12px;
@@ -2641,12 +2726,11 @@ button:hover {
     display: block;
   }
   
-  /* Show the dropdown content when the user clicks on the button */
+
   .dropdown:hover .dropdown-content {
     display: block;
   }
   
-  /* Style the dropdown button on hover */
   .dropdown:hover .user-dropdown-btn a {
     background-color: none;
   }
@@ -5055,30 +5139,27 @@ table th {
 }
 
 
-.fieldLabel {
+.fieldLabel-pass {
     background-color: white;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 30px;
     width:100%;
+    height: 38px;
 }
 
-.field {
+.field-pass {
     color: white;
     font-size: 1vw; /* Use vw for font size for responsiveness */
     font-weight: 800;
+    margin-bottom: 5px;
 }
 
-.field1 {
-    color: white;
-    font-size: .8vw; /* Use vw for font size for responsiveness */
-    font-weight: 600;
-    margin-left: 59%;
-}
 
 .password-container {
     flex: 1;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .toggle-password {
@@ -5089,27 +5170,25 @@ table th {
     cursor: pointer;
 }
 
-.logInButton { 
-    margin-left: 35%;
-    margin-bottom: 20px;
- }
+
 
  @media only screen and (max-width: 1600px){
-    .login-container{
+    .changepass-container{
         flex-direction: column;
     }
  }
 
  @media only screen and (max-width: 1400px){
-    .login-container{
+    .changepass-container{
         flex-direction: column;
     }
-
     .sidebar-active .main-view{
         .changepass-container{
-            margin-left: 40px;
-    	}
- 	}
+            padding-left: 35%;
+            
+    }     
+}
+  
  }
 
  @media only screen and (max-width: 1024px){
@@ -5296,7 +5375,7 @@ table th {
 
  @media only screen and (max-width: 1400px){
     .search-container{
-        margin-left: -26.5%;
+        margin-left: -24.5%;
         width: 26%;
         margin-top: 2%;
     }
@@ -5311,14 +5390,14 @@ table th {
     .sidebar-active .main-view{
         .search-container{
             margin-top: 3%;
-            margin-left: -43%;
+            margin-left: -39%;
             width: 30%;
         }
 
         table tbody input{
             outline: none;
             border: none;
-            width: 134px; 
+            width: 140px; 
             padding-left: 5px;
         }
     }
@@ -5617,16 +5696,123 @@ table th {
 
 /* ------------------------------------ Notification Page ------------------------------------------------ */
 
+.greetings-admin {
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 10px;
+  }
 
+  .notif-status-admin {
+    font-size: 13px;
+    color:#7B0000;
+    margin-bottom: 3px;
+  }
 
+  .notif-list-admin {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 70px;
+    width: 96%;
+  }
 
+.notif-info-admin{
+    flex: 1;
+}
+
+.notif-info p{
+    margin-bottom: 5px;
+}
 
 /* ------------------------------------ End of Notification Page ------------------------------------------ */
 
-
-
 /* ------------------------------------ Profile Page ------------------------------------------------ */
 
+.admin-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.admin-profile-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: -0.7%;
+    max-width: 100%;
+    height: auto;
+}
+
+.admin-profile-container1{
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-right: 50px;
+    margin-bottom: -5px;
+    width: 100%;
+    height: auto;
+}
+
+.admin-label {
+    color: #7B0000;
+    font-size: 16px;
+    font-weight: 800;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.admin-field { 
+    flex: 1;
+    font-size: 16px;
+    width: 100%;
+    height: 50%;
+    margin-left: 10px;
+    padding: 5px;
+    background:none;
+    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
+}
+
+.UpdateBtn-admin { 
+    margin-left: 45%;
+    margin-top: 15px;
+ }
+
+ @media only screen and (max-width: 1600px){
+    .admin-profile{
+        justify-content: space-between;
+    }
+
+}
+
+
+@media only screen and (max-width: 425px){
+    .admin-field{
+        width:145%;
+    }
+
+    .admin-label{
+        font-size: 12px;
+    }
+
+    .sidebar-active .main-view{
+        .admin-field{
+            width:215px;
+        }
+    }
+}
 
 
 /* ------------------------------------ End of Profile Page ------------------------------------------ */

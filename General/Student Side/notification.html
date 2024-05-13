@@ -15,13 +15,12 @@
         </div>
         <div class="selection">
             <a href="#"><img src="../assets/images/search-icon.png" class="search"></a>
-            <a href="../Admin Side/notification.html"><img src="../assets/images/notif-icon.png" class="notif"></a>
+            <a href="../Student Side/notification.html"><img src="../assets/images/notif-icon.png" class="notif"></a>
             <div class="dropdown">
                 <a class="user-dropdown-btn"><img src="../assets/images/user-icon.png" class="user"></a>
                 <div class="dropdown-content">
-                    <a href="../Admin Side/profile.html">Profile</a>
-                    <a href="../Admin Side/change-password.html">Change Password</a>
                     <a href="../General/index.html">Log Out</a>
+                    <a href="../Student Side/change-password.html">Change Password</a>
                 </div>
             </div> 
         </div>
@@ -35,9 +34,9 @@
         </div>
         <div class="menu-items">
             <ul>
-                <li><a href="../Admin Side/appointments.html">Home</a></li>
-                <li><a href="../Admin Side/appointment-details.html">Appointment Details</a></li>
-                <li><a href="../Admin Side/slot-schedule.html">Slots Schedule</a></li>
+                <li><a href="../Student Side/view-appointments.html">Home</a></li>
+                <li><a href="../Student Side/book-appointment.html">Book Appointment</a></li>
+                <li><a href="../Student Side/profile.html">Profile</a></li>
             </ul>
         </div>
     </div>
@@ -46,33 +45,25 @@
         <div class="cont">
             <p class="upcoming">Notifications</p>
             <hr class="divider-view">
-            <div class="notif-list-admin">
-                <div class="notif-info-admin">
-                    <p class="greetings-admin">Hello,</p>
-                    <p class="notif-status-admin">New appointment has been booked by [Student Name] for [Date and Time]. </p>
+            <div class="notif-list">
+                <div class="notif-info">
+                    <p class="greetings">Hello, Ms. Abbegail Miles Leonen</p>
+                    <p class="notif-status">Your appointment has been confirmed.</p>
                 </div>
-                    <div><a href="../Admin Side/appointment-details.html"> <button>View Appointment Details</button></a></div>
-            </div>
-
-            <div class="notif-list-admin">
-                <div class="notif-info-admin">
-                    <p class="greetings-admin">Hello,</p>
-                    <p class="notif-status-admin">An appointment for [Student Name] has been updated for [Date and Time].  </p>
-                </div>
-                    <div><a href="../Admin Side/appointment-details.html"> <button>View Appointment Details</button></a></div>
+                    <div><a href="../Student Side/view-appointments.html"> <button>View Appointments</button></a>
+                    </div>
             </div>
             
+            <div class="notif-list">
+                <div class="notif-info">
+                    <p class="greetings">Hello, Ms. Abbegail Miles Leonen</p>
+                    <p class="notif-status">Your appointment request is currently pending review.</p>
+                </div>
+                    <div><a href="../Student Side/view-appointments.html"> <button>View Appointments</button></a>
+                    </div>
+            </div>
         </div>
     </div>
-
-
-
-
-    
-
-    
-        
-  
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>
