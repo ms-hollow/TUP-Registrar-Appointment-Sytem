@@ -8,6 +8,7 @@
 
 </head>
 <body class="Register">
+
     <section class="home">
         <header>
             <a href="#"><img src="../assets/images/TUP AS LOGO.png" class="logo"></a>
@@ -59,7 +60,7 @@
                 
                 <div class="reg-labelcontainer1">
                   <div class="register-label">Date of Birth</div>
-                  <input type="text" class="register-field" placeholder="" id="birthDate" name="birthDate">
+                  <input type="date" class="register-field" placeholder="" id="birthDate" name="birthDate">
                 </div>
                 
                 <div class="reg-labelcontainer1">
@@ -129,7 +130,25 @@
                     <div class="logInButtonText"><button type="submit">REGISTER</button></div>
                 </div>
             </form>
-        </div>          
+        </div> 
+    </section>
+    
+    <script>
+        window.onload = function() {
+            // JavaScript to check if password and confirm password match
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                if (password !== confirmPassword) {
+                    event.preventDefault(); // Prevent form submission
+                    alert('Passwords do not match!');
+                }
+            });
+        }
+    </script>
+        
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
+
