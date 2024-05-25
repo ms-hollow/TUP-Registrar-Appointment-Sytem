@@ -132,21 +132,6 @@
             </form>
         </div> 
     </section>
-    
-    <script>
-        window.onload = function() {
-            // JavaScript to check if password and confirm password match
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function(event) {
-                const password = document.getElementById('password').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
-                if (password !== confirmPassword) {
-                    event.preventDefault(); // Prevent form submission
-                    alert('Passwords do not match!');
-                }
-            });
-        }
-    </script>
         
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
