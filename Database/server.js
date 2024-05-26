@@ -122,6 +122,20 @@ app.post('/changePassword', (req, res) => {
   });
 });
 
+// Update Profile Admin
+app.post('/updateProfileAdmin', (req, res) => {
+  const { school, admincadminContactnum, adminAdress, tupID } = req.body;
+  const sql = `UPDATE users 
+               SET school = ?, admincadminContactnum = ?, adminAdress = ?
+               WHERE tupID = ?`;
+
+  db.run(sql, [school, admincadminContactnum, adminAdress, tupID], function (err) {
+    if (err) {
+      return res.status(500).send('Failed to update profile');
+    }
+    res.status(200).json({ message: 'Profile updated successfully' });
+  });
+});
 
 //-------------------------------APPOINTMENTS DATABASE FUNCTIONS-------------------------------
 
