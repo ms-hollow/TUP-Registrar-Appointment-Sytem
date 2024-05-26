@@ -5,6 +5,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <title>Appointment Confirmation</title>
+
+    <!-- Add a script to retrieve form data from sessionStorage -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formFields = ['firstName', 'middleName', 'lastName', 'studentType', 'tupID', 'course', 'yearSection'];
+
+            formFields.forEach(field => {
+                const value = sessionStorage.getItem(field);
+                if (value) {
+                    const inputElement = document.querySelector(`#${field}`);
+                    if (inputElement) {
+                        inputElement.value = value;
+                    }
+                }
+            });
+            
+            // Retrieve and populate the document requests
+            const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
+            const newRequestTable = document.getElementById('newRequest');
+            documentRequests.forEach((request, index) => {
+                const row = newRequestTable.insertRow();
+                row.innerHTML = `
+                    <td><input type="text" name="no" value="${index + 1}" disabled></td>
+                    <td><input type="text" name="request[]" value="${request.type}" disabled></td>
+                    <td><input type="text" name="noOfCopies" value="${request.copies}" disabled></td>
+                    <td><input type="text" name="purpose" value="${request.purpose}" disabled></td>
+                `;
+            });
+
+        });
+    </script>
 </head>
 
 <body>
@@ -158,8 +189,9 @@
            </div> 
         </div> 
         <div class="BookBtn2">
-                <div><a href="../Student Side/view-appointments.html"> <button>CONFIRM</button></a></div>
-            </div>        
+            <div><a href="../Student Side/view-appointments.html" id="confirmBtn"> <button>CONFIRM</button></a></div>
+        </div>
+              
     </div>  
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>

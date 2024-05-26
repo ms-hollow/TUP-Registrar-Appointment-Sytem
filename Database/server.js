@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./database');
+const db = require('./database'); // Accounts database
+const db2 = require('./appointmentsDatabase'); // Appointments database
 const path = require('path');
 
 const app = express();
@@ -14,10 +15,14 @@ app.use(cors());
 // Serve static files from the parent directory
 app.use(express.static(path.join(__dirname, '..')));
 
-//app.get('/', (req, res) => {
-//  res.sendFile(path.join(__dirname, '../General'));
-//});
+// Serve the index.html file by default at the root URL
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'General', 'index.html'));
+});
 
+//-------------------------------ACCOUNT DATABASE FUNCTIONS-------------------------------
+
+//Saves Account Registration
 app.post('/register', (req, res) => {
   const { firstName, middleName, lastName, sex, birthDate, age, contactNumber, address, studentType, course, yearSection, tupID, password } = req.body;
   const sql = `INSERT INTO users (firstName, middleName, lastName, sex, birthDate, age, contactNumber, address, studentType, course, yearSection, tupID, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -31,7 +36,7 @@ app.post('/register', (req, res) => {
   });
 });
 
-// Login route
+// Checks Login Credentials
 app.post('/login', (req, res) => {
     const { tupID, password } = req.body;
   
@@ -58,7 +63,22 @@ app.post('/login', (req, res) => {
       return res.status(200).json({ message: 'Login successful' });
     });
   });
-  
+
+
+//-------------------------------APPOINTMENTS DATABASE FUNCTIONS-------------------------------
+
+// Appointment Registration
+app.post('/bookAppointment', (req, res) => {
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time } = req.body;
+  const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, JSON.stringify(requests), date, time], function (err) {
+    if (err) {
+      return res.status(500).send('Failed to book appointment');
+    }
+    res.status(200).json({ message: 'Appointment booked successfully' });
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

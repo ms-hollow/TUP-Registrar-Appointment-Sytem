@@ -135,6 +135,21 @@
                 </div>   
         </div>
     </div>
+
+    <script>
+        // Get form data from localStorage
+        const formData = JSON.parse(localStorage.getItem('formData'));
+    
+        // Populate fields in booking-confirmation.html with form data
+        document.getElementById('firstName').value = formData.firstName;
+        document.getElementById('middleName').value = formData.middleName;
+        document.getElementById('lastName').value = formData.lastName;
+        document.getElementById('studentType').value = formData.studentType;
+        document.getElementById('tupID').value = formData.tupID;
+        document.getElementById('course').value = formData.course;
+        document.getElementById('yearSection').value = formData.yearSection;
+    </script>    
+    
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>

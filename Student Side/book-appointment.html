@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/dycalendar.css">
     <title>Book Appointments</title>
+
+    <!-- Add a script to store form data temporarily -->
+    <script>
+        // Function to store form data temporarily in sessionStorage
+        const storeFormDataTemp = (formData) => {
+            formData.forEach((value, key) => {
+                sessionStorage.setItem(key, value);
+            });
+        };
+    </script>
 </head>
 
 <body>
@@ -26,6 +36,7 @@
             </div> 
         </div>
     </header>
+
     <div class="sidebar">
         <div class="top">
             <div class="sidebar-logo">
@@ -46,147 +57,152 @@
         <div class="cont">
             <p class="upcoming">Appointments</p>
             <hr class="divider-view">
+            <form id="bookingForm">
+                <div class="personal-bookinglist">
+                    <div class="personal-bookingcontainer"> 
+                        <div class="personal-bookingcontainer1">
+                            <div class="personal-label" >First Name</div>
+                            <input type="text" class="personal-field" placeholder="" id="firstName" name="firstName">
+                        </div>
+
+                        <div class="personal-bookingcontainer1">
+                            <div class="personal-label" >Middle Name</div>
+                            <input type="text" class="personal-field" placeholder="" id="middleName" name="middleName">
+                        </div>
+
+                        <div class="personal-bookingcontainer1">
+                            <div class="personal-label" >Last Name</div>
+                            <input type="text" class="personal-field" placeholder="" id="lastName" name="lastName">
+                        </div>
+                    </div>       
+            </div> 
             <div class="personal-bookinglist">
                 <div class="personal-bookingcontainer"> 
                     <div class="personal-bookingcontainer1">
-                        <div class="personal-label" >First Name</div>
-                        <input type="text" class="personal-field" placeholder="" id="firstName" name="firstName">
-                    </div>
-
-                    <div class="personal-bookingcontainer1">
-                        <div class="personal-label" >Middle Name</div>
-                        <input type="text" class="personal-field" placeholder="" id="middleName" name="middleName">
-                    </div>
-
-                    <div class="personal-bookingcontainer1">
-                        <div class="personal-label" >Last Name</div>
-                        <input type="text" class="personal-field" placeholder="" id="lastName" name="lastName">
-                    </div>
-                </div>       
-           </div> 
-           <div class="personal-bookinglist">
-            <div class="personal-bookingcontainer"> 
-                <div class="personal-bookingcontainer1">
-                    <div class="personal-label">Student Type</div>
-                    <select class="personal-field" id="studentType" name="studentType" required>
-                        <option value="" disabled selected>Select Student Type</option>
-                        <option value="undergraduate">Undergraduate</option>
-                        <option value="graduate">Graduate</option>
-                        <option value="doctorate">Doctorate</option>
-                        <option value="alumni">Alumni</option>
-                    </select>
-                </div>
-
-                <div class="personal-bookingcontainer1">
-                    <div class="personal-label" >TUP ID</div>
-                    <input type="text" class="personal-field" placeholder="" id="tupID" name="tupID">
-                </div>
-
-                <div class="personal-bookingcontainer1">
-                    <div class="personal-label" >Course</div>
-                    <input type="text" class="personal-field" placeholder="" id="course" name="course">
-                </div>
-
-                <div class="personal-bookingcontainer1">
-                    <div class="personal-label" >Year and Section</div>
-                    <input type="text" class="personal-field" placeholder="" id="yearSection" name="yearSection">
-                </div>
-                </div>       
-        </div> 
-            <p class="upcoming">Request/Applying For</p>
-            <hr class="divider-view">
-            <table class="file-bookingcontainer">
-                <tr>
-                    <th class="requiredocu-label">No.</th>
-                    <th class="requiredocu-label" >Type of Documents</th>
-                    <th class="requiredocu-label" >No. of Copies</th>
-                    <th class="requiredocu-label" >Purpose</th>
-                </tr>
-            </table>
-                
-                 <!-- For Adding New Request -->
-            <table id="newRequest" class="file-bookingcontainer2">
-                <tr>
-                    <td><input type="text" name="no" placeholder="No."></td>
-                    <td>
-                        <select id="request[]" name="request[]" required>
-                            <option value="" disabled selected>Type of Document</option>
-                            <option value="TOR">Transcript of Records (TOR)</option>
-                            <option value="HD">Honorable Dismissal (HD)</option>
-                            <option value="Evaluation">Evaluation/Checklist</option>
-                            <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
-                            <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
-                            <option value="Others">Others</option>    
+                        <div class="personal-label">Student Type</div>
+                        <select class="personal-field" id="studentType" name="studentType" required>
+                            <option value="" disabled selected>Select Student Type</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="graduate">Graduate</option>
+                            <option value="doctorate">Doctorate</option>
+                            <option value="alumni">Alumni</option>
                         </select>
-                    </td>
-                    <td ><input type="text" name="noOfCopies" placeholder="No. of Copies"></td>
-                    <td><input type="text" name="purpose" placeholder="Purpose"></td>
-                </tr>
-            </table>
-                
-            <div class="file-bookingcontainer3">
-                <a id="newRequest"> <div class="requiredocu-label1"> ADD MORE REQUESTS</div></a>
-            </div>
+                    </div>
 
-             <!-- For Adding New Files -->
-            <div class="file-bookingcontainer1">
-                <div class="requiredocu-label1">Required Documents</div>
-            </div>
-                <div id="newFile" class="file-bookingcontainer2">
-                    <div class="file-bookingcontainer3">
-                        <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required>
-                        <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >TUP ID</div>
+                        <input type="text" class="personal-field" placeholder="" id="tupID" name="tupID">
                     </div>
-                </div> 
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >Course</div>
+                        <input type="text" class="personal-field" placeholder="" id="course" name="course">
+                    </div>
+
+                    <div class="personal-bookingcontainer1">
+                        <div class="personal-label" >Year and Section</div>
+                        <input type="text" class="personal-field" placeholder="" id="yearSection" name="yearSection">
+                    </div>
+                    </div>       
+            </div> 
+                <p class="upcoming">Request/Applying For</p>
+                <hr class="divider-view">
+                <table class="file-bookingcontainer">
+                    <tr>
+                        <th class="requiredocu-label">No.</th>
+                        <th class="requiredocu-label" >Type of Documents</th>
+                        <th class="requiredocu-label" >No. of Copies</th>
+                        <th class="requiredocu-label" >Purpose</th>
+                    </tr>
+                </table>
+                    
+                    <!-- For Adding New Request -->
+                <table id="newRequest" class="file-bookingcontainer2">
+                    <tr>
+                        <td><input type="text" name="no" placeholder="No."></td>
+                        <td>
+                            <select id="request[]" name="request[]" required>
+                                <option value="" disabled selected>Type of Document</option>
+                                <option value="TOR">Transcript of Records (TOR)</option>
+                                <option value="HD">Honorable Dismissal (HD)</option>
+                                <option value="Evaluation">Evaluation/Checklist</option>
+                                <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
+                                <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
+                                <option value="Others">Others</option>    
+                            </select>
+                        </td>
+                        <td ><input type="text" name="noOfCopies" placeholder="No. of Copies"></td>
+                        <td><input type="text" name="purpose" placeholder="Purpose"></td>
+                    </tr>
+                </table>
+                    
                 <div class="file-bookingcontainer3">
-                        <a id="newFile"> <div class="requiredocu-label1"> ADD MORE FILES</div></a>   
-                </div>            
-          
+                    <a id="newRequest"> <div class="requiredocu-label1"> ADD MORE REQUESTS</div></a>
+                </div>
+
+                <!-- For Adding New Files -->
+                <div class="file-bookingcontainer1">
+                    <div class="requiredocu-label1">Required Documents</div>
+                </div>
+                    <div id="newFile" class="file-bookingcontainer2">
+                        <div class="file-bookingcontainer3">
+                            <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required>
+                            <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
+                        </div>
+                    </div> 
+                    <div class="file-bookingcontainer3">
+                            <a id="newFile"> <div class="requiredocu-label1"> ADD MORE FILES</div></a>   
+                    </div>            
+            
+                    
                 
-               
-            <div class="date-and-time">Date and Time</div>
-          
-            <div class="date-time-container">
-                <div class="schedules">
-                    <div class="schedule-1">
-                        <div class="_8-00-9-00-am">8:00-9:00 am</div>
+                <div class="date-and-time">Date and Time</div>
+            
+                <div class="date-time-container">
+                    <div class="schedules">
+                        <div class="schedule-1">
+                            <div class="_8-00-9-00-am">8:00-9:00 am</div>
+                        </div>
+                        <div class="schedule-2">
+                            <div class="_9-00-10-00-am">9:00-10:00 am</div>
+                        </div>
+                        <div class="schedule-3">
+                            <div class="_10-00-11-00-am">10:00-11:00 am</div>
+                        </div>
+                        <div class="schedule-4">
+                            <div class="_11-00-12-00-noon">11:00-12:00 noon</div>
+                        </div>
+                        <div class="schedule-5">
+                            <div class="_12-00-1-00-pm">12:00-1:00 pm</div>
+                        </div>
+                        <div class="schedule-6">
+                            <div class="_1-00-2-00-pm">1:00-2:00 pm</div>
+                        </div>
+                        <div class="schedule-7">
+                            <div class="_2-00-3-00-pm">2:00-3:00 pm</div>
+                        </div>
+                        <div class="schedule-8">
+                            <div class="_3-00-4-00-pm">3:00-4:00 pm</div>
+                        </div>
+                        <div class="schedule-9">
+                            <div class="_4-00-5-00-pm">4:00-5:00 pm</div>
+                        </div>
                     </div>
-                    <div class="schedule-2">
-                        <div class="_9-00-10-00-am">9:00-10:00 am</div>
-                    </div>
-                    <div class="schedule-3">
-                        <div class="_10-00-11-00-am">10:00-11:00 am</div>
-                    </div>
-                    <div class="schedule-4">
-                        <div class="_11-00-12-00-noon">11:00-12:00 noon</div>
-                    </div>
-                    <div class="schedule-5">
-                        <div class="_12-00-1-00-pm">12:00-1:00 pm</div>
-                    </div>
-                    <div class="schedule-6">
-                        <div class="_1-00-2-00-pm">1:00-2:00 pm</div>
-                    </div>
-                    <div class="schedule-7">
-                        <div class="_2-00-3-00-pm">2:00-3:00 pm</div>
-                    </div>
-                    <div class="schedule-8">
-                        <div class="_3-00-4-00-pm">3:00-4:00 pm</div>
-                    </div>
-                    <div class="schedule-9">
-                        <div class="_4-00-5-00-pm">4:00-5:00 pm</div>
+                    <div class="calendar">
+                        <div id="dycalendar"></div>
                     </div>
                 </div>
-                <div class="calendar">
-                    <div id="dycalendar"></div>
-                </div>
+                <div class="BookBtn">
+                    <div><a href="../Student Side/booking-confirmation.html"> <button>PROCEED</button></a></div>
             </div>
-              <div class="BookBtn">
-                <div><a href="../Student Side/booking-confirmation.html"> <button>PROCEED</button></a></div>
-          </div>
+        </form>
+
       </div> 
     </div>            
     <script src="../assets/js/dycalendar.js"></script>
+
     <script>
+        // Your existing script for drawing the calendar
         dycalendar.draw({
             target: '#dycalendar',
             type: 'month', 
@@ -194,8 +210,39 @@
             monthformat: 'full',
             highlighttargetdate: true,
             prevnextbutton: 'show'
-        })
+        });
+
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(bookingForm);
+
+            try {
+                const response = await fetch('http://localhost:3000/bookAppointment', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const responseData = await response.json();
+
+                if (response.ok) {
+                    // Store form data temporarily in sessionStorage before redirecting
+                    storeFormDataTemp(formData);
+
+                    // Redirect to the booking-confirmation.html page
+                    window.location.href = 'booking-confirmation.html';
+                } else {
+                    alert(responseData.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
     </script>
+
     <script type="text/javascript" src="../assets/js/script.js"></script>
+
 </body>
 </html>
