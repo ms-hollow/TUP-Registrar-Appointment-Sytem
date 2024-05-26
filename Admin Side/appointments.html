@@ -64,20 +64,61 @@
                         <th class="column-name">Time</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="appointments-body">
                     <tr>
-                        <td> <input type="text" placeholder="1"></td>
-                        <td><input type="text"  placeholder="Status"></td>
-                        <td><input type="text" placeholder="Transaction Number"></td>
-                        <td><input type="text" placeholder="Name"></td>
-                        <td><input type="text" placeholder="Request"></td>
-                        <td><input type="text" placeholder="Date"></td>
-                        <td><input type="text" placeholder="Time"></td>
+                        <!-- Lagay mo nalang dito yung ide-demo HAHAHA-->
+                        <td><input type="text" value="1"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
+                        <td><input type="text" value="lagay mo na sa html mismo"></td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch JSON data
+            fetch('../assets/data/appointment.json')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('appointments-body');
+
+                // Loop through each appointment in the JSON data
+                data.forEach((appointment, index) => {
+                    const row = document.createElement('tr');
+                    
+                    // Create and populate table cells
+                    const cells = [
+                        index + 2, // No.
+                        appointment.Status,
+                        appointment['Transaction Number'],
+                        appointment.Name,
+                        appointment.Request,
+                        appointment.Date,
+                        appointment.Time
+                    ];
+
+                    cells.forEach(cellData => {
+                        const cell = document.createElement('td');
+                        cell.textContent = cellData;
+                        row.appendChild(cell);
+                    });
+
+                    // Append row to the table body
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        });
+    </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>

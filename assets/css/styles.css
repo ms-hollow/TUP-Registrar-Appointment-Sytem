@@ -1843,7 +1843,7 @@ button:hover {
 .toggle-password {
     right: 5px;
     transform: translateY(-50%);
-    background: vlack;
+    background: none;
     border: none;
     cursor: pointer;
 }
@@ -5362,7 +5362,11 @@ table th {
     padding-left: 5px;
   }
 
-
+  #appointments-body tr td:first-child {
+    width: 30px;
+    font-size: 15px;
+    padding-left: 5px;
+    }
 
   @media only screen and (max-width: 1600px){
     .search-container{
@@ -5471,13 +5475,17 @@ table th {
 
 /* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
 
+.sched-container{
+    justify-content: space-between;
+}
+
 .slot-container{
     display: flex;
-    gap: 100px; 
+    gap: 30px; 
     padding: 10px;
     margin-bottom: 8%;
-    flex-direction: row;
     margin-left:-15px;
+    flex-direction: column;
 }
 
 .slot-container1 {
@@ -5489,13 +5497,13 @@ table th {
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 60px;
-    width: 50%;
+    width: 35%;
 }
 
 
 .sidebar-active .slot-container1 {	
     width: 50%; height: 60px;
-  
+
 } 
 
 .sidebar-active .calendar-slot {
