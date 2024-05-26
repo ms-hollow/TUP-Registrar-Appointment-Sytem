@@ -95,20 +95,22 @@
         </div> 
             <p class="upcoming">Request/Applying For</p>
             <hr class="divider-view">
-            <table class="file-bookingcontainer">
-                <tr>
-                    <th class="requiredocu-label">No.</th>
-                    <th class="requiredocu-label" >Type of Documents</th>
-                    <th class="requiredocu-label" >No. of Copies</th>
-                    <th class="requiredocu-label" >Purpose</th>
+            <br>
+            <table> 
+                <tr class="request-name">
+                    <th>No.</th>
+                    <th>Type of Documents</th>
+                    <th>Specify</th>
+                    <th>No. of Copies</th>
+                    <th>Purpose</th>
                 </tr>
             </table>
                 
                  <!-- For Adding New Request -->
-            <table id="newRequest" class="file-bookingcontainer2">
-                <tr>
-                    <td><input type="text" name="no" placeholder="No."></td>
-                    <td>
+            <table id="newRequest" >
+                <tr class="file-bookingcontainer2">
+                    <td class="number"> <input type="text" name="no" placeholder="No."></td>
+                    <td class="documents">
                         <select id="request[]" name="request[]" required>
                             <option value="" disabled selected>Type of Document</option>
                             <option value="TOR">Transcript of Records (TOR)</option>
@@ -119,8 +121,9 @@
                             <option value="Others">Others</option>    
                         </select>
                     </td>
-                    <td ><input type="text" name="noOfCopies" placeholder="No. of Copies"></td>
-                    <td><input type="text" name="purpose" placeholder="Purpose"></td>
+                    <td class="specify"><input type="text" name="specify" placeholder="Specify"></td>
+                    <td class="copies" ><input type="text" name="noOfCopies" placeholder="No. of Copies"></td>
+                    <td class="purpose"><input type="text" name="purpose" placeholder="Purpose"></td>
                 </tr>
             </table>
                 
@@ -132,11 +135,9 @@
             <div class="file-bookingcontainer1">
                 <div class="requiredocu-label1">Required Documents</div>
             </div>
-                <div id="newFile" class="file-bookingcontainer2">
-                    <div class="file-bookingcontainer3">
+                <div id="newFile" class="file-bookingcontainer3">
                         <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required>
                         <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
-                    </div>
                 </div> 
                 <div class="file-bookingcontainer3">
                         <a id="newFile"> <div class="requiredocu-label1"> ADD MORE FILES</div></a>   
