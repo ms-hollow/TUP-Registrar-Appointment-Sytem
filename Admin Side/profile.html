@@ -15,11 +15,7 @@
         </div>
         <div class="selection">
             <a href="#"><img src="../assets/images/search-icon.png" class="search"></a>
-<<<<<<< HEAD
             <a href="#"><img src="../assets/images/notif-icon.png" class="notif"></a>
-=======
-            <a href="../Admin Side/notification.html"><img src="../assets/images/notif-icon.png" class="notif"></a>
->>>>>>> laica
             <div class="dropdown">
                 <a class="user-dropdown-btn"><img src="../assets/images/user-icon.png" class="user"></a>
                 <div class="dropdown-content">
@@ -77,6 +73,48 @@
     <div class="UpdateBtn-admin">
         <div><a><button>UPDATE</button></a></div>
     </div>
+
+    <script>
+    
+        // Retrieve TUP ID from localStorage
+        const tupID = localStorage.getItem('tupID');
+        // console.log(tupID);
+
+        // Use TUP ID to fetch user's profile
+        fetch(`/profile?tupID=${tupID}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('school').value = data.school;
+            document.getElementById('adminContactnum').value = data.adminContactnum;
+            document.getElementById('adminAddress').value = data.adminAddress;
+        })
+        .catch(error => console.error('Error:', error));
+
+        const updateProfileAdmin = () => {
+            const updatedProfile = {
+                school: document.getElementById('school').value = data.school,
+                adminContactnum: document.getElementById('adminContactnum').value = data.adminContactnum,
+                adminAddress: document.getElementById('adminAddress').value = data.adminAddress
+            };
+
+            fetch('/updateProfile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedProfile)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                alert(data.message); // Show success or error message
+            })
+            .catch(error => console.error('Error:', error));
+        };
+
+        document.getElementById('updateBtn').addEventListener('click', updateProfile);
+    </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>

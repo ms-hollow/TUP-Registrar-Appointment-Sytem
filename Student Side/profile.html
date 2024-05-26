@@ -130,24 +130,84 @@
             </div>       
             </div>
           
-                 <div class="UpdateBtn">
+                 <div class="UpdateBtn" id="updateBtn">
                     <div><a><button>UPDATE</button></a></div>
                 </div>   
         </div>
     </div>
 
     <script>
-        // Get form data from localStorage
-        const formData = JSON.parse(localStorage.getItem('formData'));
+        // // Get form data from localStorage
+        // const formData = JSON.parse(localStorage.getItem('formData'));
     
-        // Populate fields in booking-confirmation.html with form data
-        document.getElementById('firstName').value = formData.firstName;
-        document.getElementById('middleName').value = formData.middleName;
-        document.getElementById('lastName').value = formData.lastName;
-        document.getElementById('studentType').value = formData.studentType;
-        document.getElementById('tupID').value = formData.tupID;
-        document.getElementById('course').value = formData.course;
-        document.getElementById('yearSection').value = formData.yearSection;
+        // // Populate fields in booking-confirmation.html with form data
+        // document.getElementById('firstName').value = formData.firstName;
+        // document.getElementById('middleName').value = formData.middleName;
+        // document.getElementById('lastName').value = formData.lastName;
+        // document.getElementById('studentType').value = formData.studentType;
+        // document.getElementById('tupID').value = formData.tupID;
+        // document.getElementById('course').value = formData.course;
+        // document.getElementById('yearSection').value = formData.yearSection;
+
+        // Retrieve TUP ID from localStorage
+        const tupID = localStorage.getItem('tupID');
+        // console.log(tupID);
+        
+        // const password = localStorage.getItem('password');
+        // console.log(password);
+
+        // Use TUP ID to fetch user's profile
+        fetch(`/profile?tupID=${tupID}`)
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            document.getElementById('firstName').value = data.firstName;
+            document.getElementById('middleName').value = data.middleName;
+            document.getElementById('lastName').value = data.lastName;
+            document.getElementById('sex').value = data.sex;
+            document.getElementById('birthDate').value = data.birthDate;
+            document.getElementById('age').value = data.age;
+            document.getElementById('contactNumber').value = data.contactNumber;
+            document.getElementById('address').value = data.address;
+            document.getElementById('studentType').value = data.studentType;
+            document.getElementById('tupID').value = data.tupID;
+            document.getElementById('course').value = data.course;
+            document.getElementById('yearSection').value = data.yearSection;
+        })
+        .catch(error => console.error('Error:', error));
+
+        const updateProfile = () => {
+            const updatedProfile = {
+                firstName: document.getElementById('firstName').value,
+                middleName: document.getElementById('middleName').value,
+                lastName: document.getElementById('lastName').value,
+                sex: document.getElementById('sex').value,
+                birthDate: document.getElementById('birthDate').value,
+                age: document.getElementById('age').value,
+                contactNumber: document.getElementById('contactNumber').value,
+                address: document.getElementById('address').value,
+                studentType: document.getElementById('studentType').value,
+                tupID: document.getElementById('tupID').value,
+                course: document.getElementById('course').value,
+                yearSection: document.getElementById('yearSection').value
+            };
+
+            fetch('/updateProfile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedProfile)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data);
+                alert(data.message); // Show success or error message
+            })
+            .catch(error => console.error('Error:', error));
+        };
+
+        document.getElementById('updateBtn').addEventListener('click', updateProfile);
     </script>    
     
     <script type="text/javascript" src="../assets/js/script.js"></script>

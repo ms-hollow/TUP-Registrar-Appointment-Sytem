@@ -59,11 +59,83 @@ app.post('/login', (req, res) => {
         console.log('Invalid login credentials:', { tupID, password });
         return res.status(401).json({ message: 'Invalid login credentials. Please check your TUP-ID and password and try again.' });
       }
-    
-      return res.status(200).json({ message: 'Login successful' });
+      
+      return res.status(200).json({ tupID: tupID, password: password, message: 'Login successful' }); 
     });
   });
 
+// Retrieve Profile
+app.get('/profile', (req, res) => {
+  const { tupID } = req.query; // Retrieve TUP ID from query parameters
+  
+  if (!tupID) {
+      return res.status(400).json({ message: 'TUP ID is missing in the request.' });
+  }
+
+  const sql = `SELECT * FROM users WHERE tupID = ?`;
+
+  db.get(sql, [tupID], (err, row) => {
+      if (err) {
+          console.error('Failed to fetch profile:', err);
+          return res.status(500).json({ message: 'Failed to fetch profile' });
+      }
+
+      if (!row) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      res.status(200).json(row);
+  });
+});
+
+// Update Profile Student
+app.post('/updateProfile', (req, res) => {
+  const { firstName, middleName, lastName, sex, birthDate, age, contactNumber, address, studentType, course, yearSection, tupID } = req.body;
+  const sql = `UPDATE users 
+               SET firstName = ?, middleName = ?, lastName = ?, sex = ?, birthDate = ?, age = ?, contactNumber = ?, address = ?, studentType = ?, course = ?, yearSection = ?
+               WHERE tupID = ?`;
+
+  db.run(sql, [firstName, middleName, lastName, sex, birthDate, age, contactNumber, address, studentType, course, yearSection, tupID], function (err) {
+    if (err) {
+      return res.status(500).send('Failed to update profile');
+    }
+    res.status(200).json({ message: 'Profile updated successfully' });
+  });
+});
+
+// Change Password
+app.post('/changePassword', (req, res) => {
+  const { tupID, newPassword, confirmPassword } = req.body;
+
+  if (newPassword !== confirmPassword) {
+    return res.status(400).json({ message: 'New password and confirm password do not match' });
+  }
+
+  const sql = `UPDATE users SET password = ? WHERE tupID = ?`;
+
+  db.run(sql, [newPassword, tupID], function (err) {
+    if (err) {
+      console.error('Failed to update password:', err);
+      return res.status(500).json({ message: 'Failed to update password' });
+    }
+    res.status(200).json({ message: 'Password changed successfully' });
+  });
+});
+
+// Update Profile Admin
+app.post('/updateProfileAdmin', (req, res) => {
+  const { school, admincadminContactnum, adminAdress, tupID } = req.body;
+  const sql = `UPDATE users 
+               SET school = ?, admincadminContactnum = ?, adminAdress = ?
+               WHERE tupID = ?`;
+
+  db.run(sql, [school, admincadminContactnum, adminAdress, tupID], function (err) {
+    if (err) {
+      return res.status(500).send('Failed to update profile');
+    }
+    res.status(200).json({ message: 'Profile updated successfully' });
+  });
+});
 
 //-------------------------------APPOINTMENTS DATABASE FUNCTIONS-------------------------------
 // Appointment Registration
