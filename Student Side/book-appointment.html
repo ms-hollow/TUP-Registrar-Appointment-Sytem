@@ -13,7 +13,7 @@
             formData.forEach((value, key) => {
                 sessionStorage.setItem(key, value);
             });
-    
+
             // Store document requests in sessionStorage
             const documentRequests = [];
             const rows = document.querySelectorAll('#newRequest tr');
@@ -27,6 +27,106 @@
             });
             sessionStorage.setItem('documentRequests', JSON.stringify(documentRequests));
         };
+
+        // Function to fetch user data
+        const fetchUserData = async () => {
+            try {
+                const tupID = sessionStorage.getItem('tupID'); // Ensure the TUP ID is stored in session storage upon login
+                const response = await fetch(`/profile?tupID=${tupID}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const userData = await response.json();
+                populateFormFields(userData);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        // Function to populate form fields with user data
+        const populateFormFields = (userData) => {
+            document.getElementById('firstName').value = userData.firstName;
+            document.getElementById('middleName').value = userData.middleName;
+            document.getElementById('lastName').value = userData.lastName;
+            document.getElementById('studentType').value = userData.studentType;
+            document.getElementById('tupID').value = userData.tupID;
+            document.getElementById('course').value = userData.course;
+            document.getElementById('yearSection').value = userData.yearSection;
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchUserData();
+
+            // Draw the calendar with dycalendar
+            dycalendar.draw({
+                target: '#dycalendar',
+                type: 'month',
+                dayformat: 'full',
+                monthformat: 'full',
+                highlighttargetdate: true,
+                prevnextbutton: 'show'
+            });
+
+            // Add event listeners to the calendar dates
+            setTimeout(disablePastDates, 500);
+
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(bookingForm);
+                storeFormDataTemp(formData);
+
+                // Redirect to the booking-confirmation.html page
+                window.location.href = 'booking-confirmation.html';
+            });
+        });
+
+        const disablePastDates = () => {
+            const today = new Date();
+            today.setDate(today.getDate() + 2);
+            const allDates = document.querySelectorAll('.dycalendar-date');
+            allDates.forEach(date => {
+                const dateValue = new Date(date.dataset.date);
+                if (dateValue < today) {
+                    date.classList.add('disabled-date');
+                } else {
+                    date.classList.add('clickable-date');
+                    date.addEventListener('click', onDateClick);
+                }
+            });
+        };
+
+        // Function to handle date click
+        const onDateClick = (event) => {
+            const selectedDate = document.querySelector('.selected-date');
+            if (selectedDate) {
+                selectedDate.classList.remove('selected-date');
+            }
+            event.target.classList.add('selected-date');
+            displayTimeSlots();
+        };
+
+        // Display time slots when a date is selected
+        const displayTimeSlots = () => {
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                slot.classList.remove('selected-slot', 'disabled-slot');
+                slot.addEventListener('click', onTimeSlotClick);
+            });
+        };
+
+        // Function to handle time slot click
+        const onTimeSlotClick = (event) => {
+            const selectedSlot = document.querySelector('.selected-slot');
+            if (selectedSlot) {
+                selectedSlot.classList.remove('selected-slot');
+            }
+            event.target.classList.add('selected-slot');
+        };
+
     </script>
 </head>
 
@@ -131,7 +231,7 @@
                     <!-- For Adding New Request -->
                 <table id="newRequest" class="file-bookingcontainer2">
                     <tr>
-                        <td><input type="text" name="no" placeholder="No." required></td>
+                        <td><input type="text" name="no" placeholder="No. 1" ></td>
                         <td>
                             <select id="request[]" name="request[]" required>
                                 <option value="" disabled selected>Type of Document</option>
@@ -158,7 +258,7 @@
                 </div>
                     <div id="newFile" class="file-bookingcontainer2">
                         <div class="file-bookingcontainer3">
-                            <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required>
+                            <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg">
                             <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
                         </div>
                     </div> 
@@ -212,97 +312,7 @@
     </div>            
     <script src="../assets/js/dycalendar.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Draw the calendar with dycalendar
-            dycalendar.draw({
-                target: '#dycalendar',
-                type: 'month',
-                dayformat: 'full',
-                monthformat: 'full',
-                highlighttargetdate: true,
-                prevnextbutton: 'show'
-            });
 
-            // Add event listeners to the calendar dates
-            setTimeout(disablePastDates, 500);
-        });
-
-        const disablePastDates = () => {
-            const today = new Date();
-            today.setDate(today.getDate() + 2);
-            const allDates = document.querySelectorAll('.dycalendar-date');
-            allDates.forEach(date => {
-                const dateValue = new Date(date.dataset.date);
-                if (dateValue < today) {
-                    date.classList.add('disabled-date');
-                } else {
-                    date.classList.add('clickable-date');
-                    date.addEventListener('click', onDateClick);
-                }
-            });
-        };
-
-        // Function to handle date click
-        const onDateClick = (event) => {
-            const selectedDate = document.querySelector('.selected-date');
-            if (selectedDate) {
-                selectedDate.classList.remove('selected-date');
-            }
-            event.target.classList.add('selected-date');
-            displayTimeSlots();
-        };
-
-        // Display time slots when a date is selected
-        const displayTimeSlots = () => {
-            const timeSlots = document.querySelectorAll('.time-slot');
-            timeSlots.forEach(slot => {
-                slot.classList.remove('selected-slot', 'disabled-slot');
-                slot.addEventListener('click', onTimeSlotClick);
-            });
-        };
-
-        // Function to handle time slot click
-        const onTimeSlotClick = (event) => {
-            const selectedSlot = document.querySelector('.selected-slot');
-            if (selectedSlot) {
-                selectedSlot.classList.remove('selected-slot');
-            }
-            event.target.classList.add('selected-slot');
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const storeFormDataTemp = (formData) => {
-                formData.forEach((value, key) => {
-                    sessionStorage.setItem(key, value);
-                });
-
-                const documentRequests = [];
-                const rows = document.querySelectorAll('#newRequest tr');
-                rows.forEach((row, index) => {
-                    const type = row.querySelector('select[name="request[]"]').value;
-                    const copies = row.querySelector('input[name="noOfCopies"]').value;
-                    const purpose = row.querySelector('input[name="purpose"]').value;
-                    if (type && copies && purpose) {
-                        documentRequests.push({ type, copies, purpose });
-                    }
-                });
-                sessionStorage.setItem('documentRequests', JSON.stringify(documentRequests));
-            };
-
-            const bookingForm = document.getElementById('bookingForm');
-            bookingForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-
-                const formData = new FormData(bookingForm);
-                storeFormDataTemp(formData);
-
-                // Redirect to the booking-confirmation.html page
-                window.location.href = 'booking-confirmation.html';
-            });
-        });
-
-    </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>
 
