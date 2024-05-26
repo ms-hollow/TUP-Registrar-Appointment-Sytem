@@ -56,12 +56,6 @@ body {
     }
 }
 
-
-
-
-
-
-
 /* -------------------------------------------- Landing Page -------------------------------------------- */
 
 /* -------------- HEADER SECTION -------------- */
@@ -1771,6 +1765,7 @@ button:hover {
     padding-left: 40%;
     padding-right: 60px;
     margin-top: 12%;
+    margin-left: -2%;
     width: 70%;
     height: auto;
 }
@@ -1806,14 +1801,15 @@ button:hover {
     background-color: white;
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width:100%;
-    height: 30px;
+    height: 38px;
+
 }
 
 .field {
     color: white;
-    font-size: 1vw; /* Use vw for font size for responsiveness */
+    font-size: 1.1vw; /* Use vw for font size for responsiveness */
     font-weight: 800;
 }
 
@@ -1821,7 +1817,9 @@ button:hover {
     color: white;
     font-size: .8vw; /* Use vw for font size for responsiveness */
     font-weight: 600;
-    margin-left: 49%;
+    margin-top: 15px;
+    width: 100%;
+    margin-left: 54%;
 }
 
 .field2 {
@@ -1834,6 +1832,7 @@ button:hover {
 
 .Loginrectangle2 a{
     font-size: 1vw;
+
 }
 
 .password-container {
@@ -2356,12 +2355,59 @@ button:hover {
 
 /* -------------------------------------------- Profile -------------------------------------------- */
 
-.UpdateBtn { 
-    margin-left: 45%;
-    margin-top: 15px;
- }
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
 
- 
+.user-profile-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: -0.7%;
+    max-width: 100%;
+    height: auto;
+}
+
+.user-profile-container1{
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-right: 50px;
+    margin-bottom: -5px;
+    width: 100%;
+    height: auto;
+}
+
+.user-label {
+    color: #7B0000;
+    font-size: 16px;
+    font-weight: 800;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.user-field { 
+    flex: 1;
+    font-size: 16px;
+    width: 100%;
+    height: 50%;
+    margin-left: 10px;
+    padding: 5px;
+    background:none;
+    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
+}
+
  .student {
     position: relative;
     padding-left: 140px;
@@ -2376,28 +2422,44 @@ button:hover {
     height: 100px;
     margin-right: 10px; /* Adjust the margin as needed */
 }
+.UpdateBtn { 
+    margin-left: 45%;
+    margin-top: 15px;
+ }
+
 
  @media only screen and (max-width: 1600px){
     .cont{
        justify-content: space-between;  
     }
+
+    .sidebar-active .main-view{          
+        .user-profile-container1{
+            display: inline-flex;
+            margin-bottom: -5px;
+        }
+
+        .user-profile-container{
+            display: inline-flex;
+        }
+
+        .user-label{
+            font-size: 14px;
+        }
+
+    }
 }
 
+
 @media only screen and (max-width: 1400px){
-    .cont{
-        margin-top: 7%;
-    }
 
     .sidebar .top .sidebar-logo{
         margin-top: -2px;
     }
 
-    .requiredocu-field{
-        width: 88%;
-    }
-
-    .personal-bookinglist{
+    .user-profile{
         margin-bottom: 3px;
+        display: inline-flex;
     }
 
     .UpdateBtn { 
@@ -2405,28 +2467,15 @@ button:hover {
      }
     
 
-    .sidebar-active .main-view{
-        
+    .sidebar-active .main-view{      
         .cont{
             margin-top: 10%;
             width: 110%;  
         } 
-            
-        .personal-bookingcontainer1{
-            display: inline-flex;
-            margin-bottom: -5px;
-        }
-
-        .personal-bookingcontainer{
-            display: inline-flex;
-        }
-
-        .personal-bookinglist{
+              
+        .user-profile{
             margin-bottom: 3px;
-        }
-
-        .personal-label{
-            font-size: 14px;
+            display: inline-flex;
         }
 
         .UpdateBtn{
@@ -2434,6 +2483,42 @@ button:hover {
         }
     }
 }
+
+
+@media only screen and (max-width: 1024px){
+
+    .sidebar .top .sidebar-logo{
+        margin-top: -2px;
+    }
+
+    .user-profile{
+        margin-bottom: 10%;
+        display: inline-flex;
+    }
+
+
+    .UpdateBtn { 
+        margin-top: 20px;
+     }
+    
+
+    .sidebar-active .main-view{      
+        .cont{
+            margin-top: 10%;
+            width: 110%;  
+        } 
+              
+        .user-profile{
+            margin-bottom: 3px;
+            display: inline-flex;
+        }
+
+        .UpdateBtn{
+            margin-top: 10px;
+        }
+    }
+}
+
 
 @media only screen and (max-width: 768px){
     .cont{
@@ -2444,14 +2529,18 @@ button:hover {
         margin-top: -2px;
     }
 
-    .personal-bookinglist{
-        margin-bottom: 3px;
-        width: 115%;
+    .user-profile-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .personal-bookingcontainer1{
-        margin-bottom: -5px;
-       
+    .user-field{
+        margin-bottom: 20px;
+        width: 93%;
+    }
+
+    .user-profile{
+        margin-bottom: 3%;
     }
 
     .student img {
@@ -2464,29 +2553,21 @@ button:hover {
             margin-top: 30%;
             width: 110%;  
         } 
-            
-        .personal-bookingcontainer1{
-            margin-bottom: -5px;
-            width: 160px;
-            margin-right: 5px;
-        }
 
-        .personal-bookingcontainer{
+        .user-profile-container{
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
         }
-
-        .personal-bookinglist{
-            margin-bottom: 3px;
-        }
-
+    
+            
         .student img {
             margin-top: 15px;
             left:10px;
         }
 
-        .personal-label{
-            font-size: 14px;
+
+        .user-field{
+            width: 105%;
         }
 
         .UpdateBtn{
@@ -2505,41 +2586,40 @@ button:hover {
         margin-top: -2px;
     }
 
-    .personal-bookinglist{
-        margin-bottom: 3px;
-        width: 115%;
+    .user-profile-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .personal-bookingcontainer1{
-        margin-bottom: -5px;
-       
+    .user-profile-container1{
+        width: 90%;
+    }
+
+    .user-label{
+        font-size: 10px;
+    }
+
+    .student img {
+        margin-top: 35px;
+        width: 80px;
+        height: 80px;
     }
     
+
     .sidebar-active .main-view{
       
         .cont{
-            margin-top: 60px;
-            width: 110%;  
-        } 
-            
-        .personal-bookingcontainer1{
-            margin-bottom: -5px;
-            margin-right: 5px;
-            width:550%;
+            margin-top: 10px;
+            width: 110%;
         }
 
-        .personal-bookingcontainer{
-            display: inline-flex;
-            width:120px;
+        .user-label{
+                font-size: 10px;
         }
 
-        .personal-bookinglist{
-            margin-bottom: 3px;
-          
-        }
-
-        .personal-label{
-            font-size: 14px;
+        .user-profile-container1{
+            width: 60%;
+            margin-left: -5%;
         }
 
         .UpdateBtn{
@@ -2615,20 +2695,19 @@ button:hover {
     transition: margin-right 0.5s ease; 
 }
 
+
 /* Dropdown container */
 .dropdown {
     position: relative;
     display: inline-block;
   }
   
-  /* Style the user icon button */
   .user-dropdown-btn {
     background-color: none;
     border: none;
     cursor: pointer;
   }
   
-  /* Dropdown content */
   .dropdown-content {
     display: none;
     position: absolute;
@@ -2638,7 +2717,7 @@ button:hover {
     z-index: 1;
   }
   
-  /* Style the links inside the dropdown */
+
   .dropdown-content a {
     color: #ffffff;
     font-size: 12px;
@@ -2647,12 +2726,11 @@ button:hover {
     display: block;
   }
   
-  /* Show the dropdown content when the user clicks on the button */
+
   .dropdown:hover .dropdown-content {
     display: block;
   }
   
-  /* Style the dropdown button on hover */
   .dropdown:hover .user-dropdown-btn a {
     background-color: none;
   }
@@ -3518,7 +3596,7 @@ body.sidebar-active .main-view {
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: -0.7%;
     max-width: 100%;
     height: auto;
@@ -3537,48 +3615,49 @@ body.sidebar-active .main-view {
 .file-bookingcontainer{
     display: flex;
     flex-wrap: wrap;
-    width: 97%;
-    margin-bottom: 30px;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 10px;
     margin-left: -1%;
     height: auto;
 }
 
 .file-bookingcontainer1{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
     margin-bottom: 5px;
     width: 100%;
     height: auto;
+    margin-left: -1px;
+    margin-top: 10px;
 }
 
 .file-bookingcontainer2{
     display: inline-flex;
     margin-bottom: 10px;
-    margin-left: 1%;
-    width: 100%;
+    margin-left: 2px;
+    width: 96%;
     height: auto;
 }
 
 .file-bookingcontainer3{
     flex: 1;
-    display: inline-flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 5px;
-    padding: 5px;
-    border: 1px solid #7B0000;
-}
-
-.file-bookingcontainer4{
-    flex: 1;
     align-items: center;
     text-align: center;
-    width: 80%;
+    width: 96%;
     height: auto;
-    margin-bottom: 5px;
+    margin-bottom: 3%;
+    margin-left: 5px;
     padding: 5px;
     border: 2.5px solid #7B0000;
+}
+
+table td{
+    border: 2px solid #7B0000;
+    width: 355px;
+    background-color: white;
+}
+
+table th {
+    width: 100%;
 }
 
 .personal-label {
@@ -3606,12 +3685,10 @@ body.sidebar-active .main-view {
 
 .requiredocu-label {
     color: #7B0000;
-    width: 100%;
+    width: 300px;
+    text-align: center;
     font-size: 16px;
     font-weight: 800;
-    margin-right: 50px;
-    margin-left: 10px;
-    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -3620,7 +3697,8 @@ body.sidebar-active .main-view {
     font-size: 16px;
     font-weight: 800;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 .textbooking{
@@ -3629,13 +3707,19 @@ body.sidebar-active .main-view {
     font-style: normal; 
 }
 
-.file-bookingcontainer3 input[type="text"]::placeholder {
+.file-bookingcontainer2 input[type="text"]::placeholder  {
     font-size: 16px;
     margin-bottom: 5px;
+}
+
+
+.file-bookingcontainer3 p{
+   text-align: end;
+   margin-top: -20px;
 
 }
 
-.file-bookingcontainer3 input {
+.file-bookingcontainer2 input {
     padding: 1px;
     font-size: 16px;
     padding-left: 5px;
@@ -3644,8 +3728,15 @@ body.sidebar-active .main-view {
     border: none;
 }
 
+.file-bookingcontainer3 input {
+    flex: 1;
+    width: 100%;
+    outline: none;
+    border: none;
+}
 
-.file-bookingcontainer3 select {
+
+.file-bookingcontainer2 select {
     height: auto; 
     width: 100%;
     font-size: 16px;
@@ -3671,9 +3762,13 @@ body.sidebar-active .main-view {
         margin-top: -2px;
     }
 
+    .schedules{
+        width:70%;
+    }
+
     .date-time-page{
         justify-content: space-between;
-       }
+    }
 
     .sidebar-active .main-view{
         .cont{
@@ -3698,19 +3793,6 @@ body.sidebar-active .main-view {
             font-size: 16px;
         }
 
-        .date-time-page{
-            justify-content: space-between;
-            margin-left: -60px;
-        }
-        .date-and-time{
-            font-size: 16px;
-        }
-        .divider-view{
-            margin-left: 10px;
-        }
-
-       
-
     }
 }
 
@@ -3723,14 +3805,19 @@ body.sidebar-active .main-view {
         margin-top: -2px;
     }
 
-
     .BookBtn{
         margin-top: -46px;
     }
+  
+
+    .file-bookingcontainer3{
+        margin-left: -2px;
+    }
 
     .file-bookingcontainer2{
-        justify-content: space-evenly;
+        margin-left: 2px;
     }
+
 
     .sidebar-active .main-view{
      
@@ -3739,6 +3826,13 @@ body.sidebar-active .main-view {
             width: 110%;
         } 
      
+        table td{
+            width: 231px;
+        }
+
+        .file-bookingcontainer2, .file-bookingcontainer3{
+            margin-left: 5px;
+        }
 
         .personal-label{
             font-size: 14px;
@@ -3756,7 +3850,15 @@ body.sidebar-active .main-view {
             height: 12px;
         }
 
-        
+    
+        .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
+            width:120px;
+        }
+
+        ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
+        ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
+            font-size: 11px;
+        }
 
     }
 }
@@ -3789,7 +3891,7 @@ body.sidebar-active .main-view {
     .sidebar.logo{
         margin-top: -50%;
     }
-
+ 
     .BookBtn{
         margin-inline: 45%;
         margin-top: 50px;
@@ -3799,11 +3901,23 @@ body.sidebar-active .main-view {
         .cont{
             margin-top: 20%;
             width: 110%;
-        }      
-
-        .file-bookingcontainer2{
-            justify-content: space-evenly;
+        }  
+        
+        table th {
+            width: 150px;   
         }
+
+        table td {
+            width: 152px; 
+        }
+
+        .schedules{
+            width:50%;
+        }
+
+        .textbooking {
+            font-size: 10px;
+        }   
 
     }
   
@@ -3823,6 +3937,15 @@ body.sidebar-active .main-view {
         display: inline-flex;
     }
 
+    .textbooking {
+        font-size: 10px;
+    }
+
+    .date-time-container{
+        flex-direction: column-reverse;
+    }
+
+
     .sidebar-active .main-view{
         .cont{
             margin-top: 20%;
@@ -3834,21 +3957,48 @@ body.sidebar-active .main-view {
         }
 
         .BookBtn{
-            margin-inline: 25%;
-            
+            margin-inline: 25%;      
         }
     }
 }
 
 @media only screen and (max-width: 540px){
     .cont{
-        margin-top: 20%;
+        margin-top: 40%;
     }
 
     .BookBtn{
         margin-inline: 45%;
         margin-top: 50px;
     }
+
+    .schedules{
+        width: 1%;
+    }
+
+
+    table {
+        width: 350px;
+    }
+
+    .file-bookingcontainer2, .file-bookingcontainer3{
+        width: 350px;
+    }
+
+    .date-time-container{
+        flex-direction: column-reverse;
+    }
+
+    .calendar{
+        margin-left: 1px;
+        width: 490px;
+        font-size: 12px;
+    }
+    #dycalendar table{
+        width: 390px;
+        font-size:10px;
+    }
+    
 
     .category-name h1{
         margin-top: 3px;
@@ -3948,6 +4098,18 @@ body.sidebar-active .main-view {
     .upcoming{
         font-size: 12px;
     }
+
+    
+    .calendar{
+        margin-left: 1px;
+        width: 490px;
+        font-size: 12px;
+    }
+    #dycalendar table{
+        width: 390px;
+        font-size:10px;
+    }
+    
 
     .divider-view{
         width:310px;
@@ -4106,7 +4268,6 @@ body.sidebar-active .main-view {
         }
 
         .BookBtn{
-            margin-inline: -125px;
             margin-top: 50px;
         }
        
@@ -4201,8 +4362,9 @@ body.sidebar-active .main-view {
     background: var(--bg-color);
     border-radius: 15px;
     border: 1px solid #e0e0e0;
-    width: 700px; 
-    height: 400px; 
+    width: 100%; 
+    height: auto; 
+    padding: 20px;
     margin: -10px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
                 -10px -10px -10px rgba(225, 225, 225, 1),
@@ -4299,249 +4461,8 @@ body.sidebar-active .main-view {
     margin-left: 45%;
 }
 
-@media only screen and (max-width: 1600px){  
-    .date-time-page{
-     justify-content: space-between;
-    }
- 
-    .sidebar-active .main-view{
-         .date-time-page{
-             justify-content: space-between;
-             margin-left: -60px;
-         }
-         .date-and-time{
-             font-size: 16px;
-         }
-         .divider-view{
-             margin-left: 10px;
-         }
- 
-    }
- }
-
-@media only screen and (max-width: 1400px){  
-   .date-time-page{
-        justify-content: space-between;
-   }
-
-   .BookBtn1{
-        margin-top: 1%;
-    }
-
-    .calendar{
-        height: 350px;
-        width: 500px;
-    }
 
 
-   .sidebar-active .main-view{
-        .date-time-page{
-            justify-content: space-between;
-            margin-left: -60px;
-        }
-        .date-and-time{
-            font-size: 16px;
-        }
-        .divider-view{
-            margin-left: 10px;
-        }
-
-   }
-}
-
-@media only screen and (max-width: 1024px){  
-  
-    .date-time-page{
-     justify-content: space-between;
-     margin-top: -3%;;
-    }
-
-    .category-name h1{
-        margin-top: 2px;
-    }
-
-
-    .sidebar-active .main-view{
-    margin-top: -2%; 
-        .reschedules{
-            margin-right: -5px;
-            display: inline-flex;
-        }
-
-        .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
-            width:110px;
-        }
-
-        ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
-        ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
-            font-size: 10px;
-        }
-
-        .calendar{
-            margin-left: -70px;
-        }
-    }
-}
-
-@media only screen and (max-width: 768px){  
-    .date-time-page{
-        justify-content: space-between;
-    }
-   
-    .divider-view{
-       width: 107%;
-    }
-
-    .calendar{
-        margin-left: -70px;
-    }
-
-    .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
-        width:90px;
-    }
-
-    ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
-    ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
-        font-size: 10px;
-    }
-
-    .BookBtn1{
-        margin-inline: 45%;
-        margin-top: 10px;
-    }
-   
-    .sidebar-active .main-view{
-        margin-top: -2%; 
-
-        .date-time-page{
-            justify-content: space-between;
-            margin-left: -100px;
-        }
-
-        .date-time-container{
-            flex-direction: column-reverse;
-        }
-        .date-and-time{
-            font-size: 16px;
-        }
-        .divider-view{
-            margin-left: 10px;
-        }
-        .schedules{
-            margin-right: -5px;
-            width: 110%;
-            
-        }
-
-        .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
-            width:140px;
-        }
-
-        ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
-        ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
-            font-size: 10px;
-        }
-
-        .calendar{
-            margin-left: 1px;
-            width: 110%;
-        }
-     
-    }
-}
-
-
-@media only screen and (max-width: 425px){  
-    .date-time-page{
-        justify-content: space-between;
-    }
-
-    .date-and-time{
-        font-size: 16px;
-    }
-
-    .date-time-container{
-        flex-direction: column-reverse;
-    }
-   
-    .category-name h1{
-        font-size: 14px;
-    }
-
-    .divider-view{
-       width: 120%;
-    }
-
-    .calendar{
-        margin-left: -20px;
-        width: 135%;
-    }
-
-    .schedules{
-        margin-left: -20px;
-       
-    }
-
-    .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
-        width:85px;
-    }
-
-    ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
-    ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
-        font-size: 10px;
-    }
-
-    .BookBtn1{
-        margin-inline: 45%;
-        margin-top: 10px;
-    }
-   
-    .sidebar-active .main-view{
-        margin-top: -2%; 
-
-        .date-time-page{
-            justify-content: space-between;
-            margin-left: -180px;
-        }
-
-        .date-time-container{
-            flex-direction: column-reverse;
-            
-        }
-        .date-and-time{
-            font-size: 16px;
-            width: 120px;
-        }
-        .divider-view{
-            margin-left: 10px;
-        }
-        .schedules{
-            margin-left: 5px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .schedule-1, .schedule-2, .schedule-3, .schedule-4, .schedule-5, .schedule-6, .schedule-7, .schedule-8, .schedule-9 {
-            width:106px;
-        }
-
-        ._8-00-9-00-am, ._9-00-10-00-am, ._10-00-11-00-am, ._11-00-12-00-noon, ._12-00-1-00-pm, 
-        ._1-00-2-00-pm, ._2-00-3-00-pm, ._3-00-4-00-pm, ._4-00-5-00-pm {
-            font-size: 10px;
-        }
-
-        .calendar{
-            margin-left: 1px;
-            width: 140%;
-            font-size: 12px;
-        }
-        #dycalendar table{
-            width: 100%;
-            margin-top: 40px;
-             font-size: 12px;
-        }
-     
-    }
-}
 
 @media only screen and (max-width: 375px){  
     .date-time-page{
@@ -4738,7 +4659,6 @@ body.sidebar-active .main-view {
     padding: 5px;
     background:none;
     border: 2.5px solid #7B0000;
-    margin-bottom: 10px;
 }
 
 .QR-image {
@@ -4769,7 +4689,8 @@ body.sidebar-active .main-view {
 
 .BookBtn2{
     margin-inline: 45%;
-    margin-top: 5px;
+    margin-bottom: 5%;
+
 }
 
 @media only screen and (max-width: 1600px){
@@ -4785,6 +4706,10 @@ body.sidebar-active .main-view {
         height: 33px;
     }
 
+    .QR-box{
+        left:80.7%;
+    }
+      
 }
 
 @media only screen and (max-width: 1400px){
@@ -4800,17 +4725,17 @@ body.sidebar-active .main-view {
         margin-top: 12px;
     }
 
+    .QR-box{
+        left:78.7%;
+    }
+
     .label{
         margin-bottom: 3px;
     }
 
-    .BookBtn2{
-        margin-top: 3%;
-    }
-
     .sidebar-active .main-view{      
     }
-        .BookBtn1{
+        .BookBtn2{
             margin-left: 50%;
     }
     
@@ -4827,7 +4752,7 @@ body.sidebar-active .main-view {
     }
 
     .QR-box{
-        left: 75%;
+        left: 74%;
     }
 
     .BookBtn2{
@@ -4894,9 +4819,16 @@ body.sidebar-active .main-view {
         width:200px;
     }
 
+    .QR-box{
+        height: 100px;
+        width: 100px;
+    }
+
     .QR-image img{
-        margin-left: 10%;
-        margin-top: 10px;
+        height: 110px;
+        width: 110px;
+        margin-top: -8px;
+        margin-left: -8px;
     }
     .BookBtn2{
         margin-left: 40%;
@@ -4913,8 +4845,8 @@ body.sidebar-active .main-view {
         }
 
         .QR-image img{
-            margin-left: 10%;
-            margin-top: 10px;
+            margin-left:-8px;
+            margin-top: -8px;
             
         }
     }
@@ -5208,30 +5140,27 @@ body.sidebar-active .main-view {
 }
 
 
-.fieldLabel {
+.fieldLabel-pass {
     background-color: white;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 30px;
     width:100%;
+    height: 38px;
 }
 
-.field {
+.field-pass {
     color: white;
     font-size: 1vw; /* Use vw for font size for responsiveness */
     font-weight: 800;
+    margin-bottom: 5px;
 }
 
-.field1 {
-    color: white;
-    font-size: .8vw; /* Use vw for font size for responsiveness */
-    font-weight: 600;
-    margin-left: 59%;
-}
 
 .password-container {
     flex: 1;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .toggle-password {
@@ -5242,30 +5171,24 @@ body.sidebar-active .main-view {
     cursor: pointer;
 }
 
-.logInButton { 
-    margin-left: 35%;
-    margin-bottom: 20px;
- }
+
 
  @media only screen and (max-width: 1600px){
-    .login-container{
+    .changepass-container{
         flex-direction: column;
     }
  }
 
  @media only screen and (max-width: 1400px){
-    .login-container{
+    .changepass-container{
         flex-direction: column;
     }
-
-  
-
     .sidebar-active .main-view{
         .changepass-container{
-            margin-left: 40px;
-    }
-       
-    }
+            padding-left: 35%;
+            
+    }     
+}
   
  }
 
@@ -5374,19 +5297,401 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Appointment Page ------------------------------------------------ */
 
+.search-container {
+	top: -75px;
+	left: 1080px;
+	position: relative;
+    display: flex;
+    width: 22.5%;
+    height: 35px; 
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    background-color: white;
+    margin-left: -8%;
+}
+
+.search-bar {
+    flex: 1;
+    width: 100%;
+    height: auto; 
+    border: none;
+    outline: none;
+    padding: 10px; 
+  
+}
+
+.search-icon-app img{
+    flex: 1;
+    height: 100%;
+    padding-left: 10px;
+}
+
+
+.column-name {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--sidebar);
+  }
+
+  table{
+    flex: 1;
+    border-collapse: collapse;
+    width: 96%;
+    margin-top: -3%; 
+	  
+  }
+
+  th{
+    padding: 5px;
+  }
+
+ 
+  td {
+    height: 40px;
+    background-color: white;
+  }
+
+  table tbody input{
+    flex: 1;
+    min-width: 97%;
+    outline: none;
+    border: none;
+    padding-left: 5px;
+  }
 
 
 
+  @media only screen and (max-width: 1600px){
+    .search-container{
+        margin-left: -8%;
+    }
+    .sidebar-active .main-view{
+        .search-container{
+            margin-left: -17%;
+            width: 25%;
+        }       
+    }
+ }
+
+ @media only screen and (max-width: 1400px){
+    .search-container{
+        margin-left: -24.5%;
+        width: 26%;
+        margin-top: 2%;
+    }
+
+    table tbody input{
+        outline: none;
+        border: none;
+        width: 150px; 
+        padding-left: 5px;
+    }
+   
+    .sidebar-active .main-view{
+        .search-container{
+            margin-top: 3%;
+            margin-left: -39%;
+            width: 30%;
+        }
+
+        table tbody input{
+            outline: none;
+            border: none;
+            width: 140px; 
+            padding-left: 5px;
+        }
+    }
+ }
+
+ @media only screen and (max-width: 1024px){
+    .search-container{
+        margin-left: -61%;
+        width: 26%;
+        margin-top: 3%;
+    }
+
+    table tbody input{
+        outline: none;
+        border: none;
+        width: 100px; 
+        padding-left: 5px;
+    }
+   
+    .sidebar-active .main-view{
+        .search-container{
+            margin-left: -95%;
+            width: 30%;
+        }
+
+        table tbody input{
+            outline: none;
+            border: none;
+            width: 90px; 
+            padding-left: 5px;
+        }
+
+       
+    }
+ }
+
+ @media only screen and (max-width: 768px){
+    .search-container{
+        margin-left: -110%;
+        width: 26%;
+        margin-top: 3%;
+    }
+
+    table tbody input{
+        outline: none;
+        border: none;
+        width: 78px; 
+        padding-left: 5px;
+    }
+
+    .sidebar-active .main-view{
+        .search-container{
+            margin-left: -185%;
+            width: 30%;
+            margin-top: 7%;
+        }
+
+        table tbody input{
+            outline: none;
+            border: none;
+            width: 60px; 
+            padding-left: 5px;
+        }
+    }
+ }
 
 /* ------------------------------------ EndAppointment Page ----------------------------------------------- */
 
-
-
 /* ------------------------------------ Slot Schedule Page ------------------------------------------------ */
 
+.slot-container{
+    display: flex;
+    gap: 100px; 
+    padding: 10px;
+    margin-bottom: 8%;
+    flex-direction: row;
+    margin-left:-15px;
+}
+
+.slot-container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 60px;
+    width: 50%;
+}
 
 
+.sidebar-active .slot-container1 {	
+    width: 50%; height: 60px;
+  
+} 
 
+.sidebar-active .calendar-slot {
+	    width: 500px; height: 365px;
+	   
+} 
+
+.calendar-slot {
+    background: var(--bg-color);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 600px;
+    height: 380px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+                -10px -10px -10px rgba(225, 225, 225, 1),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+    inset: -10px -10px -10px rgba(225, 225, 225, 1);
+    justify-content: right;
+}
+
+.calendar-slot #dycalendar-slot{
+    width: 100%;
+}
+
+
+.dycalendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px; 
+    margin-bottom: -29px;
+    padding: 20px;
+}
+
+.tor1{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: -2px;
+	
+}
+
+.slot-clock1{
+    display: inline;
+    align-items: center;
+    margin-left: 40%;
+    margin-right: 1%;
+    padding: 5px;
+    border-radius: var(--Radius-rounded-lg, 8px);
+    border: 1px solid #7B0000;
+    width: 230px;
+}
+
+.slot-sched1{
+    flex: 1;
+    display: inline;
+    font-size: 12px;
+    margin-right: 5px;
+	color: var(--text-color);
+}
+
+
+.slot-view-details { 
+    flex: 1;
+    width: 160px;
+    padding: 5px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(225deg, #CB1C31 0%, #7B0000 100%);
+}
+
+.slot-view-details p {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.slot-view-details:hover {
+    background: linear-gradient(to right, #CB1C31, #4A5568);
+}
+
+
+@media only screen and (max-width: 1600px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+}
+
+@media only screen and (max-width: 1400px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+    .slot-container1{
+        width: 70%;
+    }
+
+    .sidebar-active .main-view{
+        .slot-container1{
+            width: 70%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1024px){
+    .slot-container{
+        justify-content: space-between;
+    }
+
+    .slot-container1{
+        width: 50%;
+    }
+
+    .tor1, .slot-sched1, .slot-view-details p{
+        font-size: 10px;
+    }
+
+    .slot-view-details{
+        width: 120px; 
+    }
+
+    .calendar-slot{
+        width: 400px;
+        margin-left: -10%;
+    }
+
+    .sidebar-active .main-view{
+        .slot-container1{
+            width: 70%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .slot-container{
+        flex-direction: column-reverse;
+    }
+
+    .calendar-slot{
+        width: 500px;
+        margin-left: 10%;
+    }
+
+    .slot-container1{
+        width: 105%;
+        margin-left: 1%;
+    }
+
+    .sidebar-active .main-view{
+        .calendar-slot{
+            width: 380px;
+            margin-left: 10%;
+        }
+
+        .slot-container1{
+            width: 105%;
+            margin-left: 3%;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .calendar-slot{
+        width: 280px;
+        margin-left: 5%;
+    }
+
+    .slot-container1{
+        width: 165%;
+        margin-left: 1%;
+    }
+
+    .slot-view-details{
+        width: 70px; 
+    }
+
+    .sidebar-active .main-view{
+        .calendar-slot{
+            width: 230px;
+            margin-left: 5%;
+        }
+
+        .slot-container1{
+            width: 230px;
+            margin-left: 1%;
+        }
+
+        .slot-view-details{
+            width: 50px; 
+        }
+    }
+}
 
 /* ------------------------------------ End of Slot Schedule Page ------------------------------------------ */
 
@@ -5394,16 +5699,123 @@ body.sidebar-active .main-view {
 
 /* ------------------------------------ Notification Page ------------------------------------------------ */
 
+.greetings-admin {
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 10px;
+  }
 
+  .notif-status-admin {
+    font-size: 13px;
+    color:#7B0000;
+    margin-bottom: 3px;
+  }
 
+  .notif-list-admin {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 70px;
+    width: 96%;
+  }
 
+.notif-info-admin{
+    flex: 1;
+}
+
+.notif-info p{
+    margin-bottom: 5px;
+}
 
 /* ------------------------------------ End of Notification Page ------------------------------------------ */
 
-
-
 /* ------------------------------------ Profile Page ------------------------------------------------ */
 
+.admin-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.admin-profile-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: -0.7%;
+    max-width: 100%;
+    height: auto;
+}
+
+.admin-profile-container1{
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-right: 50px;
+    margin-bottom: -5px;
+    width: 100%;
+    height: auto;
+}
+
+.admin-label {
+    color: #7B0000;
+    font-size: 16px;
+    font-weight: 800;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.admin-field { 
+    flex: 1;
+    font-size: 16px;
+    width: 100%;
+    height: 50%;
+    margin-left: 10px;
+    padding: 5px;
+    background:none;
+    border: 2.5px solid #7B0000;
+    margin-bottom: 10px;
+}
+
+.UpdateBtn-admin { 
+    margin-left: 45%;
+    margin-top: 15px;
+ }
+
+ @media only screen and (max-width: 1600px){
+    .admin-profile{
+        justify-content: space-between;
+    }
+
+}
+
+
+@media only screen and (max-width: 425px){
+    .admin-field{
+        width:145%;
+    }
+
+    .admin-label{
+        font-size: 12px;
+    }
+
+    .sidebar-active .main-view{
+        .admin-field{
+            width:215px;
+        }
+    }
+}
 
 
 /* ------------------------------------ End of Profile Page ------------------------------------------ */

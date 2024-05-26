@@ -4,14 +4,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <title>Change Password</title>
+    <title>View Appointments</title>
 </head>
 
 <body>
     <header class="header-viewAppointments">
         <div class="sidebar-menu-btn" id="menu-btn">
             <img src="../assets/images/menu-logo.png" alt="">
-            <div class="category-name"><h1 >CHANGE PASSWORD</h1></div>
+            <div class="category-name"><h1 >HOME</h1></div>
         </div>
         <div class="selection">
             <a href="#"><img src="../assets/images/search-icon.png" class="search"></a>
@@ -30,7 +30,7 @@
             <div class="sidebar-logo">
                 <img src="../assets/images/TUP AS LOGO.png" alt="logo">
             </div>
-            <div class="user-info">Name Here</div>
+            <p class="user-info">Name Here</p>
         </div>
         <div class="menu-items">
             <ul>
@@ -41,35 +41,41 @@
         </div>
     </div>
 
-
     <div class="main-view">
         <div class="cont">
-            <p class="upcoming">Change Password</p>
+            <p class="welcome-back">Welcome back, <span class="red-text">Abbegail Miles</span></p>
+            <p class="upcoming">Appointments</p>
             <hr class="divider-view">
-            <div class="changepass-container">
-                <div class="changepass-rectangle">
-                    <p class="field">Current Password:</p>
-                    <div class="password-container">
-                        <input type="password" class="fieldlabel" placeholder="" id="password" name="password">
-                        <button="none" class="toggle-password" onclick="togglePasswordVisibility('password')"><i class="fas fa-eye"></i></button>
-                    </div> 
-                    <p class="field">New Password:</p>
-                    <div class="password-container">
-                        <input type="password" class="fieldlabel" placeholder="" id="newpass" name="newpass">
-                        <button="none" class="toggle-password" onclick="togglePasswordVisibility('password')"><i class="fas fa-eye"></i></button>
-                    </div> 
-                    <p class="field">Confirm Paswword:</p>
-                    <div class="password-container">
-                        <input type="password" class="fieldlabel" placeholder="" id="newpass" name="newpass">
-                        <button="none" class="toggle-password" onclick="togglePasswordVisibility('password')"><i class="fas fa-eye"></i></button>
-                    </div> 
-                </div>
-                        <div><a href="../Student Side/view-appointments.html"><button>CHANGE PASSWORD</button></a>
+            <div class="appointment-list">
+                    <div class="information">
+                        <p class="requests">Transcript of Records, Authentication or Certified True Copy (CTC) </p>
                     </div>
-            </div>
+                <div class="status">
+                        <p class="approved">Approved</p>
+                    </div>
+                    
+                <div class="time-and-date">
+                    <div class="bx bx-time">
+                        <p class="Day">Friday</p>
+                        <p class="time">9:00- 10:00 am</p>
+                        <p class="date">January 26, 2024</p>            
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="cancel-appointment">
+                        <p class="cancel-appointment2">Cancel Appointment</p>
+                    </div>
+                    <div class="reschedule">
+                        <a href="../Student Side/booking-confirmation.html"><p>Edit Request</p></a>  
+                    </div>
+                </div>
+            </div>         
+            <div class="AddBtn">
+                <div class="logInButtonText"><a href="../Student Side/book-appointment.html"> <button>+</button></a></div>
+            </div> 
         </div>
-        </div>
+       
+    </div>
     <script type="text/javascript" src="../assets/js/script.js"></script>
-</script>
 </body>
 </html>
