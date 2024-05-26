@@ -69,7 +69,7 @@ app.post('/login', (req, res) => {
 // Appointment Registration
 app.post('/bookAppointment', (req, res) => {
   // Extract appointment data from the request body
-  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests } = req.body;
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time } = req.body;
 
   // Prepare the document requests data for insertion
   const documentRequestsData = JSON.stringify(requests);
@@ -77,7 +77,7 @@ app.post('/bookAppointment', (req, res) => {
   // Insert the appointment data into the appointments database
   const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData], function (err) {
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData, date, time], function (err) {
     if (err) {
       console.error('Failed to book appointment:', err);
       return res.status(500).json({ message: 'Failed to book appointment' });

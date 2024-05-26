@@ -74,17 +74,17 @@
                     <div class="personal-bookingcontainer"> 
                         <div class="personal-bookingcontainer1">
                             <div class="personal-label" >First Name</div>
-                            <input type="text" class="personal-field" placeholder="" id="firstName" name="firstName">
+                            <input type="text" class="personal-field" placeholder="" id="firstName" name="firstName" required>
                         </div>
 
                         <div class="personal-bookingcontainer1">
                             <div class="personal-label" >Middle Name</div>
-                            <input type="text" class="personal-field" placeholder="" id="middleName" name="middleName">
+                            <input type="text" class="personal-field" placeholder="" id="middleName" name="middleName" required>
                         </div>
 
                         <div class="personal-bookingcontainer1">
                             <div class="personal-label" >Last Name</div>
-                            <input type="text" class="personal-field" placeholder="" id="lastName" name="lastName">
+                            <input type="text" class="personal-field" placeholder="" id="lastName" name="lastName" required>
                         </div>
                     </div>       
             </div> 
@@ -103,17 +103,17 @@
 
                     <div class="personal-bookingcontainer1">
                         <div class="personal-label" >TUP ID</div>
-                        <input type="text" class="personal-field" placeholder="" id="tupID" name="tupID">
+                        <input type="text" class="personal-field" placeholder="" id="tupID" name="tupID" required>
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="personal-label" >Course</div>
-                        <input type="text" class="personal-field" placeholder="" id="course" name="course">
+                        <input type="text" class="personal-field" placeholder="" id="course" name="course" required>
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="personal-label" >Year and Section</div>
-                        <input type="text" class="personal-field" placeholder="" id="yearSection" name="yearSection">
+                        <input type="text" class="personal-field" placeholder="" id="yearSection" name="yearSection" required>
                     </div>
                     </div>       
             </div> 
@@ -131,7 +131,7 @@
                     <!-- For Adding New Request -->
                 <table id="newRequest" class="file-bookingcontainer2">
                     <tr>
-                        <td><input type="text" name="no" placeholder="No."></td>
+                        <td><input type="text" name="no" placeholder="No." required></td>
                         <td>
                             <select id="request[]" name="request[]" required>
                                 <option value="" disabled selected>Type of Document</option>
@@ -143,8 +143,8 @@
                                 <option value="Others">Others</option>    
                             </select>
                         </td>
-                        <td ><input type="text" name="noOfCopies" placeholder="No. of Copies"></td>
-                        <td><input type="text" name="purpose" placeholder="Purpose"></td>
+                        <td ><input type="text" name="noOfCopies" placeholder="No. of Copies" required></td>
+                        <td><input type="text" name="purpose" placeholder="Purpose" required></td>
                     </tr>
                 </table>
                     
@@ -271,34 +271,36 @@
             event.target.classList.add('selected-slot');
         };
 
+        document.addEventListener('DOMContentLoaded', () => {
+            const storeFormDataTemp = (formData) => {
+                formData.forEach((value, key) => {
+                    sessionStorage.setItem(key, value);
+                });
+
+                const documentRequests = [];
+                const rows = document.querySelectorAll('#newRequest tr');
+                rows.forEach((row, index) => {
+                    const type = row.querySelector('select[name="request[]"]').value;
+                    const copies = row.querySelector('input[name="noOfCopies"]').value;
+                    const purpose = row.querySelector('input[name="purpose"]').value;
+                    if (type && copies && purpose) {
+                        documentRequests.push({ type, copies, purpose });
+                    }
+                });
+                sessionStorage.setItem('documentRequests', JSON.stringify(documentRequests));
+            };
+
             const bookingForm = document.getElementById('bookingForm');
-            bookingForm.addEventListener('submit', async (event) => {
+            bookingForm.addEventListener('submit', (event) => {
                 event.preventDefault();
 
                 const formData = new FormData(bookingForm);
+                storeFormDataTemp(formData);
 
-                try {
-                    const response = await fetch('http://localhost:3000/bookAppointment', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    const responseData = await response.json();
-
-                    if (response.ok) {
-                        // Store form data temporarily in sessionStorage before redirecting
-                        storeFormDataTemp(formData);
-
-                        // Redirect to the booking-confirmation.html page
-                        window.location.href = 'booking-confirmation.html';
-                    } else {
-                        alert(responseData.message);
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again later.');
-                }
+                // Redirect to the booking-confirmation.html page
+                window.location.href = 'booking-confirmation.html';
             });
+        });
 
     </script>
 

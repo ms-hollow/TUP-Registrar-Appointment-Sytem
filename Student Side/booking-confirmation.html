@@ -211,6 +211,7 @@
                 const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
                 
                 // Additional form data retrieval for requests, date, and time if needed
+                
                 // Construct the request body
                 const requestBody = {
                     firstName,
@@ -220,8 +221,9 @@
                     tupID,
                     course,
                     yearSection,
-                    documentRequests
-                    // Include other form data if needed
+                    requests: documentRequests,
+                    date: new Date().toLocaleDateString(), // Add the date here
+                    time: new Date().toLocaleTimeString()  // Add the time here
                 };
 
                 // Send a POST request to the server to save the appointment data
