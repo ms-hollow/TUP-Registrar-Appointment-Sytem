@@ -1843,7 +1843,7 @@ button:hover {
 .toggle-password {
     right: 5px;
     transform: translateY(-50%);
-    background: none;
+    background: vlack;
     border: none;
     cursor: pointer;
 }

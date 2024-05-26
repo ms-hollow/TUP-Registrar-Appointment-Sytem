@@ -73,6 +73,8 @@
           .then(data => {
             console.log(data);
             if (data.message === 'Login successful') {
+              localStorage.setItem('tupID', formData.tupID);
+              localStorage.setItem('password', formData.password);
               window.location.href = '../Student Side/view-appointments.html'; // Redirect on success
             } else {
               alert(data.message);
