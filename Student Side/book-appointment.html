@@ -7,13 +7,25 @@
     <link rel="stylesheet" href="../assets/css/dycalendar.css">
     <title>Book Appointments</title>
 
-    <!-- Add a script to store form data temporarily -->
     <script>
         // Function to store form data temporarily in sessionStorage
         const storeFormDataTemp = (formData) => {
             formData.forEach((value, key) => {
                 sessionStorage.setItem(key, value);
             });
+    
+            // Store document requests in sessionStorage
+            const documentRequests = [];
+            const rows = document.querySelectorAll('#newRequest tr');
+            rows.forEach((row, index) => {
+                const type = row.querySelector('select[name="request[]"]').value;
+                const copies = row.querySelector('input[name="noOfCopies"]').value;
+                const purpose = row.querySelector('input[name="purpose"]').value;
+                if (type && copies && purpose) {
+                    documentRequests.push({ type, copies, purpose });
+                }
+            });
+            sessionStorage.setItem('documentRequests', JSON.stringify(documentRequests));
         };
     </script>
 </head>
@@ -123,11 +135,11 @@
                         <td>
                             <select id="request[]" name="request[]" required>
                                 <option value="" disabled selected>Type of Document</option>
-                                <option value="TOR">Transcript of Records (TOR)</option>
-                                <option value="HD">Honorable Dismissal (HD)</option>
-                                <option value="Evaluation">Evaluation/Checklist</option>
-                                <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
-                                <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
+                                <option value="Transcript of Records (TOR)">Transcript of Records (TOR)</option>
+                                <option value="Honorable Dismissal (HD)">Honorable Dismissal (HD)</option>
+                                <option value="Evaluation/Checklist">Evaluation/Checklist</option>
+                                <option value="Authentication or Certified True Copy (CTC) of">Authentication or Certified True Copy (CTC) of</option>
+                                <option value="Lost of Registration Form (With Affidavit of Loss)">Lost of Registration Form (With Affidavit of Loss)</option>
                                 <option value="Others">Others</option>    
                             </select>
                         </td>
@@ -240,6 +252,7 @@
                 alert('An error occurred. Please try again later.');
             }
         });
+
     </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>
