@@ -167,7 +167,6 @@
                     </div>            
             
                     
-                
                 <div class="date-and-time">Date and Time</div>
             
                 <div class="date-time-container">
@@ -205,7 +204,7 @@
                     </div>
                 </div>
                 <div class="BookBtn">
-                    <div><a href="../Student Side/booking-confirmation.html"> <button>PROCEED</button></a></div>
+                    <div><a href="../Student Side/view-appointments.html" id="confirmBtn"><button id="confirmButton">CONFIRM</button></a></div>
             </div>
         </form>
 
@@ -214,44 +213,92 @@
     <script src="../assets/js/dycalendar.js"></script>
 
     <script>
-        // Your existing script for drawing the calendar
-        dycalendar.draw({
-            target: '#dycalendar',
-            type: 'month', 
-            dayformat: 'full',
-            monthformat: 'full',
-            highlighttargetdate: true,
-            prevnextbutton: 'show'
+        document.addEventListener('DOMContentLoaded', () => {
+            // Draw the calendar with dycalendar
+            dycalendar.draw({
+                target: '#dycalendar',
+                type: 'month',
+                dayformat: 'full',
+                monthformat: 'full',
+                highlighttargetdate: true,
+                prevnextbutton: 'show'
+            });
+
+            // Add event listeners to the calendar dates
+            setTimeout(disablePastDates, 500);
         });
 
-        const bookingForm = document.getElementById('bookingForm');
-        bookingForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(bookingForm);
-
-            try {
-                const response = await fetch('http://localhost:3000/bookAppointment', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const responseData = await response.json();
-
-                if (response.ok) {
-                    // Store form data temporarily in sessionStorage before redirecting
-                    storeFormDataTemp(formData);
-
-                    // Redirect to the booking-confirmation.html page
-                    window.location.href = 'booking-confirmation.html';
+        const disablePastDates = () => {
+            const today = new Date();
+            today.setDate(today.getDate() + 2);
+            const allDates = document.querySelectorAll('.dycalendar-date');
+            allDates.forEach(date => {
+                const dateValue = new Date(date.dataset.date);
+                if (dateValue < today) {
+                    date.classList.add('disabled-date');
                 } else {
-                    alert(responseData.message);
+                    date.classList.add('clickable-date');
+                    date.addEventListener('click', onDateClick);
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
+            });
+        };
+
+        // Function to handle date click
+        const onDateClick = (event) => {
+            const selectedDate = document.querySelector('.selected-date');
+            if (selectedDate) {
+                selectedDate.classList.remove('selected-date');
             }
-        });
+            event.target.classList.add('selected-date');
+            displayTimeSlots();
+        };
+
+        // Display time slots when a date is selected
+        const displayTimeSlots = () => {
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                slot.classList.remove('selected-slot', 'disabled-slot');
+                slot.addEventListener('click', onTimeSlotClick);
+            });
+        };
+
+        // Function to handle time slot click
+        const onTimeSlotClick = (event) => {
+            const selectedSlot = document.querySelector('.selected-slot');
+            if (selectedSlot) {
+                selectedSlot.classList.remove('selected-slot');
+            }
+            event.target.classList.add('selected-slot');
+        };
+
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(bookingForm);
+
+                try {
+                    const response = await fetch('http://localhost:3000/bookAppointment', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const responseData = await response.json();
+
+                    if (response.ok) {
+                        // Store form data temporarily in sessionStorage before redirecting
+                        storeFormDataTemp(formData);
+
+                        // Redirect to the booking-confirmation.html page
+                        window.location.href = 'booking-confirmation.html';
+                    } else {
+                        alert(responseData.message);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
 
     </script>
 

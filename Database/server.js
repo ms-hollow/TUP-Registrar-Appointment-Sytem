@@ -66,19 +66,27 @@ app.post('/login', (req, res) => {
 
 
 //-------------------------------APPOINTMENTS DATABASE FUNCTIONS-------------------------------
-
 // Appointment Registration
 app.post('/bookAppointment', (req, res) => {
-  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time } = req.body;
+  // Extract appointment data from the request body
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests } = req.body;
+
+  // Prepare the document requests data for insertion
+  const documentRequestsData = JSON.stringify(requests);
+
+  // Insert the appointment data into the appointments database
   const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, JSON.stringify(requests), date, time], function (err) {
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData], function (err) {
     if (err) {
-      return res.status(500).send('Failed to book appointment');
+      console.error('Failed to book appointment:', err);
+      return res.status(500).json({ message: 'Failed to book appointment' });
     }
+    console.log('Appointment booked successfully');
     res.status(200).json({ message: 'Appointment booked successfully' });
   });
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
