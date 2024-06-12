@@ -46,30 +46,8 @@
             <p class="welcome-back">Welcome back, <span class="red-text" id="main-user-name"></span></p>
             <p class="upcoming">Appointments</p>
             <hr class="divider-view">
-            <div class="appointment-list">
-                    <div class="information">
-                        <p class="requests">Transcript of Records, Authentication or Certified True Copy (CTC) </p>
-                    </div>
-                <div class="status">
-                        <p class="approved">Approved</p>
-                    </div>
-                    
-                <div class="time-and-date">
-                    <div class="bx bx-time">
-                        <p class="Day">Friday</p>
-                        <p class="time">9:00- 10:00 am</p>
-                        <p class="date">January 26, 2024</p>            
-                    </div>
-                </div>
-                <div class="button">
-                    <div class="cancel-appointment">
-                        <p class="cancel-appointment2">Cancel Appointment</p>
-                    </div>
-                    <div class="reschedule">
-                        <a href="../Student Side/booking-confirmation.html"><p>Edit Request</p></a>  
-                    </div>
-                </div>
-            </div>         
+            <div id="appointment-list">
+            </div>
             <div class="AddBtn">
                 <div class="logInButtonText"><a href="../Student Side/book-appointment.html"> <button>+</button></a></div>
             </div> 
@@ -90,6 +68,78 @@
             document.getElementById('main-user-name').textContent = data.firstName;
         })
         .catch(error => console.error('Error:', error));
+
+        // Fetch appointments data and print it in the console
+        fetch(`/appointments/${tupID}`)
+            .then(response => response.json())
+            .then(appointments => {
+                console.log(appointments);
+                const appointmentList = document.getElementById('appointment-list');
+                appointmentList.innerHTML = '';
+
+                appointments.forEach(appointment => {
+                    const appointmentCard = document.createElement('div');
+                    appointmentCard.classList.add('appointment-card');
+
+                    const requestsArray = JSON.parse(appointment.requests || "[]");
+                    let type;
+
+                    if (Array.isArray(requestsArray) && requestsArray.length > 0) {
+                        // Get the first request from the array
+                        const firstRequest = requestsArray[0];
+                        type = firstRequest.type;
+                    } else {
+                        console.log("No requests found or requests data is not valid.");
+                    }
+
+                    const informationDiv = document.createElement('div');
+                    informationDiv.classList.add('information');
+                    informationDiv.innerHTML = `<p class="requests">${type}</p>`;
+
+                    const statusDiv = document.createElement('div');
+                    statusDiv.classList.add('status');
+                    statusDiv.innerHTML = `<p class="approved">Approved</p>`;
+
+                    const timeAndDateDiv = document.createElement('div');
+                    timeAndDateDiv.classList.add('time-and-date');
+                    timeAndDateDiv.innerHTML = `
+                        <div class="bx bx-time">
+                            <p class="Day">${new Date(appointment.date).toLocaleDateString('en-US', { weekday: 'long' })}</p>
+                            <p class="time">${appointment.time}</p>
+                            <p class="date">${new Date(appointment.date).toLocaleDateString()}</p>
+                        </div>
+                    `;
+
+                    const buttonDiv = document.createElement('div');
+                    buttonDiv.classList.add('button');
+
+                    appointmentCard.addEventListener('click', () => {
+                        // Get the ID of the clicked appointment
+                        const clickedAppointmentId = appointment.id; // Assuming `id` is the property containing the appointment ID
+
+                        // Store the ID in sessionStorage
+                        sessionStorage.setItem('selectedAppointmentId', clickedAppointmentId);
+
+                        // Redirect to the booking-appointment page
+                        window.location.href = '../Student Side/book-appointment.html';
+                    });
+
+                    buttonDiv.innerHTML = `
+                        <div class="cancel-appointment">
+                            <p class="cancel-appointment2">Cancel Appointment</p>
+                        </div>
+                        <button class="edit-request">Edit Request</button>
+                    `;
+
+                    appointmentCard.appendChild(informationDiv);
+                    appointmentCard.appendChild(statusDiv);
+                    appointmentCard.appendChild(timeAndDateDiv);
+                    appointmentCard.appendChild(buttonDiv);
+
+                    appointmentList.appendChild(appointmentCard);
+                });
+            })
+            .catch(error => console.error('Error fetching appointments:', error));
 
     </script>
 </body>

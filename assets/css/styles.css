@@ -2889,20 +2889,7 @@ body.sidebar-active .main-view {
     margin-bottom: 20px;
   }
   
-  /* Appointment List */
-  .appointment-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    height: 100px;
-    width: 96%;
-  }
-  
+  /* Appointment List */  
   /* Registrar Information */
   .information {
     flex: 2;
@@ -2954,6 +2941,35 @@ body.sidebar-active .main-view {
     margin-bottom: 5px;
     margin-right: 5px;
   }
+
+.appointment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 96%;
+}
+
+.appointment-card .information,
+.appointment-card .status,
+.appointment-card .time-and-date,
+.appointment-card .button {
+    flex: 1;
+}
+.appointment-card .time-and-date {
+    text-align: center;
+}
+.appointment-card .button {
+    text-align: right;
+}
+.appointment-card .button button {
+    margin-left: 10px;
+}
   
   /* Button Section */
   .button {
@@ -5501,7 +5517,6 @@ table th {
     width: auto;
     height: auto;
     max-width: auto;
-
 }
 
 .fc-daygrid {
