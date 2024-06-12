@@ -29,10 +29,12 @@
             sessionStorage.setItem('documentRequests', JSON.stringify(documentRequests));
         };
 
+        let tupIdHolder;
         // Function to fetch user data
         const fetchUserData = async () => {
             try {
                 const tupID = localStorage.getItem('tupID'); // Ensure the TUP ID is stored in session storage upon login
+                tupIdHolder = tupID;
                 if (!tupID) {
                     console.error('No TUP ID found in sessionStorage');
                     return;
@@ -66,6 +68,58 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             fetchUserData();
+
+            // Retrieve the appointment ID from sessionStorage
+            const selectedAppointmentId = sessionStorage.getItem('selectedAppointmentId');
+
+            // Log the appointment ID to the console
+            console.log('Selected Appointment ID:', selectedAppointmentId);
+            if (selectedAppointmentId) {
+                fetch(`/appointments/${tupIdHolder}`)
+                    .then(response => response.json())
+                    .then(appointments => {
+                        console.log(appointments);
+                        const selectedAppointment = appointments.find(appointment => appointment.id === parseInt(selectedAppointmentId));
+
+                        if (selectedAppointment) {
+                            // Print the selected appointment to the console
+                            console.log('Selected Appointment:', selectedAppointment);
+
+                            const requestContainer = document.getElementById('requestContainer');
+                            console.log('requestContainer:', requestContainer);
+
+                            if (requestContainer) {
+                                const requests = JSON.parse(selectedAppointment.requests);
+
+                                requests.forEach((request, index) => {
+                                    // Extract values for type, copies, and purpose
+                                    const type = request.type;
+                                    const copies = request.copies;
+                                    const purpose = request.purpose;
+
+                                    // Concatenate the values in the desired format
+                                    const formattedRequest = `${type} - ${copies} copy${copies > 1 ? '(ies)' : ''} - ${purpose}`;
+
+                                    // Create a new div element for each request
+                                    const requestDiv = document.createElement('div');
+                                    requestDiv.classList.add('request-box'); // Add class for styling
+
+                                    // Set the text content of the div to the formatted request
+                                    requestDiv.textContent = formattedRequest;
+
+                                    // Append the div to the request container
+                                    requestContainer.appendChild(requestDiv);
+                                });
+                            } else {
+                                console.error('Request container element not found');
+                            }
+
+                        } else {
+                            console.error('Appointment not found');
+                        }
+                    })
+                    .catch(error => console.error('Error fetching appointments:', error));
+            }
 
             var selectedDate = ''; 
             var selectedTime = '';
@@ -170,7 +224,6 @@
             const bookingForm = document.getElementById('bookingForm');
             bookingForm.addEventListener('submit', (event) => {
                 event.preventDefault();
-
                 const formData = new FormData(bookingForm);
                 storeFormDataTemp(formData);
                 saveSelectedDateTimeToLocalStorage();
@@ -179,7 +232,6 @@
                 window.location.href = 'booking-confirmation.html';
             });
         });
-
     </script>
 </head>
 
@@ -282,6 +334,7 @@
                 </table>
                     
                     <!-- For Adding New Request -->
+                <div id="requestContainer"></div>
                 <table id="newRequest" class="file-bookingcontainer2">
                     <tr>
                         <td><input type="text" name="no" placeholder="No. 1" ></td>
@@ -296,8 +349,8 @@
                                 <option value="Others">Others</option>    
                             </select>
                         </td>
-                        <td ><input type="text" name="noOfCopies" placeholder="No. of Copies" required></td>
-                        <td><input type="text" name="purpose" placeholder="Purpose" required></td>
+                        <td ><input id="copies" type="text" name="noOfCopies" placeholder="No. of Copies" required></td>
+                        <td><input id="purpose" type="text" name="purpose" placeholder="Purpose" required></td>
                     </tr>
                 </table>
                     
