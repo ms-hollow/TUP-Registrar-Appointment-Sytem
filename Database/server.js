@@ -174,6 +174,20 @@ app.get('/appointments/:tupID', (req, res) => {
   });
 });
 
+// Retrieve all appointments
+app.get('/appointments', (req, res) => {
+  const sql = `SELECT * FROM appointments`;
+
+  db2.all(sql, [], (err, rows) => {
+    if (err) {
+      console.error('Failed to fetch appointments:', err);
+      return res.status(500).json({ message: 'Failed to fetch appointments' });
+    }
+    // Send the retrieved appointments data as response
+    res.status(200).json(rows);
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -93,40 +93,82 @@
     <script>
         // Function to fetch and display schedule
         function displaySchedule() {
-            fetch('../assets/data/slot-sched.json') 
-                .then(response => response.json())
-                .then(data => {
-                    const scheduleContainer = document.getElementById('schedule-container');
+            fetch(`/appointments`)
+            .then(response => response.json())
+            .then(appointments => {
+                const filteredAppointments = appointments.filter(appointment => (
+                    appointment.firstName !== null &&
+                    appointment.middleName !== null &&
+                    appointment.lastName !== null &&
+                    appointment.studentType !== null &&
+                    appointment.tupID !== null &&
+                    appointment.course !== null &&
+                    appointment.yearSection !== null &&
+                    appointment.requests !== null &&
+                    appointment.date !== null &&
+                    appointment.time !== null &&
+                    appointment.status !== null
+                ));
 
-                    // Loop through each schedule item
-                    data.forEach(schedule => {
-                        const scheduleItem = document.createElement('div');
-                        scheduleItem.classList.add('slot-container1');
+                // Sort appointments by date and time in descending order
+                filteredAppointments.sort((a, b) => {
+                    const dateA = new Date(`${a.date} ${a.time}`);
+                    const dateB = new Date(`${b.date} ${b.time}`);
+                    return dateB - dateA;
+                });
 
-                        // Create and set inner HTML for schedule item
+                // Select the last 6 appointments
+                const lastSixAppointments = filteredAppointments.slice(0, 6);
+
+                console.log(lastSixAppointments);
+
+                const scheduleContainer = document.getElementById('schedule-container');
+
+                // Loop through each filtered appointment
+                lastSixAppointments.forEach(schedule => {
+                    const scheduleItem = document.createElement('div');
+                    scheduleItem.classList.add('slot-container1');
+
+                    // Parse requests array from JSON string
+                    const requestsArray = JSON.parse(schedule.requests || "[]");
+
+                    if (Array.isArray(requestsArray) && requestsArray.length > 0) {
+                        const firstRequest = requestsArray[0];
+
+                        const type = firstRequest.type;
+
+                        // Set inner HTML for schedule item
                         scheduleItem.innerHTML = `
                             <div class="information">
-                                <p class="tor1">${schedule.Info}</p>
+                                <p class="tor1">${type}</p>
                             </div>
                             <div class="slot-clock1">
                                 <div class="bx bx-time">
-                                    <h6 class="slot-sched1">${schedule.Date} ${schedule.Time}</h6>
+                                    <h6 class="slot-sched1">${schedule.date} ${schedule.time}</h6>
                                 </div>
                             </div>
                             <div class="button">
                                 <div class="slot-view-details">
-                                    <a href="../Admin Side/appointment-details.html"><p>View Full Details</p></a>
+                                    <p>View Full Details</p>
                                 </div>
                             </div>
                         `;
+                    } else {
+                        console.log("No requests found or requests data is not valid.");
+                    }
 
-                        // Append schedule item to the container
-                        scheduleContainer.appendChild(scheduleItem);
+                    const buttonDiv = scheduleItem.querySelector('.button');
+                    buttonDiv.addEventListener('click', () => {
+                        sessionStorage.setItem('selectedAppointmentId', schedule.id); 
+                        window.location.href = '../Admin Side/appointment-details.html';
                     });
-                })
-                .catch(error => console.error('Error fetching schedule:', error));
+                    
+                    // Append schedule item to the container
+                    scheduleContainer.appendChild(scheduleItem);
+                });
+            })
+            .catch(error => console.error('Error fetching appointments:', error));
         }
-
         // Call the function to display the schedule
         displaySchedule();
 
@@ -139,6 +181,8 @@
             highlighttargetdate: true,
             prevnextbutton: 'show'
         });
+
+        
     </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>

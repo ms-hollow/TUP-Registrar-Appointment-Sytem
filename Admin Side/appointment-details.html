@@ -105,20 +105,12 @@
              <!-- For Adding New Request -->
         <table id="newRequest" class="file-bookingcontainer2">
             <tr>
-                <td><input type="text" name="no" placeholder="No." disabled></td>
+                <td><input type="text" name="no" value="No. 1" disabled></td>
                 <td>
-                    <select id="request[]" name="request[]" required disabled>
-                        <option value="" disabled selected>Type of Document</option>
-                        <option value="TOR">Transcript of Records (TOR)</option>
-                        <option value="HD">Honorable Dismissal (HD)</option>
-                        <option value="Evaluation">Evaluation/Checklist</option>
-                        <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
-                        <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
-                        <option value="Others">Others</option>    
-                    </select>
+                    <input type="text" id="request[]" name="request[]" placeholder="request" disabled>
                 </td>
-                <td ><input type="text" name="noOfCopies" placeholder="No. of Copies" disabled></td>
-                <td><input type="text" name="purpose" placeholder="Purpose" disabled></td>
+                <td ><input type="text" id="noOfCopies" name="noOfCopies" placeholder="No. of Copies" disabled></td>
+                <td><input type="text" id="purpose" name="purpose" placeholder="Purpose" disabled></td>
             </tr>
         </table>
             
@@ -159,6 +151,86 @@
            </div> 
         </div>       
     </div> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the appointment ID from sessionStorage
+        const selectedAppointmentId = sessionStorage.getItem('selectedAppointmentId');
+        id = parseInt(selectedAppointmentId);
+        console.log("id:", id)
+        // Make a GET request to fetch the appointment details using the ID
+        fetch(`/appointments`)
+            .then(response => response.json())
+            .then(appointments => {
+                const filteredAppointments = appointments.filter(appointment => (
+                    appointment.firstName !== null &&
+                    appointment.middleName !== null &&
+                    appointment.lastName !== null &&
+                    appointment.studentType !== null &&
+                    appointment.tupID !== null &&
+                    appointment.course !== null &&
+                    appointment.yearSection !== null &&
+                    appointment.requests !== null &&
+                    appointment.date !== null &&
+                    appointment.time !== null &&
+                    appointment.status !== null &&
+                    appointment.id !== null
+                ));
+                
+                const filteredAppointmentIds = filteredAppointments.map(appointment => appointment.id);
+                // console.log("Filtered Appointment IDs:", filteredAppointmentIds);
+
+                const isSelectedAppointmentInFiltered = filteredAppointmentIds.includes(id);
+
+                if (isSelectedAppointmentInFiltered) {
+                    const selectedAppointment = filteredAppointments.find(appointment => appointment.id === id);
+                    console.log(selectedAppointment);
+
+                    document.getElementById('firstName').value = selectedAppointment.firstName;
+                    document.getElementById('middleName').value = selectedAppointment.middleName;
+                    document.getElementById('lastName').value = selectedAppointment.lastName;
+                    document.getElementById('studentType').value = selectedAppointment.studentType;
+                    document.getElementById('tupID').value = selectedAppointment.tupID;
+                    document.getElementById('course').value = selectedAppointment.course;
+                    document.getElementById('yearSection').value = selectedAppointment.yearSection;
+                    document.querySelector('.DateTime').value = selectedAppointment.date + ' ' + selectedAppointment.time;
+
+                    // Populate the table with request details (assuming appointment.requests contains request details)
+                    const requestsArray = JSON.parse(selectedAppointment.requests || "[]");
+                    const table = document.querySelector('.file-bookingcontainer table');
+                    requestsArray.forEach((request, index) => {
+                        document.getElementById('request[]').value = request.type;
+                        document.getElementById('noOfCopies').value = request.copies;
+                        document.getElementById('purpose').value = request.purpose;
+                    });
+
+                    transactionNumber = document.querySelector('.transNum');
+                    function generateRandomString() {
+                        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                        let randomString = '';
+                        const length = 15;
+                        
+                        for (let i = 0; i < length; i++) {
+                            const randomIndex = Math.floor(Math.random() * characters.length);
+                            randomString += characters.charAt(randomIndex);
+                        }
+                        return randomString;
+                    }
+
+                    const transaction = generateRandomString();
+                    transactionNumber.value = transaction;
+                    console.log(transactionNumber)
+
+                    // Select the element with the class 'status'
+                    const statusElement = document.querySelector('.status');
+                    statusElement.value = 'Pending';
+        
+                } else {
+                    console.log('Appointment not found.');
+                }
+            })
+            .catch(error => console.error('Error fetching appointment details:', error));
+    });
+    </script>
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>

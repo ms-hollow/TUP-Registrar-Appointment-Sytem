@@ -2961,6 +2961,15 @@ body.sidebar-active .main-view {
 .appointment-card .button {
     flex: 1;
 }
+
+.appointment-card .information {
+    margin-top: -20px;
+}
+
+.appointment-card .status {
+   margin-top: 50px;
+}
+
 .appointment-card .time-and-date {
     text-align: center;
 }
@@ -3778,7 +3787,7 @@ table th {
 
 .BookBtn{
     margin-inline: 45%;
-    margin-top: 5%;
+    margin-top: 20%;
 }
 
 @media only screen and (max-width: 1600px){
@@ -5549,9 +5558,9 @@ padding-left: 5px;
 }
 
 .fc {
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: auto;
+    max-width: 100%;
 }
 
 .fc-daygrid {
