@@ -192,6 +192,40 @@
                 `;
             });
 
+            const selectedDate = localStorage.getItem('selectedDate');
+            const selectedTime = localStorage.getItem('selectedTime');
+
+            // Get the input element
+            const dateTimeInput = document.querySelector('.DateTime');
+
+            // Construct the date and time string
+            const dateTimeString = `${selectedDate} - ${selectedTime}`;
+
+            // Set the value of the input field
+            dateTimeInput.value = dateTimeString;
+
+            transactionNumber = document.querySelector('.transNum');
+
+            function generateRandomString() {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let randomString = '';
+                const length = 15;
+                
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * characters.length);
+                    randomString += characters.charAt(randomIndex);
+                }
+                return randomString;
+            }
+
+            const transaction = generateRandomString();
+            transactionNumber.value = transaction;
+            console.log(transactionNumber)
+
+            // Select the element with the class 'status'
+            const statusElement = document.querySelector('.status');
+            statusElement.value = 'Pending';
+
             // FOR SAVING TO APPOINTMENTS DATABASE
 
             // Get the "CONFIRM" button
@@ -206,11 +240,10 @@
                 const tupID = sessionStorage.getItem('tupID');
                 const course = sessionStorage.getItem('course');
                 const yearSection = sessionStorage.getItem('yearSection');
+                const status = 'Pending'
 
                 // Retrieve the document requests from session storage
                 const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
-                
-                // Additional form data retrieval for requests, date, and time if needed
                 
                 // Construct the request body
                 const requestBody = {
@@ -222,9 +255,12 @@
                     course,
                     yearSection,
                     requests: documentRequests,
-                    date: new Date().toLocaleDateString(), // Add the date here
-                    time: new Date().toLocaleTimeString()  // Add the time here
+                    date: selectedDate,
+                    time: selectedTime,
+                    status
                 };
+
+                console.log(requestBody)
 
                 // Send a POST request to the server to save the appointment data
                 fetch('/bookAppointment', {

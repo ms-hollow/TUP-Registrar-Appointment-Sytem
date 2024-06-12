@@ -61,6 +61,12 @@
             tupID: document.getElementById('tupID').value,
             password: document.getElementById('password').value
           };
+
+          // Check if the entered credentials are for admin
+          if (formData.tupID === 'ADMIN' && formData.password === '123456') {
+              window.location.href = '../Admin Side/appointments.html';
+              return; // Exit the function
+          }
     
           fetch('/login', {
             method: 'POST',

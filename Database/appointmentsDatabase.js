@@ -14,7 +14,8 @@ appointmentsDb.serialize(() => {
       yearSection TEXT,
       requests TEXT,
       date TEXT,
-      time TEXT
+      time TEXT,
+      status TEXT DEFAULT 'Pending'  -- Add status column with default value
     )
   `);
 });

@@ -2889,20 +2889,7 @@ body.sidebar-active .main-view {
     margin-bottom: 20px;
   }
   
-  /* Appointment List */
-  .appointment-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    height: 100px;
-    width: 96%;
-  }
-  
+  /* Appointment List */  
   /* Registrar Information */
   .information {
     flex: 2;
@@ -2917,8 +2904,9 @@ body.sidebar-active .main-view {
   /* Status */
   .status {
     flex: 1;
-    text-align: right;
+    text-align: left;
     margin-right: 9%;
+    padding-left: 5px;
   }
   
   .approved {
@@ -2953,6 +2941,35 @@ body.sidebar-active .main-view {
     margin-bottom: 5px;
     margin-right: 5px;
   }
+
+.appointment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 96%;
+}
+
+.appointment-card .information,
+.appointment-card .status,
+.appointment-card .time-and-date,
+.appointment-card .button {
+    flex: 1;
+}
+.appointment-card .time-and-date {
+    text-align: center;
+}
+.appointment-card .button {
+    text-align: right;
+}
+.appointment-card .button button {
+    margin-left: 10px;
+}
   
   /* Button Section */
   .button {
@@ -3638,6 +3655,17 @@ body.sidebar-active .main-view {
     height: auto;
 }
 
+.request-box {
+    border: 2.5px solid #7B0000;
+    padding: 10px;
+    margin-bottom: 60px;
+    width: 96%;
+    font-size: 15px;
+    color: #000000;
+    justify-content: center;
+    display: flex;
+}
+
 .file-bookingcontainer3{
     flex: 1;
     align-items: center;
@@ -3945,7 +3973,6 @@ table th {
         flex-direction: column-reverse;
     }
 
-
     .sidebar-active .main-view{
         .cont{
             margin-top: 20%;
@@ -3989,12 +4016,7 @@ table th {
         flex-direction: column-reverse;
     }
 
-    .calendar{
-        margin-left: 1px;
-        width: 490px;
-        font-size: 12px;
-    }
-    #dycalendar table{
+    #calendar table{
         width: 390px;
         font-size:10px;
     }
@@ -4105,7 +4127,7 @@ table th {
         width: 490px;
         font-size: 12px;
     }
-    #dycalendar table{
+    #calendar table{
         width: 390px;
         font-size:10px;
     }
@@ -4321,13 +4343,6 @@ table th {
     margin-left: 10px;
 }
 
-.date-time-container{
-    display: flex;
-    gap: 100px; 
-    padding: 10px;
-    margin-bottom: 8%;
-}
-
 .schedules {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -4356,32 +4371,6 @@ table th {
     line-height: 24px;
     font-weight: 500;
     position: relative;
-}
-
-.calendar {
-    background: var(--bg-color);
-    border-radius: 15px;
-    border: 1px solid #e0e0e0;
-    width: 100%; 
-    height: auto; 
-    padding: 20px;
-    margin: -10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
-                -10px -10px -10px rgba(225, 225, 225, 1),
-                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
-                inset: -10px -10px -10px rgba(225, 225, 225, 1);
-    justify-content: right;
-}
-
-.calendar #dycalendar{
-    width: 100%;
-    padding: 20px;
-}
-
-#dycalendar table{
-    width: 100%;
-    height: 70%; 
-    margin-top: 40px;
 }
 
 /* BOOK APPOINTMENT INFO */
@@ -4460,8 +4449,6 @@ table th {
     margin-bottom: 10px;
     margin-left: 45%;
 }
-
-
 
 
 @media only screen and (max-width: 375px){  
@@ -5362,11 +5349,35 @@ table th {
     padding-left: 5px;
   }
 
-  #appointments-body tr td:first-child {
-    width: 30px;
-    font-size: 15px;
-    padding-left: 5px;
-    }
+#appointments-body tr td:first-child {
+width: 30px;
+font-size: 15px;
+padding-left: 5px;
+}
+
+#appointments-body tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+#appointments-body tr {
+    height: 50px; /* Adjust the height as needed */
+}
+
+.appointment-row td,
+.appointment-cell {
+    font-size: 14px; /* Adjust the font size as needed */
+    padding: 8px; /* Adjust padding to match original table cells */
+}
+
+.appointment-row input[type="text"] {
+    font-size: inherit; /* Ensure input text matches the cell font size */
+    border: none; /* Remove input border to match the original table cells */
+    background: transparent; /* Remove background color */
+}
+
+.column-name {
+    width: 5ch; /* Set the width of the first column to 5 characters */
+}
 
   @media only screen and (max-width: 1600px){
     .search-container{
@@ -5500,7 +5511,6 @@ table th {
     width: 35%;
 }
 
-
 .sidebar-active .slot-container1 {	
     width: 50%; height: 60px;
 
@@ -5511,32 +5521,98 @@ table th {
 	   
 } 
 
-.calendar-slot {
+.date-time-container{
+    display: flex;
+    height: auto; 
+}
+
+.calendar-container {
     background: var(--bg-color);
     border-radius: 15px;
     border: 1px solid #e0e0e0;
-    width: 600px;
-    height: 380px;
+    max-width: 800px;
+    width: 100%;
+    flex: 1; 
     padding: 10px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
                 -10px -10px -10px rgba(225, 225, 225, 1),
-                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
-    inset: -10px -10px -10px rgba(225, 225, 225, 1);
-    justify-content: right;
-}
-
-.calendar-slot #dycalendar-slot{
-    width: 100%;
-}
-
-
-.dycalendar-header {
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1),
+                inset -10px -10px -10px rgba(225, 225, 225, 1);
     display: flex;
+    position: relative;
+}
+
+#calendar {
+    flex: 1; 
+    width: 100%;
+    z-index: 10;
+}
+
+.fc {
+    width: auto;
+    height: auto;
+    max-width: auto;
+}
+
+.fc-daygrid {
+    height: auto;
+    padding-top: 10px;
+}
+
+.fc-daygrid-day {
+    flex: 10;
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+    z-index: 10;
+}
+
+.fc-scroller {
+    overflow: auto;
+}
+
+.fc-dayHeader,
+.fc-col-header-cell {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.fc-toolbar-title {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #ffcc66; 
+}
+
+.time-slot {
+    background: linear-gradient(to left, #7b0000, #7b0000), linear-gradient(to left, #0284c7, #0284c7);
+    border-radius: var(--radius-rounded-lg, 8px);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center; 
-    height: 50px; 
-    margin-bottom: -29px;
-    padding: 20px;
+    width: auto;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.unclickable {
+    pointer-events: none; 
+}
+
+.disable {
+    background-color: #EBEBEB;
 }
 
 .tor1{
