@@ -141,15 +141,15 @@ app.post('/updateProfileAdmin', (req, res) => {
 // Appointment Registration
 app.post('/bookAppointment', (req, res) => {
   // Extract appointment data from the request body
-  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status = 'Pending', transactionNumber } = req.body;
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status = 'Pending', transactionNumber, remarks } = req.body;
 
   // Prepare the document requests data for insertion
   const documentRequestsData = JSON.stringify(requests);
 
   // Insert the appointment data into the appointments database
-  const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status, transactionNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status, transactionNumber, remarks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData, date, time, status, transactionNumber], function (err) {
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData, date, time, status, transactionNumber, remarks], function (err) {
     if (err) {
       console.error('Failed to book appointment:', err);
       return res.status(500).json({ message: 'Failed to book appointment' });
@@ -173,6 +173,31 @@ app.get('/appointments/:tupID', (req, res) => {
     res.status(200).json(rows);
   });
 });
+
+// Retrieve Appointment by Transaction Number
+app.get('/appointments/:transactionNumber', (req, res) => {
+  const { transactionNumber } = req.params;
+
+  if (!transactionNumber) {
+    return res.status(400).json({ message: 'Transaction number is missing' });
+  }
+
+  const sql = 'SELECT * FROM appointments WHERE transactionNumber = ?';
+
+  db2.get(sql, [transactionNumber], (err, appointment) => {
+    if (err) {
+      console.error('Failed to fetch appointment:', err);
+      return res.status(500).json({ message: 'Failed to fetch appointment' });
+    }
+
+    if (!appointment) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    res.status(200).json(appointment); // Send the appointment data in the response
+  });
+});
+
 
 // Retrieve All Appointments
 app.get('/appointments', (req, res) => {

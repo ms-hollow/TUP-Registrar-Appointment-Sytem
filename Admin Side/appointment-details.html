@@ -45,7 +45,7 @@
     <div class="main-view">
         <div class="cont">
            
-            <p class="upcoming">Appointment Confirmation</p>
+            <p class="upcoming"></p>
             <hr class="divider-3">
            
             <div class="personal-bookinglist">
@@ -101,27 +101,6 @@
                 <th class="requiredocu-label" >Purpose</th>
             </tr>
         </table>
-            
-             <!-- For Adding New Request -->
-        <table id="newRequest" class="file-bookingcontainer2">
-            <tr>
-                <td><input type="text" name="no" placeholder="No." disabled></td>
-                <td>
-                    <select id="request[]" name="request[]" required disabled>
-                        <option value="" disabled selected>Type of Document</option>
-                        <option value="TOR">Transcript of Records (TOR)</option>
-                        <option value="HD">Honorable Dismissal (HD)</option>
-                        <option value="Evaluation">Evaluation/Checklist</option>
-                        <option value="Authentication">Authentication or Certified True Copy (CTC) of</option>
-                        <option value="LostForm">Lost of Registration Form (With Affidavit of Loss)</option>
-                        <option value="Others">Others</option>    
-                    </select>
-                </td>
-                <td ><input type="text" name="noOfCopies" placeholder="No. of Copies" disabled></td>
-                <td><input type="text" name="purpose" placeholder="Purpose" disabled></td>
-            </tr>
-        </table>
-            
 
          <!-- For Adding New Files -->
         <div class="file-bookingcontainer1">
@@ -159,6 +138,62 @@
            </div> 
         </div>       
     </div> 
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function getQueryParam(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+    
+            const transactionNumber = getQueryParam('transactionNumber');
+            console.log (transactionNumber)
+    
+            if (transactionNumber) {
+                fetch(`/appointments/${transactionNumber}`)
+                    .then(response => response.json())
+                    .then(appointment => {
+                        console.log('Appointment data:', appointment);
+    
+                        // Display appointment details
+                        document.getElementById('firstName').value = appointment.firstName;
+                        document.getElementById('middleName').value = appointment.middleName;
+                        document.getElementById('lastName').value = appointment.lastName;
+                        document.getElementById('studentType').value = appointment.studentType;
+                        document.getElementById('tupID').value = appointment.tupID;
+                        document.getElementById('course').value = appointment.course;
+                        document.getElementById('yearSection').value = appointment.yearSection;
+    
+                        // Display request details
+                        const requestsArray = JSON.parse(appointment.requests || "[]");
+                        const fileBookingContainer = document.querySelector('.file-bookingcontainer');
+    
+                        // Clear previous rows
+                        fileBookingContainer.innerHTML = '';
+    
+                        // Populate request details
+                        requestsArray.forEach((req, index) => {
+                            const row = fileBookingContainer.insertRow();
+                            row.innerHTML = `
+                                <td>${index + 1}</td>
+                                <td>${req.type}</td>
+                                <td>${req.copies}</td>
+                                <td>${req.purpose}</td>
+                            `;
+                        });
+    
+                        // Display other appointment information
+                        document.querySelector('.DateTime').value = `${appointment.date} ${appointment.time}`;
+                        document.querySelector('.status').value = appointment.status;
+                        document.querySelector('.transNum').value = appointment.transactionNumber;
+                        document.querySelector('.remarks').value = appointment.remarks;
+                    })
+                    .catch(error => console.error('Error fetching appointment details:', error));
+            }
+        });
+    </script>
+
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>

@@ -106,7 +106,8 @@
                         // Make the row clickable
                         row.addEventListener('click', function() {
                             // Redirect to appointment details page with specific appointment details
-                            window.location.href = `../Admin Side/appointment-details.html?appointmentId=${appointment.id}`;
+                            console.log(appointment.id);
+                            window.location.href = `../Admin Side/appointment-details.html?transactionNumber=${appointment.transactionNumber}`;
                         });
 
                         // Append row to the table body

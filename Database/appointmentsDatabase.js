@@ -15,13 +15,11 @@ appointmentsDb.serialize(() => {
       requests TEXT,
       date TEXT,
       time TEXT,
-      status TEXT
+      status TEXT,
+      transactionNumber TEXT,
+      remarks TEXT
     )
   `);
-  // Add the status column to the existing appointments table
-  appointmentsDb.run(`
-    ALTER TABLE appointments
-    ADD COLUMN transactionNumber TEXT
-  `);
 });
+
 module.exports = appointmentsDb;

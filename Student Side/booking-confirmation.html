@@ -241,7 +241,8 @@
                 const course = sessionStorage.getItem('course');
                 const yearSection = sessionStorage.getItem('yearSection');
                 const status = 'Pending';
-                const transactionNumber = transaction
+                const transactionNumber = transaction;
+                const remarks = ''
 
                 // Retrieve the document requests from session storage
                 const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
@@ -259,7 +260,8 @@
                     date: selectedDate,
                     time: selectedTime,
                     status,
-                    transactionNumber
+                    transactionNumber,
+                    remarks
                 };
 
                 console.log(requestBody)
