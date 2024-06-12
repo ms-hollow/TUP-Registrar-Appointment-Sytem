@@ -98,7 +98,7 @@
                                     const purpose = request.purpose;
 
                                     // Concatenate the values in the desired format
-                                    const formattedRequest = `${type} - ${copies} copies - ${purpose}`;
+                                    const formattedRequest = `${type} - ${copies} copy${copies > 1 ? '(ies)' : ''} - ${purpose}`;
 
                                     // Create a new div element for each request
                                     const requestDiv = document.createElement('div');

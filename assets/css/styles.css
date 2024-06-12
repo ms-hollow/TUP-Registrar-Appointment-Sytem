@@ -3660,6 +3660,10 @@ body.sidebar-active .main-view {
     padding: 10px;
     margin-bottom: 60px;
     width: 96%;
+    font-size: 15px;
+    color: #000000;
+    justify-content: center;
+    display: flex;
 }
 
 .file-bookingcontainer3{
