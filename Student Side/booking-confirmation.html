@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <title>Appointment Confirmation</title>
+
 </head>
 
 <body>
@@ -158,9 +159,133 @@
            </div> 
         </div> 
         <div class="BookBtn2">
-                <div><a href="../Student Side/view-appointments.html"> <button>CONFIRM</button></a></div>
-            </div>        
+            <div><a href="../Student Side/view-appointments.html" id="confirmButton"> <button>CONFIRM</button></a></div>
+        </div>
+              
     </div>  
+
+    <!-- Add a script to retrieve form data from sessionStorage -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formFields = ['firstName', 'middleName', 'lastName', 'studentType', 'tupID', 'course', 'yearSection'];
+
+            formFields.forEach(field => {
+                const value = sessionStorage.getItem(field);
+                if (value) {
+                    const inputElement = document.querySelector(`#${field}`);
+                    if (inputElement) {
+                        inputElement.value = value;
+                    }
+                }
+            });
+            
+            // Retrieve and populate the document requests
+            const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
+            const newRequestTable = document.getElementById('newRequest');
+            documentRequests.forEach((request, index) => {
+                const row = newRequestTable.insertRow();
+                row.innerHTML = `
+                    <td><input type="text" name="no" value="${index + 1}" disabled></td>
+                    <td><input type="text" name="request[]" value="${request.type}" disabled></td>
+                    <td><input type="text" name="noOfCopies" value="${request.copies}" disabled></td>
+                    <td><input type="text" name="purpose" value="${request.purpose}" disabled></td>
+                `;
+            });
+
+            const selectedDate = localStorage.getItem('selectedDate');
+            const selectedTime = localStorage.getItem('selectedTime');
+
+            // Get the input element
+            const dateTimeInput = document.querySelector('.DateTime');
+
+            // Construct the date and time string
+            const dateTimeString = `${selectedDate} - ${selectedTime}`;
+
+            // Set the value of the input field
+            dateTimeInput.value = dateTimeString;
+
+            transactionNumber = document.querySelector('.transNum');
+
+            function generateRandomString() {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let randomString = '';
+                const length = 15;
+                
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * characters.length);
+                    randomString += characters.charAt(randomIndex);
+                }
+                return randomString;
+            }
+
+            const transaction = generateRandomString();
+            transactionNumber.value = transaction;
+            console.log(transactionNumber)
+
+            // Select the element with the class 'status'
+            const statusElement = document.querySelector('.status');
+            statusElement.value = 'Pending';
+
+            // FOR SAVING TO APPOINTMENTS DATABASE
+
+            // Get the "CONFIRM" button
+            const confirmButton = document.getElementById('confirmButton');
+            // Add event listener to the "CONFIRM" button
+            confirmButton.addEventListener('click', () => {
+                // Retrieve all the form data from session storage
+                const firstName = sessionStorage.getItem('firstName');
+                const middleName = sessionStorage.getItem('middleName');
+                const lastName = sessionStorage.getItem('lastName');
+                const studentType = sessionStorage.getItem('studentType');
+                const tupID = sessionStorage.getItem('tupID');
+                const course = sessionStorage.getItem('course');
+                const yearSection = sessionStorage.getItem('yearSection');
+
+                // Retrieve the document requests from session storage
+                const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
+                
+                // Construct the request body
+                const requestBody = {
+                    firstName,
+                    middleName,
+                    lastName,
+                    studentType,
+                    tupID,
+                    course,
+                    yearSection,
+                    requests: documentRequests,
+                    date: selectedDate,
+                    time: selectedTime
+                };
+
+                console.log(requestBody)
+
+                // Send a POST request to the server to save the appointment data
+                fetch('/bookAppointment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to book appointment');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data.message); // Log success message
+                    // Redirect or perform other actions after successful booking
+                })
+                .catch(error => {
+                    console.error('Error:', error); // Log error message
+                    // Handle error scenarios
+                });
+            });
+        });
+    </script>
+
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>

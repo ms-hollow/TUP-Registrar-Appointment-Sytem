@@ -39,13 +39,13 @@
         <div class="menu-items">
             <ul>
                 <li><a href="../Admin Side/appointments.html">Home</a></li>
-                <li><a href="../Admin Side/appointment-details.html">Appointment Details</a></li>
+                <!---<li><a href="../Admin Side/appointment-details.html">Appointment Details</a></li>-->
                 <li><a href="../Admin Side/slot-schedule.html">Slots Schedule</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="main-view">
+    <!-- <div class="main-view">
         <div class="cont">
             <p class="upcoming">Slot Schedule</p>
             <hr class="divider-3">
@@ -73,17 +73,73 @@
                
             </div>
         </div>
+    </div> -->
+
+    <div class="main-view">
+        <div class="cont">
+            <p class="upcoming">Slot Schedule</p>
+            <hr class="divider-3">
+            <div class="sched-container"> 
+                <div class="slot-container" id="schedule-container">
+                <!-- Schedule will be displayed here -->
+            </div>
+            <div class="calendar-slot">
+                <div id="dycalendar"></div>
+            </div></div>
+           
+        </div>
     </div>
+    
     <script src="../assets/js/dycalendar.js"></script>
     <script>
+        // Function to fetch and display schedule
+        function displaySchedule() {
+            fetch('../assets/data/slot-sched.json') 
+                .then(response => response.json())
+                .then(data => {
+                    const scheduleContainer = document.getElementById('schedule-container');
+
+                    // Loop through each schedule item
+                    data.forEach(schedule => {
+                        const scheduleItem = document.createElement('div');
+                        scheduleItem.classList.add('slot-container1');
+
+                        // Create and set inner HTML for schedule item
+                        scheduleItem.innerHTML = `
+                            <div class="information">
+                                <p class="tor1">${schedule.Info}</p>
+                            </div>
+                            <div class="slot-clock1">
+                                <div class="bx bx-time">
+                                    <h6 class="slot-sched1">${schedule.Date} ${schedule.Time}</h6>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <div class="slot-view-details">
+                                    <a href="../Admin Side/appointment-details.html"><p>View Full Details</p></a>
+                                </div>
+                            </div>
+                        `;
+
+                        // Append schedule item to the container
+                        scheduleContainer.appendChild(scheduleItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching schedule:', error));
+        }
+
+        // Call the function to display the schedule
+        displaySchedule();
+
+        // Draw calendar using dycalendar.js
         dycalendar.draw({
             target: '#dycalendar',
-            type: 'month', 
+            type: 'month',
             dayformat: 'full',
             monthformat: 'full',
             highlighttargetdate: true,
             prevnextbutton: 'show'
-        })
+        });
     </script>
 
     <script type="text/javascript" src="../assets/js/script.js"></script>

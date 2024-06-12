@@ -36,7 +36,7 @@
         <div class="menu-items">
             <ul>
                 <li><a href="../Admin Side/appointments.html">Home</a></li>
-                <li><a href="../Admin Side/appointment-details.html">Appointment Details</a></li>
+                <!---<li><a href="../Admin Side/appointment-details.html">Appointment Details</a></li>-->
                 <li><a href="../Admin Side/slot-schedule.html">Slots Schedule</a></li>
             </ul>
         </div>
@@ -54,31 +54,88 @@
 
             <table>
                 <thead>
-                    <tr class="column-name">
-                        <th class="number-column">No.</th>
-                        <th class="status-column">Status</th>
-                        <th class="transaction-column">Transaction Number</th>
-                        <th class="name-column">Name</th>
-                        <th class="request-column">Request</th>
-                        <th class="date-column">Date</th>
-                        <th class="time-column">Time</th>
+                    <tr>
+                        <th class="column-name">No.</th>
+                        <th class="column-name">Status</th>
+                        <th class="column-name">Transaction Number</th>
+                        <th class="column-name">Name</th>
+                        <th class="column-name">Request</th>
+                        <th class="column-name">Date</th>
+                        <th class="column-name">Time</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="appointments-body">
                     <tr>
-                        <td class="number-column"> <input type="text" placeholder="1"></td>
-                        <td class="status-column"><input type="text"  placeholder="Status"></td>
-                        <td class="transaction-column"><input type="text" placeholder="Transaction Number"></td>
-                        <td class="name-column"><input type="text" placeholder="Name"></td>
-                        <td class="request-column"><input type="text" placeholder="Request"></td>
-                        <td class="date-column"><input type="text" placeholder="Date"></td>
-                        <td class="time-column"><input type="text" placeholder="Time"></td>
+                        <!-- Lagay mo nalang dito yung ide-demo HAHAHA-->
+                        <td><input type="text" value="1"></td>
+                        <td><input type="text" value="Pending"></td>
+                        <td><input type="text" value="TUP2024052612"></td>
+                        <td><input type="text" value="Abbegail Miles Leonen"></td>
+                        <td><input type="text" value="Transcript of Records (TOR)"></td>
+                        <td><input type="text" value="2024-05-27"></td>
+                        <td><input type="text" value="10:00 AM"></td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch JSON data
+            fetch('../assets/data/appointment.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('appointments-body');
+
+                    // Loop through each appointment in the JSON data
+                    data.forEach((appointment, index) => {
+                        const row = document.createElement('tr');
+                        row.classList.add('appointment-row');
+                        
+                        // Create and populate table cells
+                        const cells = [
+                            index + 2, // No.
+                            appointment.Status,
+                            appointment['Transaction Number'],
+                            appointment.Name,
+                            appointment.Request,
+                            appointment.Date,
+                            appointment.Time
+                        ];
+
+                        cells.forEach(cellData => {
+                            const cell = document.createElement('td');
+                            cell.classList.add('appointment-cell');
+                            cell.textContent = cellData;
+                            row.appendChild(cell);
+                        });
+
+                        // Append row to the table body
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script>
+
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>
+
+<style>
+    .appointment-row td,
+    .appointment-cell {
+        font-size: 14px; /* Adjust the font size as needed */
+        padding: 8px; /* Adjust padding to match original table cells */
+    }
+
+    .appointment-row input[type="text"] {
+        font-size: inherit; /* Ensure input text matches the cell font size */
+        border: none; /* Remove input border to match the original table cells */
+        background: transparent; /* Remove background color */
+    }
+</style>

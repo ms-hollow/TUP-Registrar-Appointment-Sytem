@@ -26,27 +26,64 @@
         </section>
        
         <div class="Login">
+
         <div class="login-container">
             <div class="loginrectangle">
-                <p class="field">TUP ID:</p><input class="fieldLabel" type="text" placeholder="Ex: TUPM-21-1234">
-                <p class="field">Password:</p>
-                <div class="password-container">
-                    <input type="password" class="fieldlabel" placeholder="" id="password" name="password">
-                    <button="none" class="toggle-password" onclick="togglePasswordVisibility('password')"><i class="fas fa-eye"></i></button>
-                </div> 
-                <a href="../Student Side/change-password.html"><p class="field1">Forgot your Password?</p></a>   
-            </div>
-            <div class="LoginRectangle2">
-                <div class="logInButton">
-                        <div><a href="../Student Side/view-appointments.html"><button>LOGIN</button></a>
-                        </div>
-                </div>
-                <div class="field2">Don't have an account?</div>
-                <a href="../General/signup.html" class="boldtext">Create an account</a>
 
-            </div>
+                <form id="loginForm" method="post" action="http://localhost:3000/login">
+                    <p class="field">TUP ID:</p><input class="fieldLabel" type="text" id="tupID" name="tupID" placeholder="Ex: TUPM-21-1234" required>
+                    <p class="field">Password:</p>
+                    <div class="password-container">
+                        <input type="password" class="fieldlabel" placeholder="" id="password" name="password" required>
+                        <button="none" class="toggle-password" onclick="togglePasswordVisibility('password')"><i class="fas fa-eye"></i></button>
+                    </div> 
+                        <a href="../Student Side/change-password.html"><p class="field1">Forgot your Password?</p> </a>   
+                    </div>
+
+                    <div class="LoginRectangle2">
+                        <div class="logInButton">
+                                <div class="logInButtonText"><a href="../Student Side/view-appointments.html"><button type="submit">LOGIN</button></a>
+                                </div>
+                        </div>
+                        <div class="field2">Don't have an account?</div>
+                        <a href="../General/signup.html" class="boldtext">Create an account</a>
+                    </div>     
+                </form>
+
         </div>
-    </div>  
+    </section>  
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const formData = {
+            tupID: document.getElementById('tupID').value,
+            password: document.getElementById('password').value
+          };
+    
+          fetch('/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            if (data.message === 'Login successful') {
+              localStorage.setItem('tupID', formData.tupID);
+              localStorage.setItem('password', formData.password);
+              window.location.href = '../Student Side/view-appointments.html'; // Redirect on success
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch(error => console.error('Error:', error));
+        });
+    </script>
+
   <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
