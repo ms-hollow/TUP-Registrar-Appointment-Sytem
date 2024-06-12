@@ -5317,29 +5317,39 @@ table th {
 }
 
 
-.column-name {
+th.column-name {
     margin-top: 10px;
+    padding: 10px;
+    background-color: var(--sidebar); /* Use the desired color for table headers */
     text-align: center;
-    color: var(--sidebar);
+    color: white
   }
 
   table{
     flex: 1;
     border-collapse: collapse;
     width: 96%;
+    collapse: collapse;
     margin-top: -3%; 
-	  
+    background-color: rgba(255, 255, 255, 0.5); /* Set the background color with 50% opacity */
   }
 
   th{
     padding: 5px;
   }
 
+  tbody tr {
+    margin-bottom: 10px; /* Add margin between rows */
+    background-color: transparent;
+}
+
  
   td {
     height: 40px;
-    background-color: white;
-  }
+    padding: 10px; /* Add padding to the table cells */
+    text-align: left; /* Align cell text to the left */
+    background-color: transparent;
+}
 
   table tbody input{
     flex: 1;
@@ -5356,9 +5366,9 @@ padding-left: 5px;
 }
 
 #appointments-body tr:hover {
-    background-color: #f5f5f5;
     cursor: pointer;
 }
+
 #appointments-body tr {
     height: 50px; /* Adjust the height as needed */
 }

@@ -141,15 +141,15 @@ app.post('/updateProfileAdmin', (req, res) => {
 // Appointment Registration
 app.post('/bookAppointment', (req, res) => {
   // Extract appointment data from the request body
-  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status = 'Pending' } = req.body;
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status = 'Pending', transactionNumber } = req.body;
 
   // Prepare the document requests data for insertion
   const documentRequestsData = JSON.stringify(requests);
 
   // Insert the appointment data into the appointments database
-  const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO appointments (firstName, middleName, lastName, studentType, tupID, course, yearSection, requests, date, time, status, transactionNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData, date, time, status], function (err) {
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, documentRequestsData, date, time, status, transactionNumber], function (err) {
     if (err) {
       console.error('Failed to book appointment:', err);
       return res.status(500).json({ message: 'Failed to book appointment' });
@@ -165,6 +165,20 @@ app.get('/appointments/:tupID', (req, res) => {
   const sql = `SELECT * FROM appointments WHERE tupID = ?`;
   
   db2.all(sql, [tupID], (err, rows) => {
+    if (err) {
+      console.error('Failed to fetch appointments:', err);
+      return res.status(500).json({ message: 'Failed to fetch appointments' });
+    }
+    // Send the retrieved appointments data as response
+    res.status(200).json(rows);
+  });
+});
+
+// Retrieve All Appointments
+app.get('/appointments', (req, res) => {
+  const sql = 'SELECT * FROM appointments';
+
+  db2.all(sql, (err, rows) => {
     if (err) {
       console.error('Failed to fetch appointments:', err);
       return res.status(500).json({ message: 'Failed to fetch appointments' });

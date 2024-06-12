@@ -73,26 +73,27 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Fetch JSON data
-            fetch('../assets/data/appointment.json')
+            fetch('/appointments')
                 .then(response => response.json())
                 .then(data => {
                     const tableBody = document.getElementById('appointments-body');
+                    
+                    data.reverse();
 
-                    // Loop through each appointment in the JSON data
+                    // Loop through each appointment in the data
                     data.forEach((appointment, index) => {
                         const row = document.createElement('tr');
                         row.classList.add('appointment-row');
 
                         // Create and populate table cells
                         const cells = [
-                            index + 1, // No.
-                            appointment.Status,
-                            appointment['Transaction Number'],
-                            appointment.Name,
-                            appointment.Request,
-                            appointment.Date,
-                            appointment.Time
+                            data.length - index, // No.
+                            appointment.status,
+                            appointment.id, // Use the id as the Transaction Number
+                            `${appointment.firstName} ${appointment.middleName} ${appointment.lastName}`,
+                            JSON.parse(appointment.requests).map(req => `${req.type} (${req.copies} copies)`).join(', '),
+                            appointment.date,
+                            appointment.time
                         ];
 
                         cells.forEach(cellData => {
@@ -105,7 +106,7 @@
                         // Make the row clickable
                         row.addEventListener('click', function() {
                             // Redirect to appointment details page with specific appointment details
-                            window.location.href = `../Admin Side/appointment-details.html?appointmentId=${index}`;
+                            window.location.href = `../Admin Side/appointment-details.html?appointmentId=${appointment.id}`;
                         });
 
                         // Append row to the table body

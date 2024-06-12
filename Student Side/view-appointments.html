@@ -78,6 +78,8 @@
                 const appointmentList = document.getElementById('appointment-list');
                 appointmentList.innerHTML = '';
 
+                appointments.reverse(); // Reverse the array to display appointments in reverse order
+
                 appointments.forEach(appointment => {
                     const appointmentCard = document.createElement('div');
                     appointmentCard.classList.add('appointment-card');
