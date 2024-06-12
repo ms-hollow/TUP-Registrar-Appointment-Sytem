@@ -89,7 +89,7 @@
                         const cells = [
                             data.length - index, // No.
                             appointment.status,
-                            appointment.id, // Use the id as the Transaction Number
+                            appointment.transactionNumber, // Use the id as the Transaction Number
                             `${appointment.firstName} ${appointment.middleName} ${appointment.lastName}`,
                             JSON.parse(appointment.requests).map(req => `${req.type} (${req.copies} copies)`).join(', '),
                             appointment.date,
