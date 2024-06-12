@@ -15,9 +15,8 @@ appointmentsDb.serialize(() => {
       requests TEXT,
       date TEXT,
       time TEXT,
-      status TEXT DEFAULT 'Pending'  -- Add status column with default value
+      status TEXT
     )
   `);
 });
-
 module.exports = appointmentsDb;
