@@ -1,7 +1,7 @@
 [
     {
       "No.": 1,
-      "Status": "Done",
+      "Status": "Pending",
       "Transaction Number": "TUP20240526001",
       "Name": "Juan Dela Cruz",
       "Request": "Permit to Transfer",
@@ -37,7 +37,7 @@
     },
     {
       "No.": 5,
-      "Status": "Done",
+      "Status": "Pending",
       "Transaction Number": "TUP20240526005",
       "Name": "Diego Garcia",
       "Request": "Transfer Credential",
@@ -64,7 +64,7 @@
     },
     {
       "No.": 8,
-      "Status": "Done",
+      "Status": "Pending",
       "Transaction Number": "TUP20240526008",
       "Name": "Ana Cruz",
       "Request": "Verification Form",
