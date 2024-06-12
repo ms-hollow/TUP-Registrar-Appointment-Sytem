@@ -240,6 +240,7 @@
                 const tupID = sessionStorage.getItem('tupID');
                 const course = sessionStorage.getItem('course');
                 const yearSection = sessionStorage.getItem('yearSection');
+                const status = 'Pending'
 
                 // Retrieve the document requests from session storage
                 const documentRequests = JSON.parse(sessionStorage.getItem('documentRequests') || '[]');
@@ -255,7 +256,8 @@
                     yearSection,
                     requests: documentRequests,
                     date: selectedDate,
-                    time: selectedTime
+                    time: selectedTime,
+                    status
                 };
 
                 console.log(requestBody)

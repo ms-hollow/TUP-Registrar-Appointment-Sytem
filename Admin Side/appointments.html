@@ -42,15 +42,15 @@
         </div>
     </div>
 
-	<div class="main-view">
+    <div class="main-view">
         <div class="cont">
             <p class="upcoming">Appointments</p>
             <hr class="divider-view">
 
             <div class="search-container">
-				<img  class="search-icon-app" src="../assets/images/searchbar-icon.png" alt="Search">
-			    <input type="textbooking" placeholder="Search" class="search-bar">
-		    </div>
+                <img class="search-icon-app" src="../assets/images/searchbar-icon.png" alt="Search">
+                <input type="textbooking" placeholder="Search" class="search-bar">
+            </div>
 
             <table>
                 <thead>
@@ -65,24 +65,14 @@
                     </tr>
                 </thead>
                 <tbody id="appointments-body">
-                    <tr>
-                        <!-- Lagay mo nalang dito yung ide-demo HAHAHA-->
-                        <td><input type="text" value="1"></td>
-                        <td><input type="text" value="Pending"></td>
-                        <td><input type="text" value="TUP2024052612"></td>
-                        <td><input type="text" value="Abbegail Miles Leonen"></td>
-                        <td><input type="text" value="Transcript of Records (TOR)"></td>
-                        <td><input type="text" value="2024-05-27"></td>
-                        <td><input type="text" value="10:00 AM"></td>
-                    </tr>
+                    <!-- Rows will be populated by JavaScript -->
                 </tbody>
-
             </table>
         </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Fetch JSON data
             fetch('../assets/data/appointment.json')
                 .then(response => response.json())
@@ -93,10 +83,10 @@
                     data.forEach((appointment, index) => {
                         const row = document.createElement('tr');
                         row.classList.add('appointment-row');
-                        
+
                         // Create and populate table cells
                         const cells = [
-                            index + 2, // No.
+                            index + 1, // No.
                             appointment.Status,
                             appointment['Transaction Number'],
                             appointment.Name,
@@ -112,6 +102,12 @@
                             row.appendChild(cell);
                         });
 
+                        // Make the row clickable
+                        row.addEventListener('click', function() {
+                            // Redirect to appointment details page with specific appointment details
+                            window.location.href = `../Admin Side/appointment-details.html?appointmentId=${index}`;
+                        });
+
                         // Append row to the table body
                         tableBody.appendChild(row);
                     });
@@ -124,18 +120,5 @@
 
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
+
 </html>
-
-<style>
-    .appointment-row td,
-    .appointment-cell {
-        font-size: 14px; /* Adjust the font size as needed */
-        padding: 8px; /* Adjust padding to match original table cells */
-    }
-
-    .appointment-row input[type="text"] {
-        font-size: inherit; /* Ensure input text matches the cell font size */
-        border: none; /* Remove input border to match the original table cells */
-        background: transparent; /* Remove background color */
-    }
-</style>
