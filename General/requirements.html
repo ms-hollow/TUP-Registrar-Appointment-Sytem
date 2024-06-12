@@ -1,0 +1,133 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Requirements</title>
+
+</head>
+<body class="Requirements">
+
+    <section class="home">
+        <header>
+            <a href="#"><img src="../assets/images/TUP AS LOGO.png" class="logo"></a>
+            <ul class="nav_bar">
+                <li><a href="../General/index.html">HOME</a></li>
+                <li><a href= "../General/index.html#aboutUS">ABOUT US</a></li>
+                <li><a href="../General/contact-us.html">CONTACT US</a></li>
+                <li><a href="../General/requirements.html">REQUIREMENTS</a></li>
+                <li><a href="../General/index.html##announce">ANNOUNCEMENT</a></li>
+                <li><a href="../General/FAQ.html">FAQ</a></li>
+            </ul>
+            <div class="main">
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </header>
+
+    
+        <div class="requirements-container">
+            <form action="http://localhost:3000/register" method="post">
+              <div class="requirements-title ">REQUIREMENTS</div>
+              <div class="red-border"></div>
+
+              <div class="requirements-name ">WHAT DO I NEED TO DO?</div>
+              <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> a. Transcript of Records (TOR) 
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                                <li>III. Student Clearance</li>
+                                <li> IV. Form 137-A/ OTR - (for transferees)</li>
+                            </div>
+                    </div>       
+              </div> 
+              <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> b. Honorable Dismissal (HD)
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                                <li>III. Honorable Dismissal Request Letter signed by Guardian</li>
+                            </div>
+                    </div>       
+                </div>
+                <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> c. Evaluation/Checklist
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                            </div>
+                    </div>       
+                </div>
+                <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> d. Authentication or Certified True Copy (CTC)
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                                <li>III. Original document to be authenticated (e.g. Grades, COR, etc.</li>
+                            </div>
+                    </div>       
+                </div>
+
+                <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> e. Certification of   _
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                                <li>III. Specific Document for specific certification</li>
+                            </div>
+                    </div>       
+                </div>
+
+                <div class="require-labelcontainer">
+                    <div class="require-labelcontainer1">
+                        <a class="require-accordion"> f. Lost of Registration Form (With Affidavit of Loss)
+                            <div class="black-border"></div>
+                        </a>
+                            <div class="panel">
+                                <li>I. Completed Request Form</li>
+                                <li>II. University Identification Card</p>
+                                <li>III. Request Letter</li>
+                                <li>IV. Affidavit of loss (notarized)</li>
+                            </div>
+                    </div>       
+                </div>
+        </div>
+    </section>
+
+    <script>
+        var acc = document.getElementsByClassName("require-accordion");
+        var i;
+    
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+        
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
+
