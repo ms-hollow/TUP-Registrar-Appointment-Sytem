@@ -69,6 +69,7 @@
         })
         .catch(error => console.error('Error:', error));
 
+        sessionStorage.removeItem('selectedAppointmentId');
         // Fetch appointments data and print it in the console
         fetch(`/appointments/${tupID}`)
             .then(response => response.json())
