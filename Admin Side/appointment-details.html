@@ -55,17 +55,17 @@
                      
                         
                         <div class="label" >First Name</div>
-                        <input class="personal-field" id="firstName" name="firstName" readonly>
+                        <input class="personal-field" id="firstName" name="firstName" >
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="label" >Middle Name</div>
-                        <input  class="personal-field" id="middleName" name="middleName" readonly>
+                        <input  class="personal-field" id="middleName" name="middleName" >
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="label" >Last Name</div>
-                        <input  class="personal-field" id="lastName" name="lastName" readonly>
+                        <input  class="personal-field" id="lastName" name="lastName" >
                     </div>
                 </div>         
            </div> 
@@ -73,22 +73,23 @@
             <div class="personal-bookingcontainer"> 
                 <div class="personal-bookingcontainer1">
                     <div class="label">Student Type</div>
-                    <input  class="personal-field" id="studentType" name="studentType" readonly>
+                    <input  class="personal-field" id="studentType" name="studentType" >
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >TUP ID</div>
-                    <input class="personal-field" id="tupID" name="tupID" readonly>
+                    <input class="personal-field" id="tupID" name="tupID" >
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >Course</div>
-                    <input  class="personal-field" id="course" name="course" readonly>
+                    <input  class="personal-field" id="course" name="course" >
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >Year and Section</div>
-                    <input class="personal-field" id="yearSection" name="yearSection" readonly>
+                    <input class="personal-field" id="yearSection" name="yearSection" 
+                    >
                 </div>
                 </div>       
         </div> 
@@ -121,22 +122,26 @@
                 </div> 
             <div class="booking-confirmation-container">
                 <div class="label">
-                    Time and Date:<input class="DateTime"  readonly>
+                    Time and Date:<input class="DateTime"  >
                 </div>
                 <div class="label">
-                    Status: <input class="status"  readonly>
+                    Status: <input class="status"  >
                 </div>
                 <div class="label">
-                    Transaction Number:<input class="transNum"  readonly> 
+                    Transaction Number:<input class="transNum"  > 
                 </div>
             </div>
             <br>
             <div class="label1">The Registrar will verify your appointment information. We will notify you about the status of your appointment. Thank you!</div>    
             <div class="label2">Remarks:</div>
-            <input class="remarks" id="remarks" name="remarks" readonly >
+            <input class="remarks" id="remarks" name="remarks"  >
            
            </div> 
-        </div>       
+        </div> 
+        
+        <div class="BookBtn2">
+            <div><a href="../Admin Side/appointments.html" id="confirmButton"> <button>UPDATE</button></a></div>
+        </div>
     </div> 
 
     
@@ -146,50 +151,99 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 return urlParams.get(name);
             }
-    
+
             const transactionNumber = getQueryParam('transactionNumber');
-            console.log (transactionNumber)
-    
+            console.log(transactionNumber);
+
+            const updateButton = document.getElementById('updateButton');
+
             if (transactionNumber) {
-                fetch(`/appointments/${transactionNumber}`)
-                    .then(response => response.json())
+                fetch(`/appointment/${transactionNumber}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
                     .then(appointment => {
                         console.log('Appointment data:', appointment);
-    
+
                         // Display appointment details
-                        document.getElementById('firstName').value = appointment.firstName;
-                        document.getElementById('middleName').value = appointment.middleName;
-                        document.getElementById('lastName').value = appointment.lastName;
-                        document.getElementById('studentType').value = appointment.studentType;
-                        document.getElementById('tupID').value = appointment.tupID;
-                        document.getElementById('course').value = appointment.course;
-                        document.getElementById('yearSection').value = appointment.yearSection;
-    
+                        document.getElementById('firstName').value = appointment.firstName || '';
+                        document.getElementById('middleName').value = appointment.middleName || '';
+                        document.getElementById('lastName').value = appointment.lastName || '';
+                        document.getElementById('studentType').value = appointment.studentType || '';
+                        document.getElementById('tupID').value = appointment.tupID || '';
+                        document.getElementById('course').value = appointment.course || '';
+                        document.getElementById('yearSection').value = appointment.yearSection || '';
+
                         // Display request details
                         const requestsArray = JSON.parse(appointment.requests || "[]");
                         const fileBookingContainer = document.querySelector('.file-bookingcontainer');
-    
+
                         // Clear previous rows
-                        fileBookingContainer.innerHTML = '';
-    
+                        fileBookingContainer.innerHTML = `
+                            <tr>
+                                <th class="requiredocu-label">No.</th>
+                                <th class="requiredocu-label">Type of Documents</th>
+                                <th class="requiredocu-label">No. of Copies</th>
+                                <th class="requiredocu-label">Purpose</th>
+                            </tr>
+                        `;
+
                         // Populate request details
                         requestsArray.forEach((req, index) => {
                             const row = fileBookingContainer.insertRow();
                             row.innerHTML = `
                                 <td>${index + 1}</td>
-                                <td>${req.type}</td>
-                                <td>${req.copies}</td>
-                                <td>${req.purpose}</td>
+                                <td>${req.type || ''}</td>
+                                <td>${req.copies || ''}</td>
+                                <td>${req.purpose || ''}</td>
                             `;
                         });
-    
+
                         // Display other appointment information
-                        document.querySelector('.DateTime').value = `${appointment.date} ${appointment.time}`;
-                        document.querySelector('.status').value = appointment.status;
-                        document.querySelector('.transNum').value = appointment.transactionNumber;
-                        document.querySelector('.remarks').value = appointment.remarks;
+                        document.querySelector('.DateTime').value = `${appointment.date || ''} ${appointment.time || ''}`;
+                        document.querySelector('.status').value = appointment.status || '';
+                        document.querySelector('.transNum').value = appointment.transactionNumber || '';
+                        document.querySelector('.remarks').value = appointment.remarks || '';
+
+                        // Update button click event
+                        updateButton.addEventListener('click', function() {
+                            // Prepare data for update
+                            const updatedData = {
+                                firstName: document.getElementById('firstName').value,
+                                middleName: document.getElementById('middleName').value,
+                                lastName: document.getElementById('lastName').value,
+                                studentType: document.getElementById('studentType').value,
+                                tupID: document.getElementById('tupID').value,
+                                course: document.getElementById('course').value,
+                                yearSection: document.getElementById('yearSection').value,
+                                status: document.querySelector('.status').value,
+                                remarks: document.querySelector('.remarks').value,
+                                transactionNumber: transactionNumber
+                            };
+
+                            // Send update to server
+                            fetch(`/updateAppointment/${transactionNumber}`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(updatedData),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Success:', data);
+                                alert('Appointment updated successfully!');
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                                alert('Failed to update appointment. Please try again.');
+                            });
+                        });
                     })
-                    .catch(error => console.error('Error fetching appointment details:', error));
+
             }
         });
     </script>
