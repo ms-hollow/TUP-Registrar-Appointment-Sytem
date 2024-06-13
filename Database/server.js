@@ -218,18 +218,20 @@ app.post('/updateAppointment/:transactionNumber', (req, res) => {
   console.log('Received update request for transaction:', req.params.transactionNumber);
   console.log('Request body:', req.body);
   const { transactionNumber } = req.params;
-  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks } = req.body;
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks, requests } = req.body;
+
+  const documentRequestsData = JSON.stringify(requests);
 
   const sql = `UPDATE appointments 
-               SET firstName = ?, middleName = ?, lastName = ?, studentType = ?, tupID = ?, course = ?, yearSection = ?, status = ?, remarks = ?
+               SET firstName = ?, middleName = ?, lastName = ?, studentType = ?, tupID = ?, course = ?, yearSection = ?, status = ?, remarks = ?, requests = ?
                WHERE transactionNumber = ?`;
 
-  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks, transactionNumber], function (err) {
-    if (err) {
-      console.error('Failed to update appointment:', err);
-      return res.status(500).json({ message: 'Failed to update appointment' });
-    }
-    res.status(200).json({ message: 'Appointment updated successfully' });
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks, documentRequestsData, transactionNumber], function (err) {
+      if (err) {
+          console.error('Failed to update appointment:', err);
+          return res.status(500).json({ message: 'Failed to update appointment' });
+      }
+      res.status(200).json({ message: 'Appointment updated successfully' });
   });
 });
 

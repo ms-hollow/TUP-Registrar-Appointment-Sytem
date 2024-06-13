@@ -138,7 +138,7 @@
         </div> 
         
         <div class="BookBtn2">
-            <div><a href="../Admin Side/appointments.html" id="confirmButton"> <button>UPDATE</button></a></div>
+            <button id="updateButton">UPDATE</button>
         </div>
     </div> 
 
@@ -207,7 +207,7 @@
                         document.querySelector('.remarks').value = appointment.remarks || '';
 
                         // Update button click event
-                        updateButton.addEventListener('click', function() {
+                        updateButton.addEventListener('click', function () {
                             // Prepare data for update
                             const updatedData = {
                                 firstName: document.getElementById('firstName').value,
@@ -219,6 +219,7 @@
                                 yearSection: document.getElementById('yearSection').value,
                                 status: document.querySelector('.status').value,
                                 remarks: document.querySelector('.remarks').value,
+                                requests: requestsArray, // Include requests array
                                 transactionNumber: transactionNumber
                             };
 
@@ -230,18 +231,17 @@
                                 },
                                 body: JSON.stringify(updatedData),
                             })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log('Success:', data);
-                                alert('Appointment updated successfully!');
-                            })
-                            .catch((error) => {
-                                console.error('Error:', error);
-                                alert('Failed to update appointment. Please try again.');
-                            });
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log('Success:', data);
+                                    alert('Appointment updated successfully!');
+                                })
+                                .catch((error) => {
+                                    console.error('Error:', error);
+                                    alert('Failed to update appointment. Please try again.');
+                                });
                         });
                     })
-
             }
         });
     </script>
