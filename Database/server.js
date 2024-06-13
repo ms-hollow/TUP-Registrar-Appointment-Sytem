@@ -175,7 +175,7 @@ app.get('/appointments/:tupID', (req, res) => {
 });
 
 // Retrieve Appointment by Transaction Number
-app.get('/appointments/:transactionNumber', (req, res) => {
+app.get('/appointment/:transactionNumber', (req, res) => {
   const { transactionNumber } = req.params;
 
   if (!transactionNumber) {
@@ -194,7 +194,7 @@ app.get('/appointments/:transactionNumber', (req, res) => {
       return res.status(404).json({ message: 'Appointment not found' });
     }
 
-    res.status(200).json(appointment); // Send the appointment data in the response
+    res.status(200).json(appointment);
   });
 });
 
