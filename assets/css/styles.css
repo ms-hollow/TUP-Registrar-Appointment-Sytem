@@ -3643,7 +3643,7 @@ body.sidebar-active .main-view {
     flex-wrap: wrap;
     width: 100%;
     margin-top: 2%;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     margin-left: -1%;
     height: auto;
 }
@@ -3653,14 +3653,14 @@ body.sidebar-active .main-view {
     width: 100%;
     height: auto;
     margin-left: -1px;
-    margin-top: 10px;
+    margin-top: 2%;
 }
 
 .file-bookingcontainer2{
     display: inline-flex;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
     margin-left: 2px;
-    width: 96%;
+    width: 100%;
     height: auto;
 }
 
@@ -3681,21 +3681,52 @@ body.sidebar-active .main-view {
     text-align: center;
     width: 96%;
     height: auto;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     margin-left: 5px;
     padding: 5px;
     border: 2.5px solid #7B0000;
 }
 
-table td{
-    border: 2px solid #7B0000;
-    width: 355px;
+table{
+    flex: 1;
+    display: inline-flexbox;
+    border-collapse: collapse;
+    max-width: 120%;
+  }
+
+.file-bookingcontainer2 td{
+    display: inline-flexbox;
+    padding: 3px;
+    margin-top: 45px;
     background-color: white;
+    max-width: 100%;
 }
 
-table th {
-    width: 100%;
+.number{  
+    width: 4%;  
 }
+
+.documents{
+    width: 98%;
+}
+
+.specify{
+    width: 70%
+}
+
+.copies{
+    width: 12%
+}
+
+.purpose{
+    width: 100%
+}
+
+th{
+    width: 100%;
+    text-align: center  
+}
+
 
 .personal-label {
     color: #7B0000;
@@ -3720,13 +3751,14 @@ table th {
     margin-bottom: 10px;
 }
 
-.requiredocu-label {
-    color: #7B0000;
-    width: 300px;
+.request-name {
+    margin-top: 1%;
+    display: inline-flex;
+    margin-left: -8%;
+    margin-right: 20%;
     text-align: center;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 5px;
+    color: var(--sidebar);
+    width: 100%; 
 }
 
 .requiredocu-label1 {
@@ -4730,10 +4762,11 @@ table th {
     }
 
     .sidebar-active .main-view{      
-    }
         .BookBtn2{
             margin-left: 50%;
     }
+
+}
     
 }
 
@@ -5332,30 +5365,59 @@ table th {
     color: var(--sidebar);
   }
 
+  .number-column{  
+    width: 4%;  
+}
+
+  .transaction-column{  
+    width: 25%; 
+
+}
+  .status-column{  
+    width: 9%;  
+  }
+
+  .name-column{ 
+    width: 15%;  
+  }
+
+  .request-column{  
+    width: 25%;  
+  }
+
+  .date-column{  
+    width: 10%;  
+  }
+
+  .time-column{  
+    width: 10%;
+  }
+
   table{
     flex: 1;
     border-collapse: collapse;
     width: 96%;
-    margin-top: -3%; 
-	  
+    margin-top: -3%;   
   }
 
   th{
     padding: 5px;
   }
 
- 
   td {
     height: 40px;
+    max-width: 10px;
+    border: 2px solid #7B0000;
     background-color: white;
   }
 
-  table tbody input{
+  table td input{
     flex: 1;
-    min-width: 97%;
+    max-width: 100%;
     outline: none;
     border: none;
     padding-left: 5px;
+    padding-right: 5px;
   }
 
 #appointments-body tr td:first-child {
@@ -5396,7 +5458,11 @@ padding-left: 5px;
         .search-container{
             margin-left: -17%;
             width: 25%;
-        }       
+        }
+        .number-column{
+            width:4%;
+        }
+               
     }
  }
 
