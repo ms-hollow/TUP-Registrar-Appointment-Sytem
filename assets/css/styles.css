@@ -5942,3 +5942,126 @@ padding-left: 5px;
 
 
 /* ------------------------------------ End of Profile Page ------------------------------------------ */
+
+/*----------------------------------------------Requirements---------------------------------------*/
+
+.Requirements {
+    position: relative;
+    width: 100%; 
+    margin-top: 0%; 
+    height: auto;
+    overflow: visible;
+    background-size: cover; /* Ensure the background image covers the entire background */
+}
+
+.requirements-container{
+    text-align: left;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 10px;
+    padding: 40px;
+    width: 95%;
+    height: auto; 
+}
+
+.requirements-title {
+    background:linear-gradient(180deg, #7B0000 0%, rgba(145, 60, 60, 0.91) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: justify;
+    text-shadow: 0px 16px 4px rgba(0, 0, 0, 0.25);
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    line-height: 50px;
+    margin-left: 42%;
+}
+
+.requirements-name {
+    color: #7B0000;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    line-height: 50px;
+    margin-left: 41%;
+}
+
+.require-labelcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-left: 2%;
+    max-width: 100%;
+    height: auto;
+}
+
+.require-labelcontainer1{
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: 2%;
+    background: #E6E6E6;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #E6E6E6;
+    border-width: 1px;
+    
+}
+
+.require-accordion {
+    color: #444;
+    cursor: pointer;
+    padding-bottom: 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.require-accordion .arrow {
+    position: absolute;
+    font-size: 13px;
+    margin-left: 98%;
+}
+
+.require-accordion .arrow:after {
+    content: '\25BC'; /* Unicode character for down arrow */
+}
+
+.require-accordion.active .arrow:after {
+    content: '\25B2'; /* Unicode character for up arrow */
+}
+.black-border {
+ position: absolute;
+    border: 1px solid var(--text-color);
+    width: 101.7%;
+    margin-top: 4%;
+    margin-bottom: 10px;
+    margin-left: -10px;
+
+}
+.active, .require-accordion:hover {
+    background-color: none;
+}
+.panel {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #E6E6E6;
+    overflow: hidden;
+}
+
+.panel li {
+    margin-left: 3%;
+    font-size: 16px;
+    color: var(--text-color);
+}
