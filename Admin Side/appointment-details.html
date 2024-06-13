@@ -45,7 +45,7 @@
     <div class="main-view">
         <div class="cont">
            
-            <p class="upcoming"></p>
+            <p class="upcoming">Appointment Confirmation</p>
             <hr class="divider-3">
            
             <div class="personal-bookinglist">
@@ -55,17 +55,17 @@
                      
                         
                         <div class="label" >First Name</div>
-                        <input class="personal-field" id="firstName" name="firstName" >
+                        <input class="personal-field" id="firstName" name="firstName" readonly>
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="label" >Middle Name</div>
-                        <input  class="personal-field" id="middleName" name="middleName" >
+                        <input  class="personal-field" id="middleName" name="middleName" readonly>
                     </div>
 
                     <div class="personal-bookingcontainer1">
                         <div class="label" >Last Name</div>
-                        <input  class="personal-field" id="lastName" name="lastName" >
+                        <input  class="personal-field" id="lastName" name="lastName" readonly>
                     </div>
                 </div>         
            </div> 
@@ -73,23 +73,22 @@
             <div class="personal-bookingcontainer"> 
                 <div class="personal-bookingcontainer1">
                     <div class="label">Student Type</div>
-                    <input  class="personal-field" id="studentType" name="studentType" >
+                    <input  class="personal-field" id="studentType" name="studentType" readonly>
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >TUP ID</div>
-                    <input class="personal-field" id="tupID" name="tupID" >
+                    <input class="personal-field" id="tupID" name="tupID" readonly>
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >Course</div>
-                    <input  class="personal-field" id="course" name="course" >
+                    <input  class="personal-field" id="course" name="course" readonly>
                 </div>
 
                 <div class="personal-bookingcontainer1">
                     <div class="label" >Year and Section</div>
-                    <input class="personal-field" id="yearSection" name="yearSection" 
-                    >
+                    <input class="personal-field" id="yearSection" name="yearSection" readonly>
                 </div>
                 </div>       
         </div> 
@@ -102,14 +101,29 @@
                 <th class="requiredocu-label" >Purpose</th>
             </tr>
         </table>
+            
+             <!-- For Adding New Request -->
+        <table id="newRequest" class="file-bookingcontainer2">
+            <tr>
+                <td><input type="text" name="no" value="No. 1" disabled></td>
+                <td>
+                    <input type="text" id="request[]" name="request[]" placeholder="request" disabled>
+                </td>
+                <td ><input type="text" id="noOfCopies" name="noOfCopies" placeholder="No. of Copies" disabled></td>
+                <td><input type="text" id="purpose" name="purpose" placeholder="Purpose" disabled></td>
+            </tr>
+        </table>
+            
 
          <!-- For Adding New Files -->
         <div class="file-bookingcontainer1">
             <div class="requiredocu-label1">Required Documents</div>
         </div>
-            <div id="newFile" class="file-bookingcontainer3">
+            <div id="newFile" class="file-bookingcontainer2">
+                <div class="file-bookingcontainer3">
                     <input type="file" id="requiredDocuments" name="requiredDocuments" accept=".pdf, .png, .jpeg, .jpg" required disabled>
                     <p class="textbooking"> Please upload the required documents (PDF, PNG, JPEG, JPG).</p>
+                </div>
             </div> 
                        
             <hr class="divider-3">
@@ -120,132 +134,103 @@
                 </div> 
             <div class="booking-confirmation-container">
                 <div class="label">
-                    Time and Date:<input class="DateTime"  >
+                    Time and Date:<input class="DateTime"  readonly>
                 </div>
                 <div class="label">
-                    Status: <input class="status"  >
+                    Status: <input class="status"  readonly>
                 </div>
                 <div class="label">
-                    Transaction Number:<input class="transNum"  > 
+                    Transaction Number:<input class="transNum"  readonly> 
                 </div>
             </div>
             <br>
             <div class="label1">The Registrar will verify your appointment information. We will notify you about the status of your appointment. Thank you!</div>    
             <div class="label2">Remarks:</div>
-            <input class="remarks" id="remarks" name="remarks"  >
+            <input class="remarks" id="remarks" name="remarks" readonly >
            
            </div> 
-        </div> 
-        
-        <div class="BookBtn2">
-            <button id="updateButton">UPDATE</button>
-        </div>
+        </div>       
     </div> 
-
-    
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function getQueryParam(name) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(name);
-            }
+        document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the appointment ID from sessionStorage
+        const selectedAppointmentId = sessionStorage.getItem('selectedAppointmentId');
+        id = parseInt(selectedAppointmentId);
+        console.log("id:", id)
+        // Make a GET request to fetch the appointment details using the ID
+        fetch(`/appointments`)
+            .then(response => response.json())
+            .then(appointments => {
+                const filteredAppointments = appointments.filter(appointment => (
+                    appointment.firstName !== null &&
+                    appointment.middleName !== null &&
+                    appointment.lastName !== null &&
+                    appointment.studentType !== null &&
+                    appointment.tupID !== null &&
+                    appointment.course !== null &&
+                    appointment.yearSection !== null &&
+                    appointment.requests !== null &&
+                    appointment.date !== null &&
+                    appointment.time !== null &&
+                    appointment.status !== null &&
+                    appointment.id !== null
+                ));
+                
+                const filteredAppointmentIds = filteredAppointments.map(appointment => appointment.id);
+                // console.log("Filtered Appointment IDs:", filteredAppointmentIds);
 
-            const transactionNumber = getQueryParam('transactionNumber');
-            console.log(transactionNumber);
+                const isSelectedAppointmentInFiltered = filteredAppointmentIds.includes(id);
 
-            const updateButton = document.getElementById('updateButton');
+                if (isSelectedAppointmentInFiltered) {
+                    const selectedAppointment = filteredAppointments.find(appointment => appointment.id === id);
+                    console.log(selectedAppointment);
 
-            if (transactionNumber) {
-                fetch(`/appointment/${transactionNumber}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
+                    document.getElementById('firstName').value = selectedAppointment.firstName;
+                    document.getElementById('middleName').value = selectedAppointment.middleName;
+                    document.getElementById('lastName').value = selectedAppointment.lastName;
+                    document.getElementById('studentType').value = selectedAppointment.studentType;
+                    document.getElementById('tupID').value = selectedAppointment.tupID;
+                    document.getElementById('course').value = selectedAppointment.course;
+                    document.getElementById('yearSection').value = selectedAppointment.yearSection;
+                    document.querySelector('.DateTime').value = selectedAppointment.date + ' ' + selectedAppointment.time;
+
+                    // Populate the table with request details (assuming appointment.requests contains request details)
+                    const requestsArray = JSON.parse(selectedAppointment.requests || "[]");
+                    const table = document.querySelector('.file-bookingcontainer table');
+                    requestsArray.forEach((request, index) => {
+                        document.getElementById('request[]').value = request.type;
+                        document.getElementById('noOfCopies').value = request.copies;
+                        document.getElementById('purpose').value = request.purpose;
+                    });
+
+                    transactionNumber = document.querySelector('.transNum');
+                    function generateRandomString() {
+                        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                        let randomString = '';
+                        const length = 15;
+                        
+                        for (let i = 0; i < length; i++) {
+                            const randomIndex = Math.floor(Math.random() * characters.length);
+                            randomString += characters.charAt(randomIndex);
                         }
-                        return response.json();
-                    })
-                    .then(appointment => {
-                        console.log('Appointment data:', appointment);
+                        return randomString;
+                    }
 
-                        // Display appointment details
-                        document.getElementById('firstName').value = appointment.firstName || '';
-                        document.getElementById('middleName').value = appointment.middleName || '';
-                        document.getElementById('lastName').value = appointment.lastName || '';
-                        document.getElementById('studentType').value = appointment.studentType || '';
-                        document.getElementById('tupID').value = appointment.tupID || '';
-                        document.getElementById('course').value = appointment.course || '';
-                        document.getElementById('yearSection').value = appointment.yearSection || '';
+                    const transaction = generateRandomString();
+                    transactionNumber.value = transaction;
+                    console.log(transactionNumber)
 
-                        // Display request details
-                        const requestsArray = JSON.parse(appointment.requests || "[]");
-                        const fileBookingContainer = document.querySelector('.file-bookingcontainer');
-
-                        // Clear previous rows
-                        fileBookingContainer.innerHTML = `
-                            <tr>
-                                <th class="requiredocu-label">No.</th>
-                                <th class="requiredocu-label">Type of Documents</th>
-                                <th class="requiredocu-label">No. of Copies</th>
-                                <th class="requiredocu-label">Purpose</th>
-                            </tr>
-                        `;
-
-                        // Populate request details
-                        requestsArray.forEach((req, index) => {
-                            const row = fileBookingContainer.insertRow();
-                            row.innerHTML = `
-                                <td>${index + 1}</td>
-                                <td>${req.type || ''}</td>
-                                <td>${req.copies || ''}</td>
-                                <td>${req.purpose || ''}</td>
-                            `;
-                        });
-
-                        // Display other appointment information
-                        document.querySelector('.DateTime').value = `${appointment.date || ''} ${appointment.time || ''}`;
-                        document.querySelector('.status').value = appointment.status || '';
-                        document.querySelector('.transNum').value = appointment.transactionNumber || '';
-                        document.querySelector('.remarks').value = appointment.remarks || '';
-
-                        // Update button click event
-                        updateButton.addEventListener('click', function () {
-                            // Prepare data for update
-                            const updatedData = {
-                                firstName: document.getElementById('firstName').value,
-                                middleName: document.getElementById('middleName').value,
-                                lastName: document.getElementById('lastName').value,
-                                studentType: document.getElementById('studentType').value,
-                                tupID: document.getElementById('tupID').value,
-                                course: document.getElementById('course').value,
-                                yearSection: document.getElementById('yearSection').value,
-                                status: document.querySelector('.status').value,
-                                remarks: document.querySelector('.remarks').value,
-                                requests: requestsArray, // Include requests array
-                                transactionNumber: transactionNumber
-                            };
-
-                            // Send update to server
-                            fetch(`/updateAppointment/${transactionNumber}`, {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(updatedData),
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-                                    console.log('Success:', data);
-                                    alert('Appointment updated successfully!');
-                                })
-                                .catch((error) => {
-                                    console.error('Error:', error);
-                                    alert('Failed to update appointment. Please try again.');
-                                });
-                        });
-                    })
-            }
-        });
+                    // Select the element with the class 'status'
+                    const statusElement = document.querySelector('.status');
+                    statusElement.value = 'Pending';
+        
+                } else {
+                    console.log('Appointment not found.');
+                }
+            })
+            .catch(error => console.error('Error fetching appointment details:', error));
+    });
     </script>
-
     <script type="text/javascript" src="../assets/js/script.js"></script>
 </body>
 </html>
