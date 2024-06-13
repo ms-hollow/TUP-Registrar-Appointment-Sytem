@@ -5572,6 +5572,7 @@ padding-left: 5px;
     margin-bottom: 8%;
     margin-left:-15px;
     flex-direction: column;
+    width: 120%;
 }
 
 .slot-container1 {
@@ -5599,6 +5600,40 @@ padding-left: 5px;
 .date-time-container{
     display: flex;
     height: auto; 
+}
+
+.calendar-slot {
+    background: var(--bg-color);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 550px;
+    height: 380px;
+    padding: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),
+                -10px -10px -10px rgba(225, 225, 225, 1),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+    inset: -10px -10px -10px rgba(225, 225, 225, 1);
+    justify-content: right;
+    margin-right: 50px;
+}
+
+.calendar-slot #dycalendar-slot{
+    flex: 1;
+}
+
+
+.dycalendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px; 
+    margin-bottom: -29px;
+    padding: 20px;
+}
+
+.slot-sched-container {
+    display: flex;
+    gap: 20px;
 }
 
 .calendar-container {
