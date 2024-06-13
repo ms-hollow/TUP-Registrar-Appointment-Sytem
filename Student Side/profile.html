@@ -30,7 +30,7 @@
             <div class="sidebar-logo">
                 <img src="../assets/images/TUP AS LOGO.png" alt="logo">
             </div>
-            <p class="user-info">Name Here</p>
+            <p class="user-info" id="sidebar-user-name"></p>
         </div>
         <div class="menu-items">
             <ul>
@@ -152,6 +152,15 @@
         // Retrieve TUP ID from localStorage
         const tupID = localStorage.getItem('tupID');
         // console.log(tupID);
+
+        fetch(`/profile?tupID=${tupID}`)
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            document.getElementById('sidebar-user-name').textContent = data.firstName;
+            document.getElementById('main-user-name').textContent = data.firstName;
+        })
+        .catch(error => console.error('Error:', error));
         
         // const password = localStorage.getItem('password');
         // console.log(password);
