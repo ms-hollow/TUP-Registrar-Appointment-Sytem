@@ -213,6 +213,26 @@ app.get('/appointments', (req, res) => {
   });
 });
 
+//Update Specific Appointment Row
+app.post('/updateAppointment/:transactionNumber', (req, res) => {
+  console.log('Received update request for transaction:', req.params.transactionNumber);
+  console.log('Request body:', req.body);
+  const { transactionNumber } = req.params;
+  const { firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks } = req.body;
+
+  const sql = `UPDATE appointments 
+               SET firstName = ?, middleName = ?, lastName = ?, studentType = ?, tupID = ?, course = ?, yearSection = ?, status = ?, remarks = ?
+               WHERE transactionNumber = ?`;
+
+  db2.run(sql, [firstName, middleName, lastName, studentType, tupID, course, yearSection, status, remarks, transactionNumber], function (err) {
+    if (err) {
+      console.error('Failed to update appointment:', err);
+      return res.status(500).json({ message: 'Failed to update appointment' });
+    }
+    res.status(200).json({ message: 'Appointment updated successfully' });
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
